@@ -379,11 +379,11 @@ export const NDR_DATA = {
   gallery: [
     {
       id: "g1",
-      title: "Divine Presence at Ark of Light",
+      title: "Auditorium & Worship at The Ark of Light",
       category: "sanctuary",
-      src: "/images/ndr-hero.jpg",
+      src: "/images/ndr-auditorium-worship.jpg",
       caption:
-        "Thousands lifted up holy hands during the peak hour of prophetic vigil at The Ark of Light for All Nations.",
+        "Thousands of worshippers holding up God's Word with the choir during the Night of Divine Reversal vigil.",
     },
     {
       id: "g2",
@@ -395,27 +395,35 @@ export const NDR_DATA = {
     },
     {
       id: "g3",
-      title: "Heart-Lifting Praise and Worship",
+      title: "Prophetic Impartation & Ministration",
       category: "worship",
-      src: "/images/ndr-worship.jpg",
+      src: "/images/ndr-prophetic-impartation.jpg",
       caption:
-        "Intimate fellowship and exuberant praise creating a divine portal for supernatural intervention.",
+        "The man of God releasing the tangible presence and power of the Holy Spirit to the congregation.",
     },
     {
       id: "g4",
-      title: "Sweet Water Prayer Line Ministration",
+      title: "Prophetic Declarations & Reversal Decrees",
       category: "prayer",
-      src: "/images/ndr-prayer-line.jpg",
+      src: "/images/ndr-prophetic-declaration.jpg",
       caption:
-        "Personal ministration session, breaking afflictions and releasing healing through prophetic prayer.",
+        "Prophetic prayers and declarations shattering long-standing yokes and releasing breakthroughs.",
     },
     {
       id: "g5",
       title: "The Ark of Light for All Nations by Night",
       category: "sanctuary",
-      src: "/images/ark-of-light.png",
+      src: "/images/ark-of-light-night.png",
       caption:
         "Aerial night view of the international headquarters, welcoming worshippers across the globe to Ikeja, Lagos.",
+    },
+    {
+      id: "g6",
+      title: "Victory & Faith Word Exposition",
+      category: "convener",
+      src: "/images/ndr-prophet-teaching.jpg",
+      caption:
+        "In-depth apostolic teaching and spiritual empowerment by Prophet Isaiah Macwealth.",
     },
   ] as GalleryImage[],
 
@@ -479,7 +487,7 @@ export const NDR_DATA = {
       youtubeId: "MLG2ztVYrt8",
       summary:
         "Watch instant healings, dramatic yoke-breaking deliveries, and explosive testimonies recorded live at the Ark of Light for All Nations.",
-      thumbnail: "/images/ndr-hero.jpg",
+      thumbnail: "/images/ndr-auditorium-worship.jpg",
     },
     {
       id: "v2",
@@ -489,7 +497,7 @@ export const NDR_DATA = {
       youtubeId: "3Vy9M_7Y2KM",
       summary:
         "Experience the deep atmosphere of intercession, spiritual warfare, and documented answers to prayer during the Night of Divine Reversal.",
-      thumbnail: "/images/ndr-worship.jpg",
+      thumbnail: "/images/ndr-prophetic-impartation.jpg",
     },
   ] as VideoTestimony[],
 

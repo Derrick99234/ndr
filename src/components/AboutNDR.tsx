@@ -114,7 +114,7 @@ export default function AboutNDR() {
             }}
           >
             <Image
-              src="/images/ark-of-light.png"
+              src="/images/ark-of-light-night.png"
               alt="The Ark of Light for All Nations"
               fill
               style={{ objectFit: "cover", objectPosition: "center 45%" }}
