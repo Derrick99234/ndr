@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { NDR_DATA } from "@/data/ndrContent";
 
@@ -17,15 +18,15 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "About NDR", href: "#about" },
-    { name: "Convener", href: "#convener" },
-    { name: "What to Expect", href: "#expect" },
-    { name: "Schedule", href: "#schedule" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Events", href: "#events" },
-    { name: "Testimonies", href: "#testimonies" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contact", href: "#contact" },
+    { name: "About NDR", href: "/#about" },
+    { name: "Convener", href: "/#convener" },
+    { name: "What to Expect", href: "/#expect" },
+    { name: "Schedule", href: "/#schedule" },
+    { name: "Gallery", href: "/#gallery" },
+    { name: "Events", href: "/#events" },
+    { name: "Testimonies", href: "/#testimonies" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -66,49 +67,30 @@ export default function Navbar() {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "12px",
               textDecoration: "none",
             }}
+            aria-label="Night of Divine Reversal (NDR)"
           >
             <div
               style={{
-                width: "42px",
-                height: "42px",
+                width: "44px",
+                height: "44px",
                 borderRadius: "10px",
-                background: "linear-gradient(135deg, #f59e0b 0%, #b45309 100%)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#060913",
-                fontWeight: 900,
-                fontSize: "1.2rem",
-                boxShadow: "0 0 15px rgba(245, 158, 11, 0.4)",
+                overflow: "hidden",
+                position: "relative",
+                border: "1.5px solid rgba(245, 158, 11, 0.5)",
+                boxShadow: "0 0 15px rgba(245, 158, 11, 0.35)",
+                flexShrink: 0,
               }}
             >
-              ☩
-            </div>
-            <div>
-              <div
-                style={{
-                  fontSize: "1.1rem",
-                  fontWeight: 800,
-                  letterSpacing: "0.04em",
-                  color: "#ffffff",
-                  fontFamily: "var(--font-heading), sans-serif",
-                }}
-              >
-                NDR <span style={{ color: "var(--gold-light)", fontWeight: 400 }}>| 13</span>
-              </div>
-              <div
-                style={{
-                  fontSize: "0.7rem",
-                  color: "var(--text-muted)",
-                  letterSpacing: "0.06em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Night of Divine Reversal
-              </div>
+              <Image
+                src="/images/ndr-logo.jpg"
+                alt="NDR Logo"
+                fill
+                sizes="44px"
+                style={{ objectFit: "cover" }}
+                priority
+              />
             </div>
           </Link>
 
@@ -147,32 +129,10 @@ export default function Navbar() {
               gap: "14px",
             }}
           >
-            {/* Live broadcast indicator */}
-            <a
-              href={NDR_DATA.eventMeta.youtubeLive}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                padding: "6px 14px",
-                borderRadius: "var(--radius-full)",
-                background: "rgba(239, 68, 68, 0.12)",
-                border: "1px solid rgba(239, 68, 68, 0.3)",
-                color: "#fca5a5",
-                fontSize: "0.8rem",
-                fontWeight: 600,
-              }}
-              title="Watch Live on YouTube"
-            >
-              <span className="live-pulse"></span>
-              <span>LIVE</span>
-            </a>
 
             {/* Register CTA */}
-            <a
-              href="#register"
+            <Link
+              href="/register"
               className="btn-primary"
               style={{
                 padding: "8px 20px",
@@ -181,7 +141,7 @@ export default function Navbar() {
               }}
             >
               Register
-            </a>
+            </Link>
 
             {/* Mobile menu toggle */}
             <button
@@ -243,14 +203,14 @@ export default function Navbar() {
             </a>
           ))}
           <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "12px" }}>
-            <a
-              href="#register"
+            <Link
+              href="/register"
               onClick={() => setMobileMenuOpen(false)}
               className="btn-primary"
               style={{ width: "100%", textAlign: "center" }}
             >
               Register to Attend
-            </a>
+            </Link>
             <a
               href={NDR_DATA.eventMeta.youtubeLive}
               target="_blank"
