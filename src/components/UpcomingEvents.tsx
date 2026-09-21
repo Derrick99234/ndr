@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { NDR_DATA } from "@/data/ndrContent";
 
 export default function UpcomingEvents() {
@@ -11,14 +12,14 @@ export default function UpcomingEvents() {
     const icsContent = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
-      "PRODID:-//NDR//Night of Divine Reversal 13//EN",
+      "PRODID:-//NDR//Night of Divine Reversal//EN",
       "BEGIN:VEVENT",
-      "UID:ndr-13-20261106@gospelpillars.org",
-      "DTSTAMP:20260918T120000Z",
-      "DTSTART:20261106T190000Z",
-      "DTEND:20261107T050000Z",
-      "SUMMARY:Night of Divine Reversal (NDR 13) - Prophet Isaiah Macwealth",
-      "DESCRIPTION:Grand Finale of the 3 Days of Remembrance (Season 2). Supernatural turnaround and decisive spiritual intervention.",
+      "UID:ndr-virtual-20261002@gospelpillars.org",
+      "DTSTAMP:20260921T180000Z",
+      "DTSTART:20261002T190000Z",
+      "DTEND:20261003T050000Z",
+      "SUMMARY:Night of Divine Reversal (NDR) - Prophet Isaiah Macwealth",
+      "DESCRIPTION:NDR Monthly Virtual Meeting. Supernatural turnaround and decisive spiritual intervention. Physical presence strictly for Full Choir, Pastors & Ministers, and Testifiers. Global livestream for all nations.",
       "LOCATION:The Ark of Light for All Nations, Plot 11, Kudirat Abiola Way, Alausa, Ikeja, Lagos, Nigeria",
       "STATUS:CONFIRMED",
       "END:VEVENT",
@@ -28,7 +29,7 @@ export default function UpcomingEvents() {
     const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
     const link = document.createElement("a");
     link.href = window.URL.createObjectURL(blob);
-    link.setAttribute("download", "NDR-13-Event.ics");
+    link.setAttribute("download", "NDR-Virtual-Event.ics");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -41,34 +42,16 @@ export default function UpcomingEvents() {
         <div className="section-header">
           <div className="section-pill">Upcoming Event Spotlight</div>
           <h2 className="section-title">
-            Night of Divine Reversal <span className="gold-gradient-text">(NDR 13)</span>
+            Night of Divine Reversal <span className="gold-gradient-text">(Monthly Virtual)</span>
           </h2>
           <p className="section-subtitle">
-            Mark your calendar and prepare your heart. The bi-monthly and quarterly climactic vigil returns on Friday, 6th November 2026.
+            Mark your calendar and prepare your heart. The next monthly virtual meeting holds on Friday, 2nd October 2026.
           </p>
         </div>
 
         {/* Feature Event Banner Card */}
-        <div
-          style={{
-            position: "relative",
-            borderRadius: "var(--radius-lg)",
-            background:
-              "linear-gradient(135deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 23, 42, 0.9) 60%, rgba(6, 9, 19, 0.95) 100%)",
-            border: "1px solid rgba(245, 158, 11, 0.35)",
-            padding: "40px",
-            boxShadow: "0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(245, 158, 11, 0.15)",
-            marginBottom: "48px",
-          }}
-        >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "36px",
-              alignItems: "center",
-            }}
-          >
+        <div className="event-spotlight-card">
+          <div className="event-spotlight-inner">
             <div>
               <div
                 style={{
@@ -85,9 +68,9 @@ export default function UpcomingEvents() {
                   marginBottom: "16px",
                 }}
               >
-                <span>Grand Finale</span>
+                <span>Monthly Virtual</span>
                 <span>•</span>
-                <span>Season 2</span>
+                <span>October 2026</span>
               </div>
 
               <h3
@@ -98,7 +81,7 @@ export default function UpcomingEvents() {
                   marginBottom: "16px",
                 }}
               >
-                Night of Divine Reversal (NDR 13)
+                🌙 Night of Divine Reversal (NDR)
               </h3>
 
               <p
@@ -109,30 +92,24 @@ export default function UpcomingEvents() {
                   marginBottom: "28px",
                 }}
               >
-                Scheduled to hold on Friday, 6th November 2026 as the Grand Finale of the 3 Days of Remembrance (Season 2) at The Ark of Light for All Nations.
+                Scheduled to hold on Friday, 2nd October 2026 as a Monthly Virtual Meeting. Physical attendance at The Ark of Light is strictly reserved for: 1. Full Choir, 2. All Pastors and Ministers, and 3. Testifiers. All other attendees join live virtually from across the nations.
               </p>
 
               {/* Event Metadata Grid */}
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                  gap: "16px",
-                  marginBottom: "32px",
-                }}
-              >
+              <div className="event-meta-grid">
                 <div
                   style={{
                     background: "rgba(255, 255, 255, 0.04)",
-                    padding: "14px",
+                    padding: "14px 16px",
                     borderRadius: "10px",
                     border: "1px solid var(--border-subtle)",
+                    minWidth: 0,
                   }}
                 >
                   <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", textTransform: "uppercase" }}>
                     Date & Day
                   </div>
-                  <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "#ffffff", marginTop: "2px" }}>
+                  <div style={{ fontSize: "clamp(0.95rem, 2.5vw, 1.05rem)", fontWeight: 700, color: "#ffffff", marginTop: "4px", wordBreak: "break-word" }}>
                     {eventMeta.dateDisplay}
                   </div>
                 </div>
@@ -140,46 +117,48 @@ export default function UpcomingEvents() {
                 <div
                   style={{
                     background: "rgba(255, 255, 255, 0.04)",
-                    padding: "14px",
+                    padding: "14px 16px",
                     borderRadius: "10px",
                     border: "1px solid var(--border-subtle)",
+                    minWidth: 0,
                   }}
                 >
                   <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", textTransform: "uppercase" }}>
                     Time
                   </div>
-                  <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--gold-light)", marginTop: "2px" }}>
+                  <div style={{ fontSize: "clamp(0.95rem, 2.5vw, 1.05rem)", fontWeight: 700, color: "var(--gold-light)", marginTop: "4px", wordBreak: "break-word" }}>
                     {eventMeta.timeDisplay}
                   </div>
                 </div>
 
                 <div
+                  className="event-venue-cell"
                   style={{
                     background: "rgba(255, 255, 255, 0.04)",
-                    padding: "14px",
+                    padding: "14px 16px",
                     borderRadius: "10px",
                     border: "1px solid var(--border-subtle)",
-                    gridColumn: "span 2",
+                    minWidth: 0,
                   }}
                 >
                   <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", textTransform: "uppercase" }}>
                     Venue & Address
                   </div>
-                  <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#ffffff", marginTop: "2px" }}>
+                  <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#ffffff", marginTop: "4px", wordBreak: "break-word" }}>
                     {eventMeta.venue}
                   </div>
-                  <div style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginTop: "2px" }}>
+                  <div style={{ fontSize: "0.8rem", color: "var(--text-secondary)", marginTop: "4px", lineHeight: 1.5, wordBreak: "break-word" }}>
                     {eventMeta.address}
                   </div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
-                <a href="#register" className="btn-primary">
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <Link href="/register" className="btn-primary" style={{ flex: "1 1 180px", textAlign: "center" }}>
                   Register for Free
-                </a>
-                <button onClick={downloadCalendarInvite} className="btn-secondary">
+                </Link>
+                <button onClick={downloadCalendarInvite} className="btn-secondary" style={{ flex: "1 1 180px", textAlign: "center" }}>
                   📅 Add to Calendar (.ics)
                 </button>
               </div>
@@ -210,24 +189,24 @@ export default function UpcomingEvents() {
               <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                 {[
                   {
-                    date: "2nd – 4th Nov 2026",
-                    title: "Victory & Faith Classes (Season 2)",
+                    date: "28th – 30th Sept 2026",
+                    title: "Faith & Victory Classes",
                     note: "OneSound Bible Institute (OBI)",
                   },
                   {
-                    date: "Wed. 4th Nov 2026",
-                    title: "All Nations Remembrance & Revival Service",
+                    date: "Wed. 30th Sept 2026",
+                    title: "All Nations Remembrance Prayer",
                     note: "Global Intercessory Session (6 PM)",
                   },
                   {
-                    date: "Thurs. 5th Nov 2026",
-                    title: "Victory & Faith Remembrance Prayer Line",
-                    note: "Sweet Water & Personal Ministration",
+                    date: "Thurs. 1st Oct 2026",
+                    title: "Remembrance Prayer Line",
+                    note: "Sweet Water & Personal Ministration (10 AM)",
                   },
                   {
-                    date: "Fri. 6th Nov 2026",
-                    title: "Night of Divine Reversal (NDR 13)",
-                    note: "Grand Finale Prophetic Vigil (8 PM Prompt)",
+                    date: "Fri. 2nd Oct 2026",
+                    title: "🌙 NDR Night — Virtual",
+                    note: "Physical: Choir, Pastors, Ministers & Testifiers (8 PM Prompt)",
                     highlight: true,
                   },
                 ].map((step, idx) => (

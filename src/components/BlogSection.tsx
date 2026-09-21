@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { NDR_DATA, BlogPost } from "@/data/ndrContent";
 
 export default function BlogSection() {
@@ -225,9 +226,9 @@ export default function BlogSection() {
                   gap: "12px",
                 }}
               >
-                <a href="#register" onClick={() => setSelectedPost(null)} className="btn-primary" style={{ padding: "10px 24px" }}>
-                  Register for NDR 13
-                </a>
+                <Link href="/register" onClick={() => setSelectedPost(null)} className="btn-primary" style={{ padding: "10px 24px" }}>
+                  Register to Attend
+                </Link>
                 <button
                   onClick={() => setSelectedPost(null)}
                   className="btn-secondary"

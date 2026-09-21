@@ -72,9 +72,6 @@ export default function Convener() {
                 <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "#ffffff" }}>
                   {convener.name}
                 </div>
-                <div style={{ fontSize: "0.8rem", color: "var(--gold-light)", marginTop: "2px" }}>
-                  {convener.title}
-                </div>
               </div>
             </div>
 
@@ -82,17 +79,18 @@ export default function Convener() {
             <div
               style={{
                 position: "absolute",
-                top: "-14px",
-                right: "-14px",
+                top: "14px",
+                right: "14px",
                 background: "var(--gold-gradient)",
                 color: "#060913",
-                padding: "8px 16px",
+                padding: "6px 14px",
                 borderRadius: "var(--radius-full)",
                 fontSize: "0.75rem",
                 fontWeight: 800,
                 letterSpacing: "0.06em",
                 textTransform: "uppercase",
-                boxShadow: "0 4px 15px rgba(245, 158, 11, 0.4)",
+                boxShadow: "0 4px 15px rgba(0, 0, 0, 0.5)",
+                zIndex: 2,
               }}
             >
               Apostolic & Prophetic Mantle
@@ -172,9 +170,6 @@ export default function Convener() {
                 className="btn-primary"
               >
                 Register for Victory & Faith Classes
-              </a>
-              <a href="#schedule" className="btn-secondary">
-                View Week-Long Schedule
               </a>
             </div>
           </div>

@@ -8,7 +8,7 @@ export default function AboutNDR() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">About The Vigil</div>
+          <div className="section-pill">About NDR</div>
           <h2 className="section-title">
             What is <span className="gold-gradient-text">Night of Divine Reversal?</span>
           </h2>
@@ -36,7 +36,7 @@ export default function AboutNDR() {
                 color: "#ffffff",
               }}
             >
-              The Grand Finale of the <span style={{ color: "var(--gold-light)" }}>3 Days of Remembrance</span>
+              A Prophetic Vigil Held as a <span style={{ color: "var(--gold-light)" }}>Monthly Virtual Meeting</span>
             </h3>
             <p
               style={{
@@ -61,40 +61,43 @@ export default function AboutNDR() {
 
             <div
               style={{
-                display: "flex",
-                gap: "24px",
-                flexWrap: "wrap",
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "12px",
+                maxWidth: "460px",
               }}
             >
               <div
                 style={{
-                  padding: "14px 20px",
+                  padding: "12px 14px",
                   background: "rgba(255, 255, 255, 0.04)",
                   border: "1px solid var(--border-subtle)",
                   borderRadius: "var(--radius-sm)",
+                  textAlign: "center",
                 }}
               >
-                <div style={{ fontSize: "1.25rem", fontWeight: 800, color: "var(--gold-light)" }}>
-                  Bi-Monthly & Quarterly
+                <div style={{ fontSize: "clamp(0.95rem, 3vw, 1.2rem)", fontWeight: 800, color: "var(--gold-light)", whiteSpace: "nowrap" }}>
+                  Monthly Virtual
                 </div>
-                <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "4px" }}>
-                  Prophetic Cadence
+                <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginTop: "4px" }}>
+                  Meeting Format
                 </div>
               </div>
 
               <div
                 style={{
-                  padding: "14px 20px",
+                  padding: "12px 14px",
                   background: "rgba(255, 255, 255, 0.04)",
                   border: "1px solid var(--border-subtle)",
                   borderRadius: "var(--radius-sm)",
+                  textAlign: "center",
                 }}
               >
-                <div style={{ fontSize: "1.25rem", fontWeight: 800, color: "#ffffff" }}>
+                <div style={{ fontSize: "clamp(0.95rem, 3vw, 1.2rem)", fontWeight: 800, color: "#ffffff", whiteSpace: "nowrap" }}>
                   All Nations
                 </div>
-                <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "4px" }}>
-                  Global HQ in Ikeja, Lagos
+                <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginTop: "4px" }}>
+                  Global HQ in Lagos
                 </div>
               </div>
             </div>

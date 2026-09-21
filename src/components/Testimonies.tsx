@@ -29,6 +29,7 @@ export default function Testimonies() {
             alignItems: "center",
             justifyContent: "center",
             gap: "12px",
+            flexWrap: "wrap",
             marginBottom: "44px",
           }}
         >

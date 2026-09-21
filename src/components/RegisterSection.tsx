@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { NDR_DATA } from "@/data/ndrContent";
 
 export default function RegisterSection() {
-  const [mode, setMode] = useState<"physical" | "virtual">("physical");
+  const [mode, setMode] = useState<"physical" | "virtual">("virtual");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -47,10 +47,10 @@ export default function RegisterSection() {
         <div className="section-header">
           <div className="section-pill">Reserve Your Seat</div>
           <h2 className="section-title">
-            Register to <span className="gold-gradient-text">Attend</span>
+            Register for <span className="gold-gradient-text">NDR</span>
           </h2>
           <p className="section-subtitle">
-            Attendance is completely free. Reserve your seat physically at The Ark of Light for All Nations or register for live virtual access.
+            NDR is now a <strong>Monthly Virtual Meeting</strong>. Register below for live broadcast access. Physical attendance at The Ark of Light is strictly reserved for Full Choir, Pastors & Ministers, and Testifiers.
           </p>
         </div>
 
@@ -80,24 +80,7 @@ export default function RegisterSection() {
                 >
                   Select Mode of Attendance
                 </label>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-                  <button
-                    type="button"
-                    onClick={() => setMode("physical")}
-                    style={{
-                      padding: "14px",
-                      borderRadius: "10px",
-                      background: mode === "physical" ? "rgba(245, 158, 11, 0.15)" : "rgba(255, 255, 255, 0.04)",
-                      border: mode === "physical" ? "2px solid var(--gold-primary)" : "1px solid var(--border-subtle)",
-                      color: mode === "physical" ? "#ffffff" : "var(--text-secondary)",
-                      fontWeight: 700,
-                      fontSize: "0.9rem",
-                      textAlign: "center",
-                      transition: "all 0.2s ease",
-                    }}
-                  >
-                    🏛️ Physical (Ark of Light, Lagos)
-                  </button>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "10px" }}>
                   <button
                     type="button"
                     onClick={() => setMode("virtual")}
@@ -108,14 +91,60 @@ export default function RegisterSection() {
                       border: mode === "virtual" ? "2px solid var(--gold-primary)" : "1px solid var(--border-subtle)",
                       color: mode === "virtual" ? "#ffffff" : "var(--text-secondary)",
                       fontWeight: 700,
-                      fontSize: "0.9rem",
+                      fontSize: "0.85rem",
                       textAlign: "center",
                       transition: "all 0.2s ease",
                     }}
                   >
-                    📡 Virtual (Global Online Stream)
+                    📡 Virtual (General Public Stream)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setMode("physical")}
+                    style={{
+                      padding: "14px",
+                      borderRadius: "10px",
+                      background: mode === "physical" ? "rgba(245, 158, 11, 0.15)" : "rgba(255, 255, 255, 0.04)",
+                      border: mode === "physical" ? "2px solid var(--gold-primary)" : "1px solid var(--border-subtle)",
+                      color: mode === "physical" ? "#ffffff" : "var(--text-secondary)",
+                      fontWeight: 700,
+                      fontSize: "0.85rem",
+                      textAlign: "center",
+                      transition: "all 0.2s ease",
+                    }}
+                  >
+                    🏛️ Physical (Restricted Group)
                   </button>
                 </div>
+                {mode === "physical" ? (
+                  <div
+                    style={{
+                      padding: "10px 14px",
+                      borderRadius: "8px",
+                      background: "rgba(239, 68, 68, 0.1)",
+                      border: "1px solid rgba(239, 68, 68, 0.3)",
+                      color: "#fca5a5",
+                      fontSize: "0.8rem",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    ⚠️ <strong>Physical Attendance Restriction:</strong> Physical attendance at The Ark of Light is strictly for: <strong>1. Full Choir</strong>, <strong>2. All Pastors and Ministers</strong>, and <strong>3. Testifiers</strong>.
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      padding: "10px 14px",
+                      borderRadius: "8px",
+                      background: "rgba(245, 158, 11, 0.08)",
+                      border: "1px solid rgba(245, 158, 11, 0.25)",
+                      color: "var(--gold-light)",
+                      fontSize: "0.8rem",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    ✨ <strong>Virtual Access:</strong> Join the global live broadcast from any nation via YouTube and Facebook Live with instant pass delivery.
+                  </div>
+                )}
               </div>
 
               {/* Name & Email */}
@@ -395,7 +424,7 @@ export default function RegisterSection() {
               </h3>
 
               <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", marginBottom: "24px" }}>
-                Your pass has been generated for <strong>Night of Divine Reversal 13</strong> ({mode === "physical" ? "Physical Seat at Ark of Light, Lagos" : "Virtual Livestream"}). A confirmation has been logged for <strong>{formData.email}</strong>.
+                Your pass has been generated for <strong>Night of Divine Reversal (NDR)</strong> ({mode === "physical" ? "Physical Pass (Choir / Pastors & Ministers / Testifiers)" : "Virtual Global Livestream"}). A confirmation has been logged for <strong>{formData.email}</strong>.
               </p>
 
               {/* Pass Badge */}
@@ -417,10 +446,10 @@ export default function RegisterSection() {
                   </span>
                 </div>
                 <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "#ffffff", marginBottom: "4px" }}>
-                  Night of Divine Reversal (NDR 13)
+                  🌙 Night of Divine Reversal (NDR)
                 </div>
                 <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
-                  Friday, 6th November 2026 • 8:00 PM WAT
+                  Friday, 2nd October 2026 • 8:00 PM WAT (Virtual Vigil)
                 </div>
                 <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "8px" }}>
                   Venue: {NDR_DATA.eventMeta.venue}, Plot 11, Kudirat Abiola Way, Alausa, Ikeja

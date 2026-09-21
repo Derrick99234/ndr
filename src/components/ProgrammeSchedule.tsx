@@ -16,25 +16,16 @@ export default function ProgrammeSchedule() {
             Programme <span className="gold-gradient-text">Schedule</span>
           </h2>
           <p className="section-subtitle">
-            The Night of Divine Reversal is preceded by a week-long set of spiritual activities and structured preparatory seminars.
+            The Night of Divine Reversal is now a monthly virtual meeting preceded by a week-long set of spiritual activities and preparatory faith classes.
           </p>
         </div>
 
         {/* Tab Switcher */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "10px",
-            flexWrap: "wrap",
-            marginBottom: "48px",
-          }}
-        >
+        <div className="schedule-tabs-container">
           {[
-            { id: "week", label: "Week-Long Activities" },
+            { id: "week", label: "NDR Week Activities" },
             { id: "seminars", label: "7-Week Victory & Faith Seminars" },
-            { id: "threeDays", label: "3 Days of Remembrance (Season 2)" },
+            { id: "threeDays", label: "Next NDR Week Dates" },
           ].map((tab) => {
             const isActive = activeTab === tab.id;
             return (
@@ -43,6 +34,7 @@ export default function ProgrammeSchedule() {
                 onClick={() =>
                   setActiveTab(tab.id as "week" | "seminars" | "threeDays")
                 }
+                className="schedule-tab-item"
                 style={{
                   padding: "12px 24px",
                   borderRadius: "var(--radius-full)",
@@ -276,11 +268,27 @@ export default function ProgrammeSchedule() {
               }}
             >
               <h3 style={{ color: "#ffffff", fontSize: "1.2rem", marginBottom: "6px" }}>
-                3 Days of Remembrance (Season 2) • November 2026
+                Next NDR Week Dates • 28th September – 2nd October 2026
               </h3>
-              <p style={{ color: "var(--text-secondary)", fontSize: "0.92rem" }}>
-                The sacred countdown and itinerary leading to the Night of Divine Reversal 13.
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.92rem", marginBottom: "12px" }}>
+                The sacred countdown and itinerary leading to the 🌙 NDR Night — Virtual.
               </p>
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "6px 14px",
+                  borderRadius: "6px",
+                  background: "rgba(245, 158, 11, 0.1)",
+                  border: "1px solid rgba(245, 158, 11, 0.25)",
+                  color: "var(--gold-light)",
+                  fontSize: "0.8rem",
+                  fontWeight: 600,
+                }}
+              >
+                👥 Physical Attendance: Full Choir, All Pastors & Ministers, and Testifiers Only. General public connects virtually.
+              </div>
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>

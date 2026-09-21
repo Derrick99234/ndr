@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { NDR_DATA } from "@/data/ndrContent";
 
 export default function Hero() {
@@ -92,7 +93,6 @@ export default function Hero() {
           padding: "0 24px",
           maxWidth: "960px",
         }}
-      >
         {/* Top Badges */}
         <div
           style={{
@@ -112,8 +112,7 @@ export default function Hero() {
             boxShadow: "0 0 20px rgba(245, 158, 11, 0.15)",
           }}
         >
-          <span>🔥</span>
-          <span>Grand Finale: 3 Days of Remembrance (Season 2)</span>
+          <span>Monthly Virtual Meeting • Friday, 2nd October 2026</span>
         </div>
 
         {/* Main Headings */}
@@ -130,18 +129,6 @@ export default function Hero() {
           NIGHT OF <span className="gold-gradient-text">DIVINE REVERSAL</span>
         </h1>
 
-        <p
-          style={{
-            fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
-            color: "#e2e8f0",
-            maxWidth: "760px",
-            margin: "0 auto 24px auto",
-            fontWeight: 500,
-            lineHeight: 1.5,
-          }}
-        >
-          Convened by <strong style={{ color: "#ffffff" }}>Prophet Isaiah Macwealth</strong>
-        </p>
 
         <p
           style={{
@@ -152,7 +139,7 @@ export default function Hero() {
             lineHeight: 1.6,
           }}
         >
-          A sacred night of praise, prophecy, and the manifest power of God designed for supernatural turnaround and decisive spiritual intervention at The Ark of Light for All Nations.
+          A sacred monthly night of praise, prophecy, and the manifest power of God designed for supernatural turnaround. Broadcast virtually worldwide from The Ark of Light for All Nations.
         </p>
 
         {/* Live Countdown Timer Card */}
@@ -179,7 +166,7 @@ export default function Hero() {
               marginBottom: "14px",
             }}
           >
-            Countdown to NDR 13 • Friday, 6th November 2026
+            Countdown to NDR • {NDR_DATA.eventMeta.dateDisplay}
           </div>
 
           <div
@@ -231,48 +218,36 @@ export default function Hero() {
         </div>
 
         {/* Hero Actions */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "16px",
-            flexWrap: "wrap",
-            marginBottom: "50px",
-          }}
-        >
-          <a href="#register" className="btn-primary" style={{ padding: "16px 36px", fontSize: "1rem" }}>
+        <div className="hero-actions-wrapper">
+          <Link
+            href="/register"
+            className="btn-primary hero-actions-primary"
+            style={{ padding: "16px 36px", fontSize: "1rem" }}
+          >
             Register to Attend
-          </a>
-          <a href="#schedule" className="btn-secondary" style={{ padding: "16px 32px" }}>
-            View Full Schedule
-          </a>
-          <a href="#testimonies" className="btn-outline-gold" style={{ padding: "16px 28px" }}>
-            Watch Testimonies
-          </a>
+          </Link>
+          <div className="hero-actions-secondary-grid">
+            <a href="#schedule" className="btn-secondary" style={{ padding: "16px 28px" }}>
+              View Schedule
+            </a>
+            <a href="#testimonies" className="btn-outline-gold" style={{ padding: "16px 24px" }}>
+              Testimonies
+            </a>
+          </div>
         </div>
 
         {/* Trust & Highlights Bar */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-            gap: "16px",
-            paddingTop: "24px",
-            borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-          }}
-        >
+        <div className="hero-highlights-strip">
           {[
-            { title: "The Ark of Light", detail: "Ikeja, Lagos, Nigeria" },
             { title: "Sweet Water", detail: "Prophetic Ministration" },
-            { title: "7 Weeks Seminars", detail: "Victory & Faith Prep" },
+            { title: "7 Days Class", detail: "Victory & Faith Prep" },
             { title: "Global Broadcast", detail: "YouTube & Facebook Live" },
           ].map((item, idx) => (
-            <div key={idx} style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#ffffff" }}>
+            <div key={idx} className="hero-highlight-col">
+              <div style={{ fontSize: "clamp(0.8rem, 2.5vw, 0.95rem)", fontWeight: 700, color: "#ffffff" }}>
                 {item.title}
               </div>
-              <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "2px" }}>
+              <div style={{ fontSize: "clamp(0.68rem, 2vw, 0.8rem)", color: "var(--text-muted)", marginTop: "2px" }}>
                 {item.detail}
               </div>
             </div>
