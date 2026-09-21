@@ -63,15 +63,15 @@ export default function Hero() {
         }}
       >
         <Image
-          src="/images/ndr-hero.jpg"
+          src="/images/ndr-hero-live.jpg"
           alt="Night of Divine Reversal Sanctuary"
           fill
           priority
           style={{
             objectFit: "cover",
-            objectPosition: "center 35%",
-            opacity: 0.32,
-            filter: "brightness(0.7) contrast(1.1)",
+            objectPosition: "center 30%",
+            opacity: 0.42,
+            filter: "brightness(0.8) contrast(1.15)",
           }}
         />
         <div

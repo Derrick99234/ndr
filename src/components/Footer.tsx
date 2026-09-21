@@ -150,7 +150,7 @@ export default function Footer() {
             color: "var(--text-muted)",
           }}
         >
-          <div>
+          <div suppressHydrationWarning>
             © {new Date().getFullYear()} Night of Divine Reversal (NDR). Convened by Prophet Isaiah Macwealth. All rights reserved.
           </div>
           <div>

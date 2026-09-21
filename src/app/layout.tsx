@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     siteName: "Night of Divine Reversal",
     images: [
       {
-        url: "/images/ndr-hero.jpg",
+        url: "/images/ndr-hero-live.jpg",
         width: 1200,
-        height: 675,
-        alt: "Night of Divine Reversal at The Ark of Light for All Nations",
+        height: 630,
+        alt: "Night of Divine Reversal Sanctuary",
       },
     ],
     locale: "en_US",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Night of Divine Reversal (NDR) | Prophet Isaiah Macwealth",
     description: "Monthly virtual night of praise, prophecy, and supernatural turnaround with Prophet Isaiah Macwealth.",
-    images: ["/images/ndr-hero.jpg"],
+    images: ["/images/ndr-hero-live.jpg"],
   },
 };
 
@@ -63,8 +63,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable}`}>
-      <body style={{ fontFamily: "var(--font-body), sans-serif" }}>
+    <html lang="en" className={`${outfit.variable} ${plusJakartaSans.variable}`} suppressHydrationWarning>
+      <body style={{ fontFamily: "var(--font-body), sans-serif" }} suppressHydrationWarning>
         {children}
       </body>
     </html>
