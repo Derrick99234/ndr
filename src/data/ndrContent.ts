@@ -411,11 +411,11 @@ export const NDR_DATA = {
     },
     {
       id: "g5",
-      title: "The Ark of Light for All Nations at Dusk",
+      title: "The Ark of Light for All Nations by Night",
       category: "sanctuary",
-      src: "/images/ark-of-light.jpg",
+      src: "/images/ark-of-light.png",
       caption:
-        "Exterior facade of the international headquarters, welcoming worshippers across the globe to Ikeja, Lagos.",
+        "Aerial night view of the international headquarters, welcoming worshippers across the globe to Ikeja, Lagos.",
     },
   ] as GalleryImage[],
 
