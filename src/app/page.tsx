@@ -8,9 +8,6 @@ import ProgrammeSchedule from "@/components/ProgrammeSchedule";
 import PictureGallery from "@/components/PictureGallery";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import Testimonies from "@/components/Testimonies";
-import RegisterSection from "@/components/RegisterSection";
-import BlogSection from "@/components/BlogSection";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -26,7 +23,7 @@ export default function Home() {
       {/* Top Glassmorphic Navigation */}
       <Navbar />
 
-      {/* Hero Section with Live Countdown to NDR 13 */}
+      {/* Hero Section with Live Countdown to NDR */}
       <Hero />
 
       {/* 1. About NDR & The 5 Reversal Focuses */}
@@ -44,20 +41,11 @@ export default function Home() {
       {/* 5. Picture Gallery (Filterable + Lightbox) */}
       <PictureGallery />
 
-      {/* 6. Upcoming Events (NDR 13 Grand Finale Showcase & .ics Download) */}
+      {/* 6. Upcoming Events (Monthly Virtual Showcase & .ics Download) */}
       <UpcomingEvents />
 
       {/* 7. Testimonies (Personal Text Testimonies & Video Encounters) */}
       <Testimonies />
-
-      {/* 8. Register to Attend (Physical / Virtual + Sweet Water Prayer Line) */}
-      <RegisterSection />
-
-      {/* 9. Blog & Prophetic Insights */}
-      <BlogSection />
-
-      {/* 10. Contact Us & Free Lagos Bus Logistics */}
-      <ContactSection />
 
       {/* Footer */}
       <Footer />

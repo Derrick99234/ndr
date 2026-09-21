@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { NDR_DATA } from "@/data/ndrContent";
 
 export default function Footer() {
@@ -30,61 +31,36 @@ export default function Footer() {
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
               <div
                 style={{
-                  width: "36px",
-                  height: "36px",
-                  borderRadius: "8px",
-                  background: "linear-gradient(135deg, #f59e0b 0%, #b45309 100%)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#060913",
-                  fontWeight: 900,
-                  fontSize: "1.1rem",
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  position: "relative",
+                  border: "1.5px solid rgba(245, 158, 11, 0.4)",
+                  boxShadow: "0 0 15px rgba(245, 158, 11, 0.25)",
+                  flexShrink: 0,
                 }}
               >
-                ☩
+                <Image
+                  src="/images/ndr-logo.jpg"
+                  alt="NDR Logo"
+                  fill
+                  sizes="44px"
+                  style={{ objectFit: "cover" }}
+                />
               </div>
               <div style={{ fontSize: "1.1rem", fontWeight: 800, color: "#ffffff" }}>
-                NDR <span style={{ color: "var(--gold-light)", fontWeight: 400 }}>| 13</span>
+                NDR <span style={{ color: "var(--gold-light)", fontWeight: 400 }}>| Monthly</span>
               </div>
             </div>
 
             <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", lineHeight: 1.6, marginBottom: "16px" }}>
-              Night of Divine Reversal (NDR) is convened by Prophet Isaiah Macwealth as the Grand Finale of the 3 Days of Remembrance at The Ark of Light for All Nations.
+              Night of Divine Reversal (NDR) is convened by Prophet Isaiah Macwealth as a monthly virtual prophetic meeting broadcast globally from The Ark of Light for All Nations.
             </p>
 
             <div style={{ fontSize: "0.8rem", color: "var(--gold-light)", fontWeight: 600 }}>
               Gospel Pillars International Churches
             </div>
-          </div>
-
-          {/* Column 2: Quick Links */}
-          <div>
-            <h4 style={{ fontSize: "0.95rem", color: "#ffffff", fontWeight: 700, marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-              Quick Navigation
-            </h4>
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px", fontSize: "0.88rem" }}>
-              {[
-                { name: "About NDR", href: "#about" },
-                { name: "About Prophet Isaiah Macwealth", href: "#convener" },
-                { name: "What to Expect", href: "#expect" },
-                { name: "Programme Schedule", href: "#schedule" },
-                { name: "Picture Gallery", href: "#gallery" },
-                { name: "Upcoming Events (NDR 13)", href: "#events" },
-                { name: "Testimonies & Video Encounters", href: "#testimonies" },
-              ].map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    style={{ color: "var(--text-secondary)", transition: "color 0.2s ease" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold-light)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Column 3: Preparatory Seminars & Bible Institute */}

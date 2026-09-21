@@ -82,16 +82,22 @@ export interface BusRoute {
 export const NDR_DATA = {
   eventMeta: {
     name: "Night of Divine Reversal (NDR)",
-    edition: "NDR 13",
+    edition: "Monthly Edition",
     tagline: "Supernatural Turnaround & Decisive Spiritual Intervention",
-    themeContext: "Grand Finale of the 3 Days of Remembrance (Season 2)",
-    targetDate: "2026-11-06T20:00:00+01:00", // Friday 6th November 2026, 8:00 PM WAT
-    dateDisplay: "Friday, 6th November 2026",
-    timeDisplay: "8:00 PM (Prompt) - All Night Vigil",
-    venue: "The Ark of Light for All Nations",
+    themeContext: "Monthly Virtual Meeting",
+    format: "Monthly Virtual Meeting",
+    targetDate: "2026-10-02T20:00:00+01:00", // Friday 2nd October 2026, 8:00 PM WAT
+    dateDisplay: "Friday, 2nd October 2026",
+    timeDisplay: "8:00 PM (Prompt) - All Night Vigil (Virtual)",
+    venue: "The Ark of Light for All Nations (Studio Broadcast)",
     address: "Plot 11, Kudirat Abiola Way, Alausa, Ikeja, Lagos, Nigeria",
     convener: "Prophet Isaiah Macwealth",
     churchMinistry: "Gospel Pillars Intl. Church",
+    physicalAttendees: [
+      "Full Choir",
+      "All Pastors and Ministers",
+      "Testifiers",
+    ],
     vfcRegistrationUrl: "https://onesoundbibleinstitute.org/vfc",
     youtubeLive: "https://www.youtube.com/@Arkoflightforallnations",
     facebookLive: "https://www.facebook.com/GospelPillars",
@@ -99,7 +105,7 @@ export const NDR_DATA = {
 
   aboutNDR: {
     summary:
-      "The Night of Divine Reversal (NDR), convened by Prophet Isaiah Macwealth, is a special prophetic vigil that serves as the bi-monthly or quarterly Grand Finale of the 3 Days of Remembrance, hosted at the Ark of Light for all Nations, the international headquarters of Gospel Pillars Intl. Church.",
+      "The Night of Divine Reversal (NDR), convened by Prophet Isaiah Macwealth, is a special prophetic vigil held as a monthly virtual meeting, broadcast globally from The Ark of Light for all Nations, the international headquarters of Gospel Pillars Intl. Church. While the global congregation connects virtually from across the nations, physical presence is reserved for the Full Choir, Pastors and Ministers, and Testifiers.",
     atmosphere:
       "The Night of Divine Reversal is designed for supernatural turnaround and decisive spiritual intervention. It features praise, prophecy and the manifestation of the power of God. The meeting is also characterized by intimate spiritual elevation, supernatural encounters, deep revelation of God's Word, accompanied by divine power and the manifestation of the Holy Spirit.",
     focusAreas: [
@@ -151,7 +157,7 @@ export const NDR_DATA = {
       "In November 2023, the ministry dedicated its multi-thousand-seat international headquarters, The Ark of Light for All Nations, situated in Ikeja, Lagos. It stands as a beacon of revival, global intercession, and humanitarian outreach including the Ark Food Bank.",
       "As the convener of the Night of Divine Reversal and founder of the OneSound Bible Institute (OBI), his heartbeat is to communicate biblical truth with crystalline clarity—empowering believers to exercise their legal authority in Christ, walk in unquestionable victory, and step into divine remembrance.",
     ],
-    image: "/images/convener-prophet-isaiah.jpg",
+    image: "/images/prophet-isaiah-macwealth.jpg",
   },
 
   whatToExpect: [
@@ -222,8 +228,8 @@ export const NDR_DATA = {
 
   weekSchedule: [
     {
-      dayTag: "Day 1 – 3 (Mon. to Wed.)",
-      title: "Victory and Faith Classes",
+      dayTag: "28th – 30th September (Mon. to Wed.)",
+      title: "Faith & Victory Classes",
       subtitle: "OneSound Bible Institute (OBI)",
       description:
         "An extension of the teaching ministry of Prophet Isaiah Macwealth committed to simplifying and communicating biblical knowledge in a clear and practical manner, equipping and empowering God’s people for spiritual growth, personal development, and purposeful living. Anchored on: 'Teaching the people to grow is the fastest way to eradicate their challenges.'",
@@ -234,8 +240,8 @@ export const NDR_DATA = {
       highlight: false,
     },
     {
-      dayTag: "Day 3 (Wednesday)",
-      title: "All Nations Remembrance & Revival Service",
+      dayTag: "30th September (Wednesday)",
+      title: "All Nations Remembrance Prayer",
       subtitle: "Global Intercessory Session",
       description:
         "A special intercessory session for revival and divine remembrance for nations of the world. The service brings global believers together to plead the cause of territories and families before the courts of heaven. Broadcast LIVE on Facebook, YouTube, and international TV platforms.",
@@ -246,8 +252,8 @@ export const NDR_DATA = {
       highlight: false,
     },
     {
-      dayTag: "Day 4 (Thursday)",
-      title: "Victory & Faith Remembrance Prayer Line",
+      dayTag: "1st October (Thursday)",
+      title: "Remembrance Prayer Line",
       subtitle: "Prophetic Ministration & Sweet Water",
       description:
         "A special one-on-one ministration session with the man of God, Prophet Isaiah Macwealth. Features focused prayer sessions, administration of Sweet Water, deliverance, healing miracles, and demonstration of the power of God to break every yoke and affliction of the devil.",
@@ -258,45 +264,45 @@ export const NDR_DATA = {
       highlight: false,
     },
     {
-      dayTag: "Day 5 (Friday)",
-      title: "Night of Divine Reversal (NDR)",
-      subtitle: "Grand Finale Prophetic Vigil",
+      dayTag: "2nd October (Friday)",
+      title: "🌙 NDR Night — Virtual",
+      subtitle: "Monthly Virtual Meeting",
       description:
-        "The culmination of the week-long feast. A service of deep fellowship with the Holy Spirit, where spiritual strength is renewed, burdens are lifted, and destinies are aligned according to God's perfect will. A sacred atmosphere where hearts are revived, faith is stirred, and lives are transformed by the tangible presence of God.",
+        "The climactic all-night prophetic vigil of praise, prophetic prayer, and supernatural turnaround with Prophet Isaiah Macwealth. Broadcast virtually across the globe. Physical attendance is strictly reserved for the Full Choir, All Pastors and Ministers, and Testifiers.",
       time: "8:00 PM - Dawn (WAT)",
-      venue: "The Ark of Light for All Nations, Ikeja, Lagos",
+      venue: "Virtual Broadcast (Ark of Light for All Nations)",
       actionText: "Register to Attend",
-      actionUrl: "#register",
+      actionUrl: "/register",
       highlight: true,
     },
   ] as ScheduleDay[],
 
   threeDaysRemembrance: [
     {
-      dayTag: "2nd – 4th Nov. 2026",
-      title: "Victory and Faith Classes (Season 2)",
+      dayTag: "28th – 30th Sept. 2026",
+      title: "Faith & Victory Classes",
       subtitle: "OneSound Bible Institute Special Edition",
       description:
-        "Intensive doctrinal preparation and faith conditioning for the spiritual climax of the 3 Days of Remembrance.",
+        "Intensive doctrinal preparation and faith conditioning for the spiritual climax of the NDR week.",
       time: "Scheduled Sessions",
       venue: "Online & On-Site",
       actionText: "Register Online",
       actionUrl: "https://onesoundbibleinstitute.org/vfc",
     },
     {
-      dayTag: "Wed. 4th Nov. 2026",
-      title: "All Nations Remembrance & Revival Service",
-      subtitle: "Global Livestream & Physical Assembly",
+      dayTag: "Wed. 30th Sept. 2026",
+      title: "All Nations Remembrance Prayer",
+      subtitle: "Global Livestream & Intercession",
       description:
         "A night of weeping between the porch and the altar, seeking the mercy and remembrance of God for individuals and nations.",
       time: "6:00 PM WAT",
-      venue: "Ark of Light for All Nations",
+      venue: "Ark of Light for All Nations & Live Online",
       actionText: "Stream Live",
       actionUrl: "https://www.youtube.com/@Arkoflightforallnations",
     },
     {
-      dayTag: "Thurs. 5th Nov. 2026",
-      title: "Victory & Faith Remembrance Prayer Line",
+      dayTag: "Thurs. 1st Oct. 2026",
+      title: "Remembrance Prayer Line",
       subtitle: "Sweet Water & Personal Deliverance",
       description:
         "Personal ministration with Prophet Isaiah Macwealth. Sweet Water administration and yoke-breaking impartation.",
@@ -306,15 +312,15 @@ export const NDR_DATA = {
       actionUrl: "https://onesoundbibleinstitute.org/vfc",
     },
     {
-      dayTag: "Fri. 6th Nov. 2026",
-      title: "Night of Divine Reversal (NDR) 13",
-      subtitle: "The Grand Finale",
+      dayTag: "Fri. 2nd Oct. 2026",
+      title: "🌙 NDR Night — Virtual",
+      subtitle: "Monthly Virtual Meeting",
       description:
-        "The bi-monthly and quarterly climactic vigil of praise, prophetic prayer, and supernatural turnaround with Prophet Isaiah Macwealth.",
+        "The monthly climactic vigil of praise, prophetic prayer, and supernatural turnaround with Prophet Isaiah Macwealth. Streamed live globally. Physical attendance strictly for Full Choir, Pastors & Ministers, and Testifiers.",
       time: "8:00 PM WAT Till Dawn",
-      venue: "Ark of Light for All Nations, Alausa, Ikeja, Lagos",
-      actionText: "Reserve Free Seat",
-      actionUrl: "#register",
+      venue: "Global Livestream (Ark of Light for All Nations)",
+      actionText: "Reserve Online Seat",
+      actionUrl: "/register",
     },
   ] as ScheduleDay[],
 
@@ -383,7 +389,7 @@ export const NDR_DATA = {
       id: "g2",
       title: "Prophet Isaiah Macwealth Ministering",
       category: "convener",
-      src: "/images/convener-prophet-isaiah.jpg",
+      src: "/images/prophet-isaiah-macwealth.jpg",
       caption:
         "Prophet Isaiah Macwealth releasing the prophetic word of reversal and destiny realignment.",
     },

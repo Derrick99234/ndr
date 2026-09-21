@@ -18,14 +18,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ndr.gospelpillars.org"),
   title: "Night of Divine Reversal (NDR) | Prophet Isaiah Macwealth",
   description:
-    "Official portal for Night of Divine Reversal (NDR) convened by Prophet Isaiah Macwealth. Grand Finale of the 3 Days of Remembrance at The Ark of Light for All Nations, Lagos, Nigeria. Praise, prophetic prayers, Sweet Water ministration, and supernatural turnaround.",
+    "Official portal for Night of Divine Reversal (NDR) convened by Prophet Isaiah Macwealth. A monthly virtual prophetic meeting broadcast globally from The Ark of Light for All Nations. Praise, prophetic prayers, Sweet Water ministration, and supernatural turnaround.",
   keywords: [
     "Night of Divine Reversal",
-    "NDR 13",
+    "NDR",
+    "Monthly Virtual Meeting",
     "Prophet Isaiah Macwealth",
     "Ark of Light for All Nations",
     "Gospel Pillars",
-    "3 Days of Remembrance",
     "Sweet Water Ministration",
     "OneSound Bible Institute",
     "Supernatural Turnaround",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Night of Divine Reversal (NDR) | Prophet Isaiah Macwealth",
     description:
-      "A night of praise, prophecy, and supernatural turnaround at The Ark of Light for All Nations, Lagos. Grand Finale of the 3 Days of Remembrance.",
+      "A monthly virtual night of praise, prophecy, and supernatural turnaround broadcast globally from The Ark of Light for All Nations.",
     url: "https://ndr.gospelpillars.org",
     siteName: "Night of Divine Reversal",
     images: [
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Night of Divine Reversal (NDR) | Prophet Isaiah Macwealth",
-    description: "Grand Finale of the 3 Days of Remembrance at The Ark of Light for All Nations.",
+    description: "Monthly virtual night of praise, prophecy, and supernatural turnaround with Prophet Isaiah Macwealth.",
     images: ["/images/ndr-hero.jpg"],
   },
 };
