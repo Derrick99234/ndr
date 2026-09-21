@@ -19,7 +19,6 @@ export default function WhatToExpect() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">Divine Atmosphere</div>
           <h2 className="section-title">
             What to Expect at <span className="gold-gradient-text">NDR</span>
           </h2>
@@ -51,29 +50,11 @@ export default function WhatToExpect() {
               <div>
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
                     marginBottom: "16px",
                   }}
                 >
-                  <span style={{ fontSize: "2rem" }}>
+                  <span style={{ fontSize: "2.2rem" }}>
                     {iconsMap[item.id] || "✨"}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: "0.75rem",
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.08em",
-                      padding: "4px 10px",
-                      borderRadius: "var(--radius-full)",
-                      background: "rgba(245, 158, 11, 0.1)",
-                      border: "1px solid rgba(245, 158, 11, 0.2)",
-                      color: "var(--gold-light)",
-                    }}
-                  >
-                    {item.badge}
                   </span>
                 </div>
 

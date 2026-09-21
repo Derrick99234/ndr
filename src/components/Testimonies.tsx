@@ -13,7 +13,6 @@ export default function Testimonies() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">Supernatural Proofs</div>
           <h2 className="section-title">
             Testimonies from <span className="gold-gradient-text">NDR</span>
           </h2>

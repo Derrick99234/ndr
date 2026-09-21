@@ -12,7 +12,6 @@ export default function BlogSection() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">Prophetic Insights</div>
           <h2 className="section-title">
             The Word & <span className="gold-gradient-text">Blog</span>
           </h2>

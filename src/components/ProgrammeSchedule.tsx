@@ -11,7 +11,6 @@ export default function ProgrammeSchedule() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">Structured Programme</div>
           <h2 className="section-title">
             Programme <span className="gold-gradient-text">Schedule</span>
           </h2>

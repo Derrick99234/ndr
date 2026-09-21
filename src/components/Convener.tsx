@@ -10,7 +10,6 @@ export default function Convener() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">About The Convener</div>
           <h2 className="section-title">
             Prophet <span className="gold-gradient-text">Isaiah Macwealth</span>
           </h2>

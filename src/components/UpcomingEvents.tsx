@@ -40,7 +40,6 @@ export default function UpcomingEvents() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">Upcoming Event Spotlight</div>
           <h2 className="section-title">
             Night of Divine Reversal <span className="gold-gradient-text">(Monthly Virtual)</span>
           </h2>

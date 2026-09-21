@@ -8,7 +8,6 @@ export default function AboutNDR() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">About NDR</div>
           <h2 className="section-title">
             What is <span className="gold-gradient-text">Night of Divine Reversal?</span>
           </h2>

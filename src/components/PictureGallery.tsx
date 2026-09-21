@@ -18,7 +18,6 @@ export default function PictureGallery() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">Visual Encounters</div>
           <h2 className="section-title">
             Picture <span className="gold-gradient-text">Gallery</span>
           </h2>

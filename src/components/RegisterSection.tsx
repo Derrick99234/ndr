@@ -45,7 +45,6 @@ export default function RegisterSection() {
       <div className="section-container" style={{ maxWidth: "800px" }}>
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">Reserve Your Seat</div>
           <h2 className="section-title">
             Register for <span className="gold-gradient-text">NDR</span>
           </h2>

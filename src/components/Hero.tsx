@@ -93,27 +93,7 @@ export default function Hero() {
           padding: "0 24px",
           maxWidth: "960px",
         }}
-        {/* Top Badges */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "10px",
-            padding: "8px 20px",
-            borderRadius: "var(--radius-full)",
-            background: "rgba(245, 158, 11, 0.12)",
-            border: "1px solid rgba(245, 158, 11, 0.3)",
-            color: "var(--gold-light)",
-            fontSize: "0.85rem",
-            fontWeight: 700,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: "28px",
-            boxShadow: "0 0 20px rgba(245, 158, 11, 0.15)",
-          }}
-        >
-          <span>Monthly Virtual Meeting • Friday, 2nd October 2026</span>
-        </div>
+      >
 
         {/* Main Headings */}
         <h1

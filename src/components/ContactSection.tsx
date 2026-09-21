@@ -25,7 +25,6 @@ export default function ContactSection() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">Location & Assistance</div>
           <h2 className="section-title">
             Contact & <span className="gold-gradient-text">Logistics</span>
           </h2>
