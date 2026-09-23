@@ -177,36 +177,9 @@ export default function Testimonies() {
                 }}
               >
                 <div>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      marginBottom: "16px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        padding: "4px 10px",
-                        borderRadius: "var(--radius-full)",
-                        background: "rgba(245, 158, 11, 0.12)",
-                        border: "1px solid rgba(245, 158, 11, 0.25)",
-                        color: "var(--gold-light)",
-                        fontSize: "0.75rem",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      {item.category}
-                    </span>
-                    <span style={{ fontSize: "0.8rem", color: "var(--text-muted)", fontWeight: 600 }}>
-                      {item.edition}
-                    </span>
-                  </div>
-
                   <h3
                     style={{
-                      fontSize: "1.12rem",
+                      fontSize: "1.15rem",
                       color: "#ffffff",
                       lineHeight: 1.45,
                       marginBottom: "14px",
@@ -679,43 +652,6 @@ export default function Testimonies() {
               </button>
 
               <div style={{ marginBottom: "24px", paddingRight: "40px" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "10px",
-                    flexWrap: "wrap",
-                    marginBottom: "12px",
-                  }}
-                >
-                  {selectedTextTestimony.category && (
-                    <span
-                      style={{
-                        padding: "4px 10px",
-                        borderRadius: "var(--radius-full)",
-                        background: "rgba(245, 158, 11, 0.15)",
-                        border: "1px solid rgba(245, 158, 11, 0.3)",
-                        color: "var(--gold-light)",
-                        fontSize: "0.75rem",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      {selectedTextTestimony.category}
-                    </span>
-                  )}
-                  {selectedTextTestimony.edition && (
-                    <span
-                      style={{
-                        fontSize: "0.8rem",
-                        color: "var(--text-muted)",
-                        fontWeight: 600,
-                      }}
-                    >
-                      {selectedTextTestimony.edition}
-                    </span>
-                  )}
-                </div>
 
                 <h3
                   style={{
