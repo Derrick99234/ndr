@@ -97,7 +97,7 @@ export const NDR_DATA = {
       "Testifiers",
     ],
     vfcRegistrationUrl: "https://onesoundbibleinstitute.org/vfc",
-    youtubeLive: "https://www.youtube.com/@Arkoflightforallnations",
+    youtubeLive: "https://www.youtube.com/@isaiahmacwealth",
     facebookLive: "https://www.facebook.com/GospelPillars",
   },
 
@@ -249,7 +249,7 @@ export const NDR_DATA = {
       time: "6:00 PM (WAT)",
       venue: "Ark of Light for All Nations & Live Online",
       actionText: "Join Live Broadcast",
-      actionUrl: "https://www.youtube.com/@Arkoflightforallnations",
+      actionUrl: "https://www.youtube.com/@isaiahmacwealth",
       highlight: false,
     },
     {
@@ -299,7 +299,7 @@ export const NDR_DATA = {
       time: "6:00 PM WAT",
       venue: "Ark of Light for All Nations & Live Online",
       actionText: "Stream Live",
-      actionUrl: "https://www.youtube.com/@Arkoflightforallnations",
+      actionUrl: "https://www.youtube.com/@isaiahmacwealth",
     },
     {
       dayTag: "Thurs. 1st Oct. 2026",
@@ -823,13 +823,12 @@ This time last year, I had no income and was under the intense pressure of an ex
     headquarters: "The Ark of Light for All Nations (Gospel Pillars Intl. Church)",
     hotline1: "+234 703 690 5175",
     hotline2: "+234 809 111 2233",
-    email: "info@gospelpillars.org",
+    email: "info@nightofdivinereversal.org",
     prayerLineEmail: "ndr@onesoundbibleinstitute.org",
     broadcastPlatforms: [
-      { name: "YouTube", handle: "@Arkoflightforallnations", url: "https://www.youtube.com/@Arkoflightforallnations" },
+      { name: "YouTube", handle: "@isaiahmacwealth", url: "https://www.youtube.com/@isaiahmacwealth" },
       { name: "Facebook", handle: "@GospelPillars", url: "https://www.facebook.com/GospelPillars" },
       { name: "OneSound App", handle: "Available on iOS & Android", url: "https://onesoundbibleinstitute.org" },
-      { name: "GoBox 3.0", handle: "Global Satellite Decoder & App", url: "https://gospelpillars.org" },
     ],
   },
 };

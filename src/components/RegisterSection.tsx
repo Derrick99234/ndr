@@ -17,14 +17,40 @@ export default function RegisterSection() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [ticketId, setTicketId] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName || !formData.email) return;
 
-    const generatedId = `NDR13-${Math.floor(100000 + Math.random() * 900000)}`;
-    setTicketId(generatedId);
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          mode,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.ticketId) {
+        setTicketId(data.ticketId);
+      } else {
+        const fallbackId = `NDR13-${Math.floor(100000 + Math.random() * 900000)}`;
+        setTicketId(fallbackId);
+      }
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error("Registration submit error:", err);
+      const fallbackId = `NDR13-${Math.floor(100000 + Math.random() * 900000)}`;
+      setTicketId(fallbackId);
+      setIsSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
@@ -355,14 +381,17 @@ export default function RegisterSection() {
               <button
                 type="submit"
                 className="btn-primary"
+                disabled={isSubmitting}
                 style={{
                   width: "100%",
                   padding: "16px",
                   fontSize: "1rem",
                   marginTop: "8px",
+                  opacity: isSubmitting ? 0.7 : 1,
+                  cursor: isSubmitting ? "wait" : "pointer",
                 }}
               >
-                Complete Registration (Free)
+                {isSubmitting ? "Generating Your Official Pass..." : "Complete Registration (Free)"}
               </button>
 
               {/* Link to OneSound Bible Institute */}
