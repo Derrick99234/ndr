@@ -51,8 +51,15 @@ export default function RegisterSection() {
         }
       ).catch((err) => console.warn("Google Sheet direct post:", err));
 
+      // Call PHP handler for DirectAdmin Apache server
+      fetch("/api/register.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() => null);
+
       // Also call /api/register if running on a Node server or Vercel
-      const localApiPromise = fetch("/api/register", {
+      fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, mode }),

@@ -42,8 +42,15 @@ export default function ContactSection() {
         }
       ).catch((err) => console.warn("Direct contact sheet post:", err));
 
+      // Call PHP handler for DirectAdmin Apache server
+      fetch("/api/contact.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(inquiryData),
+      }).catch(() => null);
+
       // Also call /api/contact if on Node/Vercel
-      const localApiPromise = fetch("/api/contact", {
+      fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(inquiryData),
