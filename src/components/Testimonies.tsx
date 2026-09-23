@@ -7,7 +7,6 @@ import { NDR_DATA, VideoTestimony, TextTestimony } from "@/data/ndrContent";
 
 export default function Testimonies() {
   const [activeTab, setActiveTab] = useState<"text" | "video">("text");
-  const [videoBatch, setVideoBatch] = useState<"all" | "Batch 1" | "Batch 2">("all");
   const [selectedVideo, setSelectedVideo] = useState<VideoTestimony | null>(null);
   const [selectedTextTestimony, setSelectedTextTestimony] = useState<TextTestimony | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -27,10 +26,7 @@ export default function Testimonies() {
     };
   }, [selectedVideo, selectedTextTestimony]);
 
-  const filteredVideos = NDR_DATA.videoTestimonies.filter((video) => {
-    if (videoBatch === "all") return true;
-    return video.batch === videoBatch;
-  });
+  const filteredVideos = NDR_DATA.videoTestimonies;
 
   return (
     <section id="testimonies" className="section-wrapper" style={{ backgroundColor: "var(--bg-alt)" }}>
@@ -45,116 +41,47 @@ export default function Testimonies() {
           </p>
         </div>
 
-        {/* Tab Toggle */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "12px",
-            flexWrap: "wrap",
-            marginBottom: activeTab === "video" ? "20px" : "44px",
-          }}
-        >
-          <button
-            onClick={() => setActiveTab("text")}
-            style={{
-              padding: "12px 28px",
-              borderRadius: "var(--radius-full)",
-              fontSize: "0.9rem",
-              fontWeight: 700,
-              transition: "all 0.2s ease",
-              backgroundColor: activeTab === "text" ? "var(--gold-primary)" : "rgba(255, 255, 255, 0.05)",
-              color: activeTab === "text" ? "#060913" : "var(--text-secondary)",
-              border: activeTab === "text" ? "1px solid var(--gold-primary)" : "1px solid var(--border-subtle)",
-              boxShadow: activeTab === "text" ? "0 4px 20px rgba(245, 158, 11, 0.3)" : "none",
-            }}
-          >
-            Personal Testimonies (Text)
-          </button>
-
-          <button
-            onClick={() => setActiveTab("video")}
-            style={{
-              padding: "12px 28px",
-              borderRadius: "var(--radius-full)",
-              fontSize: "0.9rem",
-              fontWeight: 700,
-              transition: "all 0.2s ease",
-              backgroundColor: activeTab === "video" ? "var(--gold-primary)" : "rgba(255, 255, 255, 0.05)",
-              color: activeTab === "video" ? "#060913" : "var(--text-secondary)",
-              border: activeTab === "video" ? "1px solid var(--gold-primary)" : "1px solid var(--border-subtle)",
-              boxShadow: activeTab === "video" ? "0 4px 20px rgba(245, 158, 11, 0.3)" : "none",
-            }}
-          >
-            Video Testimony Encounters ({NDR_DATA.videoTestimonies.length})
-          </button>
-        </div>
-
-        {/* Batch Filter Sub-bar (Only shown when activeTab is video) */}
-        {activeTab === "video" && (
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "10px",
-              flexWrap: "wrap",
-              marginBottom: "36px",
-            }}
-          >
+        {/* Tab Toggle - Classic Tab Bar (Obvious switchable tabs, not stacked buttons on mobile) */}
+        <div className="testimonies-tab-wrapper">
+          <div className="testimonies-tab-bar" role="tablist" aria-label="Testimony Format Switcher">
             <button
-              onClick={() => setVideoBatch("all")}
-              style={{
-                padding: "8px 20px",
-                borderRadius: "var(--radius-full)",
-                fontSize: "0.82rem",
-                fontWeight: 600,
-                backgroundColor: videoBatch === "all" ? "rgba(245, 158, 11, 0.2)" : "transparent",
-                color: videoBatch === "all" ? "var(--gold-light)" : "var(--text-muted)",
-                border: videoBatch === "all" ? "1px solid var(--gold-primary)" : "1px solid rgba(255, 255, 255, 0.1)",
-                cursor: "pointer",
-                transition: "all 0.2s ease",
-              }}
+              type="button"
+              role="tab"
+              aria-selected={activeTab === "text"}
+              onClick={() => setActiveTab("text")}
+              className={`testimonies-tab-btn ${activeTab === "text" ? "active" : ""}`}
             >
-              All Testimonies ({NDR_DATA.videoTestimonies.length})
+              <span className="tab-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </span>
+              <span>Personal Testimonies</span>
+              <span className="testimonies-tab-badge">Text</span>
             </button>
 
             <button
-              onClick={() => setVideoBatch("Batch 1")}
-              style={{
-                padding: "8px 20px",
-                borderRadius: "var(--radius-full)",
-                fontSize: "0.82rem",
-                fontWeight: 600,
-                backgroundColor: videoBatch === "Batch 1" ? "rgba(245, 158, 11, 0.2)" : "transparent",
-                color: videoBatch === "Batch 1" ? "var(--gold-light)" : "var(--text-muted)",
-                border: videoBatch === "Batch 1" ? "1px solid var(--gold-primary)" : "1px solid rgba(255, 255, 255, 0.1)",
-                cursor: "pointer",
-                transition: "all 0.2s ease",
-              }}
+              type="button"
+              role="tab"
+              aria-selected={activeTab === "video"}
+              onClick={() => setActiveTab("video")}
+              className={`testimonies-tab-btn ${activeTab === "video" ? "active" : ""}`}
             >
-              Batch 1 — Miracles & Healings (11)
-            </button>
-
-            <button
-              onClick={() => setVideoBatch("Batch 2")}
-              style={{
-                padding: "8px 20px",
-                borderRadius: "var(--radius-full)",
-                fontSize: "0.82rem",
-                fontWeight: 600,
-                backgroundColor: videoBatch === "Batch 2" ? "rgba(245, 158, 11, 0.2)" : "transparent",
-                color: videoBatch === "Batch 2" ? "var(--gold-light)" : "var(--text-muted)",
-                border: videoBatch === "Batch 2" ? "1px solid var(--gold-primary)" : "1px solid rgba(255, 255, 255, 0.1)",
-                cursor: "pointer",
-                transition: "all 0.2s ease",
-              }}
-            >
-              Batch 2 — Archive & Restoration (3)
+              <span className="tab-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+              </span>
+              <span>Video Encounters</span>
+              <span className="testimonies-tab-badge">{NDR_DATA.videoTestimonies.length}</span>
             </button>
           </div>
-        )}
+        </div>
 
         {/* Tab 1: Personal Testimonies (Text) */}
         {activeTab === "text" && (

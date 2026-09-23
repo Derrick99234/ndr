@@ -365,7 +365,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Mobile Responsive Refinements */
+/* Hero Actions: Unified Desktop Alignment & Mobile Stack */
 .hero-actions-wrapper {
   display: flex;
   align-items: center;
@@ -373,6 +373,39 @@ h1, h2, h3, h4, h5, h6 {
   gap: 16px;
   flex-wrap: wrap;
   margin-bottom: 50px;
+}
+
+.hero-actions-secondary-grid {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-btn {
+  height: 52px;
+  padding: 0 32px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.hero-actions-primary {
+  background: var(--gold-gradient);
+  color: #060913 !important;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+}
+
+.hero-actions-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.5);
+  filter: brightness(1.08);
 }
 
 @media (max-width: 640px) {
@@ -387,9 +420,12 @@ h1, h2, h3, h4, h5, h6 {
   .hero-actions-primary {
     width: 100% !important;
     text-align: center !important;
-    padding: 14px 24px !important;
+    height: 48px !important;
+    padding: 0 20px !important;
     font-size: 0.95rem !important;
-    display: block !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   .hero-actions-secondary-grid {
     display: grid !important;
@@ -397,11 +433,11 @@ h1, h2, h3, h4, h5, h6 {
     gap: 10px !important;
     width: 100% !important;
   }
-  .hero-actions-secondary-grid .btn-secondary,
-  .hero-actions-secondary-grid .btn-outline-gold {
+  .hero-actions-secondary-grid .hero-btn {
     width: 100% !important;
-    padding: 12px 10px !important;
-    font-size: 0.8rem !important;
+    height: 44px !important;
+    padding: 0 10px !important;
+    font-size: 0.82rem !important;
     text-align: center !important;
     white-space: nowrap !important;
     display: flex !important;
@@ -646,6 +682,111 @@ h1, h2, h3, h4, h5, h6 {
 
   .gallery-preview-card {
     padding: 5px !important;
+  }
+}
+
+/* Testimonies Tab Bar (Classic Tab Look, Not Stacking Action Buttons) */
+.testimonies-tab-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+.testimonies-tab-bar {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  max-width: 640px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  background: transparent;
+}
+
+.testimonies-tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  margin-bottom: -2px;
+  text-align: center;
+}
+
+.testimonies-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.testimonies-tab-btn.active {
+  color: #ffffff;
+  font-weight: 700;
+  border-bottom: 3px solid var(--gold-primary);
+  background: linear-gradient(to top, rgba(245, 158, 11, 0.08), transparent);
+}
+
+.testimonies-tab-btn .tab-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  transition: color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.testimonies-tab-btn.active .tab-icon {
+  color: var(--gold-primary);
+}
+
+.testimonies-tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.testimonies-tab-btn.active .testimonies-tab-badge {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--gold-light);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+@media (max-width: 640px) {
+  .testimonies-tab-wrapper {
+    margin-bottom: 24px;
+  }
+
+  .testimonies-tab-bar {
+    max-width: 100%;
+  }
+
+  .testimonies-tab-btn {
+    padding: 12px 6px;
+    font-size: 0.8rem;
+    gap: 5px;
+    line-height: 1.25;
+  }
+
+  .testimonies-tab-badge {
+    padding: 1px 6px;
+    font-size: 0.7rem;
   }
 }
 

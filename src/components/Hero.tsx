@@ -201,16 +201,15 @@ export default function Hero() {
         <div className="hero-actions-wrapper">
           <Link
             href="/register"
-            className="btn-primary hero-actions-primary"
-            style={{ padding: "16px 36px", fontSize: "1rem" }}
+            className="btn-primary hero-btn hero-actions-primary"
           >
             Register to Attend
           </Link>
           <div className="hero-actions-secondary-grid">
-            <a href="#schedule" className="btn-secondary" style={{ padding: "16px 28px" }}>
+            <a href="#schedule" className="btn-secondary hero-btn">
               View Schedule
             </a>
-            <a href="#testimonies" className="btn-outline-gold" style={{ padding: "16px 24px" }}>
+            <a href="#testimonies" className="btn-outline-gold hero-btn">
               Testimonies
             </a>
           </div>

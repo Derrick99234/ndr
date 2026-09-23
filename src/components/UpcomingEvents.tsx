@@ -52,26 +52,6 @@ export default function UpcomingEvents() {
         <div className="event-spotlight-card">
           <div className="event-spotlight-inner">
             <div>
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "6px 14px",
-                  borderRadius: "var(--radius-full)",
-                  background: "rgba(245, 158, 11, 0.15)",
-                  color: "var(--gold-light)",
-                  fontSize: "0.8rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  marginBottom: "16px",
-                }}
-              >
-                <span>Monthly Virtual</span>
-                <span>•</span>
-                <span>October 2026</span>
-              </div>
-
               <h3
                 style={{
                   fontSize: "clamp(1.8rem, 3vw, 2.5rem)",
