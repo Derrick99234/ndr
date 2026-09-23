@@ -228,7 +228,6 @@ export default function Convener() {
               right: 0,
               bottom: 0,
               width: "100vw",
-              height: "100vh",
               height: "100dvh",
               backgroundColor: "rgba(3, 7, 18, 0.9)",
               backdropFilter: "blur(14px)",
