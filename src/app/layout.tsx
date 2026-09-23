@@ -55,6 +55,14 @@ export const metadata: Metadata = {
     description: "Monthly virtual night of praise, prophecy, and supernatural turnaround with Prophet Isaiah Macwealth.",
     images: ["/images/ndr-hero-live.jpg"],
   },
+  icons: {
+    icon: [
+      { url: "/images/ndr-logo.jpg" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/images/ndr-logo.jpg",
+    apple: "/images/ndr-logo.jpg",
+  },
 };
 
 export default function RootLayout({
