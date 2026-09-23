@@ -31,23 +31,6 @@ export default function Convener() {
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
-          <div
-            style={{
-              display: "inline-block",
-              background: "rgba(245, 158, 11, 0.12)",
-              border: "1px solid rgba(245, 158, 11, 0.3)",
-              color: "var(--gold-light)",
-              padding: "4px 14px",
-              borderRadius: "var(--radius-full)",
-              fontSize: "0.8rem",
-              fontWeight: 700,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-              marginBottom: "12px",
-            }}
-          >
-            Apostolic & Prophetic Leadership
-          </div>
           <h2 className="section-title">
             About <span className="gold-gradient-text">Prophet Isaiah Macwealth</span>
           </h2>

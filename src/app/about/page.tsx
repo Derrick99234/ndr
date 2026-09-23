@@ -53,24 +53,6 @@ export default function AboutPage() {
               <span style={{ color: "var(--text-secondary)" }}>About Prophet Isaiah Macwealth</span>
             </div>
 
-            <div
-              style={{
-                display: "inline-block",
-                padding: "6px 18px",
-                borderRadius: "var(--radius-full)",
-                background: "rgba(245, 158, 11, 0.12)",
-                border: "1px solid rgba(245, 158, 11, 0.35)",
-                color: "var(--gold-light)",
-                fontSize: "0.8rem",
-                fontWeight: 800,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                marginBottom: "18px",
-              }}
-            >
-              Apostolic & Prophetic Leadership
-            </div>
-
             <h1
               style={{
                 fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
