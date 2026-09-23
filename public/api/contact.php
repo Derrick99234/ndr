@@ -41,6 +41,6 @@ $body = "
 </div>
 ";
 
-$mailSent = @mail($to, "[NDR Inquiry] " . $subject, $body, $headers);
+$mailSent = @mail($to, "[NDR Inquiry] " . $subject, $body, $headers, "-f info@nightofdivinereversal.org");
 
 echo json_encode(['success' => true, 'mailSent' => $mailSent]);

@@ -51,6 +51,31 @@ $body = "
 </div>
 ";
 
-$mailSent = @mail($to, "[NDR Registration] {$fullName} ({$ticketId})", $body, $headers);
+$mailSent = @mail($to, "[NDR Registration] {$fullName} ({$ticketId})", $body, $headers, "-f info@nightofdivinereversal.org");
+
+if (!empty($email)) {
+    $attendeeHeaders = "From: Night of Divine Reversal <info@nightofdivinereversal.org>\r\n" .
+                       "Reply-To: info@nightofdivinereversal.org\r\n" .
+                       "MIME-Version: 1.0\r\n" .
+                       "Content-Type: text/html; charset=UTF-8\r\n";
+    $attendeeBody = "
+    <div style='font-family: Arial, sans-serif; background-color: #060913; color: #f3f4f6; padding: 32px 20px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid #f59e0b;'>
+      <div style='text-align: center; margin-bottom: 24px;'>
+        <h1 style='color: #ffffff; margin: 12px 0 6px 0; font-size: 24px;'>Night of Divine Reversal</h1>
+        <p style='color: #9ca3af; margin: 0; font-size: 14px;'>The Ark of Light for All Nations</p>
+      </div>
+      <div style='background: rgba(17, 24, 39, 0.7); border: 1px solid #f59e0b; border-radius: 10px; padding: 20px; text-align: center; margin-bottom: 24px;'>
+        <div style='font-size: 12px; color: #9ca3af; text-transform: uppercase;'>Your Attendee E-Pass Number</div>
+        <div style='font-size: 28px; font-weight: 800; color: #fbbf24; margin: 8px 0;'>{$ticketId}</div>
+        <div style='font-size: 13px; color: #d1d5db;'>Registered to: <strong>{$fullName}</strong> (" . strtoupper($mode) . " ACCESS)</div>
+      </div>
+      <p>Dear <strong>{$fullName}</strong>,</p>
+      <p>Your registration for the <strong>Night of Divine Reversal</strong> is confirmed!</p>
+      <p>📅 <strong>Date:</strong> Friday, October 2, 2026<br/>⏰ <strong>Time:</strong> 10:00 PM GMT+1<br/>📍 <strong>Access:</strong> " . ($mode === "physical" ? "The Ark of Light for All Nations, Alausa, Ikeja, Lagos" : "Global Live Broadcast (YouTube & Facebook Live)") . "</p>
+      <p style='margin-top: 20px;'><a href='https://www.youtube.com/@isaiahmacwealth' style='background: #dc2626; color: #ffffff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold;'>📺 Watch on YouTube</a></p>
+    </div>
+    ";
+    @mail($email, "Your NDR E-Pass: {$ticketId} - Night of Divine Reversal", $attendeeBody, $attendeeHeaders, "-f info@nightofdivinereversal.org");
+}
 
 echo json_encode(['success' => true, 'ticketId' => $ticketId, 'mailSent' => $mailSent]);
