@@ -21,15 +21,42 @@ export default function ContactSection() {
 
     setIsSending(true);
     try {
-      await fetch("/api/contact", {
+      // Sync inquiry directly to Google Sheet webhook
+      const googleSheetPromise = fetch(
+        "https://script.google.com/macros/s/AKfycbw-eAmm40lDAjZbZiJACEzqmPXZ6-4VxEWLQbUeF7W4btQbBTMqDfY8ZvMq1kY2uFXuww/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ticketId: "CONTACT-INQUIRY",
+            fullName: inquiryData.name.trim(),
+            email: inquiryData.email.trim(),
+            phone: `'${inquiryData.subject?.trim() || "General Inquiry"}`,
+            city: "",
+            mode: "contact",
+            isFirstTime: "",
+            prayerLineInterest: "",
+            prayerRequest: inquiryData.message.trim(),
+          }),
+        }
+      ).catch((err) => console.warn("Direct contact sheet post:", err));
+
+      // Also call /api/contact if on Node/Vercel
+      const localApiPromise = fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(inquiryData),
-      });
+      }).catch(() => null);
+
+      await Promise.race([
+        googleSheetPromise,
+        new Promise((resolve) => setTimeout(resolve, 1500)),
+      ]);
+
       setContactSubmitted(true);
     } catch (err) {
       console.error("Failed to send contact inquiry:", err);
-      // Still show confirmation card to user
       setContactSubmitted(true);
     } finally {
       setIsSending(false);

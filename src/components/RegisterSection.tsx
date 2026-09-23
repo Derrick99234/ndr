@@ -24,29 +24,51 @@ export default function RegisterSection() {
     if (!formData.fullName || !formData.email) return;
 
     setIsSubmitting(true);
+    const generatedId = `NDR13-${Math.floor(100000 + Math.random() * 900000)}`;
 
     try {
-      const res = await fetch("/api/register", {
+      const payload = {
+        timestamp: new Date().toISOString(),
+        ticketId: generatedId,
+        fullName: formData.fullName.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone ? `'${formData.phone.trim()}` : "",
+        city: formData.city.trim(),
+        mode,
+        isFirstTime: formData.isFirstTime,
+        prayerLineInterest: formData.prayerLineInterest ? "Yes" : "No",
+        prayerRequest: formData.prayerRequest.trim(),
+      };
+
+      // Direct sync to Google Sheets webhook (works on 100% static hosting like DirectAdmin public_html)
+      const googleSheetPromise = fetch(
+        "https://script.google.com/macros/s/AKfycbw-eAmm40lDAjZbZiJACEzqmPXZ6-4VxEWLQbUeF7W4btQbBTMqDfY8ZvMq1kY2uFXuww/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      ).catch((err) => console.warn("Google Sheet direct post:", err));
+
+      // Also call /api/register if running on a Node server or Vercel
+      const localApiPromise = fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          mode,
-        }),
-      });
+        body: JSON.stringify({ ...formData, mode }),
+      }).catch(() => null);
 
-      const data = await res.json();
-      if (res.ok && data.ticketId) {
-        setTicketId(data.ticketId);
-      } else {
-        const fallbackId = `NDR13-${Math.floor(100000 + Math.random() * 900000)}`;
-        setTicketId(fallbackId);
-      }
+      // Wait briefly for network dispatch so user experience remains swift and reliable
+      await Promise.race([
+        googleSheetPromise,
+        new Promise((resolve) => setTimeout(resolve, 1500)),
+      ]);
+
+      setTicketId(generatedId);
       setIsSubmitted(true);
     } catch (err) {
       console.error("Registration submit error:", err);
-      const fallbackId = `NDR13-${Math.floor(100000 + Math.random() * 900000)}`;
-      setTicketId(fallbackId);
+      setTicketId(generatedId);
       setIsSubmitted(true);
     } finally {
       setIsSubmitting(false);

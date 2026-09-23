@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:zip": "next build && tar.exe -a -c -f directadmin-build.zip -C out .",
     "start": "next start",
     "lint": "eslint"
   },
