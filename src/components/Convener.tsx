@@ -1,20 +1,58 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { NDR_DATA } from "@/data/ndrContent";
 
 export default function Convener() {
   const { convener } = NDR_DATA;
+  const [isBioModalOpen, setIsBioModalOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Lock body scroll when modal is open to prevent page scrolling underneath
+  useEffect(() => {
+    if (isBioModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isBioModalOpen]);
 
   return (
     <section id="convener" className="section-wrapper">
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
+          <div
+            style={{
+              display: "inline-block",
+              background: "rgba(245, 158, 11, 0.12)",
+              border: "1px solid rgba(245, 158, 11, 0.3)",
+              color: "var(--gold-light)",
+              padding: "4px 14px",
+              borderRadius: "var(--radius-full)",
+              fontSize: "0.8rem",
+              fontWeight: 700,
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              marginBottom: "12px",
+            }}
+          >
+            Apostolic & Prophetic Leadership
+          </div>
           <h2 className="section-title">
-            Prophet <span className="gold-gradient-text">Isaiah Macwealth</span>
+            About <span className="gold-gradient-text">Prophet Isaiah Macwealth</span>
           </h2>
-          <p className="section-subtitle">
-            Senior Pastor & Global President, Gospel Pillars Intl. Church | Founder, OneSound Bible Institute
+          <p className="section-subtitle" style={{ maxWidth: "800px" }}>
+            Senior Pastor, Gospel Pillars Intl. Churches worldwide | Founder, OneSound Revival Fellowship | Convener, Night of Divine Reversal (NDR)
           </p>
         </div>
 
@@ -23,14 +61,14 @@ export default function Convener() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
             gap: "50px",
-            alignItems: "center",
+            alignItems: "flex-start",
           }}
         >
-          {/* Portrait Image Card */}
+          {/* Left Column: Portrait */}
           <div
             style={{
               position: "relative",
-              maxWidth: "480px",
+              maxWidth: "460px",
               margin: "0 auto",
               width: "100%",
             }}
@@ -49,6 +87,7 @@ export default function Convener() {
                 src={convener.image}
                 alt="Prophet Isaiah Macwealth"
                 fill
+                priority
                 style={{ objectFit: "cover", objectPosition: "top center" }}
               />
               <div
@@ -68,8 +107,11 @@ export default function Convener() {
                   textAlign: "center",
                 }}
               >
-                <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "#ffffff" }}>
+                <div style={{ fontSize: "1.25rem", fontWeight: 800, color: "#ffffff", letterSpacing: "0.02em" }}>
                   {convener.name}
+                </div>
+                <div style={{ fontSize: "0.82rem", color: "var(--gold-light)", marginTop: "4px", fontWeight: 600 }}>
+                  Dr. Isaiah Wealth
                 </div>
               </div>
             </div>
@@ -92,11 +134,11 @@ export default function Convener() {
                 zIndex: 2,
               }}
             >
-              Apostolic & Prophetic Mantle
+              Revelation 10:11 Calling
             </div>
           </div>
 
-          {/* Bio & Quote Details */}
+          {/* Right Column: Bio & Quote Details */}
           <div>
             {/* Quote Card */}
             <div
@@ -132,19 +174,19 @@ export default function Convener() {
                   letterSpacing: "0.08em",
                 }}
               >
-                — Prophetic Principle Anchoring the Victory & Faith Classes
+                — Prophetic Principle Anchoring the Faith & Victory Classes
               </div>
             </div>
 
-            {/* Bio Paragraphs */}
+            {/* Official Bio Paragraphs (Stopping at divine turnaround.) */}
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              {convener.bio.map((paragraph, index) => (
+              {convener.bio.slice(0, 3).map((paragraph, index) => (
                 <p
                   key={index}
                   style={{
-                    fontSize: "1rem",
+                    fontSize: "0.98rem",
                     color: "var(--text-secondary)",
-                    lineHeight: 1.7,
+                    lineHeight: 1.75,
                   }}
                 >
                   {paragraph}
@@ -152,27 +194,126 @@ export default function Convener() {
               ))}
             </div>
 
-            {/* Action buttons */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "16px",
-                flexWrap: "wrap",
-                marginTop: "32px",
-              }}
-            >
-              <a
-                href={NDR_DATA.eventMeta.vfcRegistrationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
+            {/* Read More Button */}
+            <div style={{ marginTop: "20px" }}>
+              <button
+                type="button"
+                onClick={() => setIsBioModalOpen(true)}
+                className="btn-outline-gold"
+                style={{
+                  padding: "9px 24px",
+                  fontSize: "0.88rem",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
               >
-                Register for Victory & Faith Classes
-              </a>
+                Read More →
+              </button>
             </div>
           </div>
         </div>
+
+        {/* Full Biography Popup Modal (Portaled directly to document.body) */}
+        {mounted && isBioModalOpen && createPortal(
+          <div
+            className="modal-overlay"
+            onClick={() => setIsBioModalOpen(false)}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: "100vw",
+              height: "100vh",
+              height: "100dvh",
+              backgroundColor: "rgba(3, 7, 18, 0.9)",
+              backdropFilter: "blur(14px)",
+              WebkitBackdropFilter: "blur(14px)",
+              zIndex: 999999, // Sits strictly on top of everything, including fixed navbar (z-index: 1000)
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "max(32px, 5vh) 20px",
+            }}
+          >
+            <div
+              className="modal-content"
+              style={{
+                maxWidth: "720px",
+                width: "100%",
+                maxHeight: "min(84vh, 800px)",
+                overflowY: "auto",
+                padding: "36px",
+                position: "relative",
+                backgroundColor: "#0d1424",
+                border: "1px solid rgba(245, 158, 11, 0.4)",
+                boxShadow: "0 30px 100px rgba(0, 0, 0, 0.95), 0 0 45px rgba(245, 158, 11, 0.2)",
+                borderRadius: "var(--radius-lg)",
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="modal-close-btn"
+                onClick={() => setIsBioModalOpen(false)}
+                aria-label="Close biography modal"
+              >
+                ✕
+              </button>
+
+              <div style={{ marginBottom: "24px", paddingRight: "40px" }}>
+                <h3
+                  style={{
+                    fontSize: "clamp(1.25rem, 3vw, 1.65rem)",
+                    fontWeight: 800,
+                    color: "#ffffff",
+                    lineHeight: 1.3,
+                  }}
+                >
+                  ABOUT PROPHET <span className="gold-gradient-text">ISAIAH MACWEALTH</span>
+                </h3>
+              </div>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+                {convener.bio.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    style={{
+                      fontSize: "0.98rem",
+                      color: "var(--text-secondary)",
+                      lineHeight: 1.8,
+                    }}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              <div
+                style={{
+                  marginTop: "28px",
+                  paddingTop: "20px",
+                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={() => setIsBioModalOpen(false)}
+                  className="btn-primary"
+                  style={{ padding: "8px 24px", fontSize: "0.85rem" }}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
       </div>
     </section>
   );

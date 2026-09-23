@@ -43,11 +43,12 @@ export interface TextTestimony {
   id: string;
   name: string;
   location: string;
-  edition: string;
+  edition?: string;
   title: string;
   summary: string;
-  category: "Healing" | "Breakthrough" | "Deliverance" | "Restoration";
-  quote: string;
+  fullText: string;
+  category?: string;
+  quote?: string;
 }
 
 export interface VideoTestimony {
@@ -58,6 +59,8 @@ export interface VideoTestimony {
   youtubeId: string;
   summary: string;
   thumbnail: string;
+  batch?: "Batch 1" | "Batch 2";
+  category?: string;
 }
 
 export interface BlogPost {
@@ -149,13 +152,16 @@ export const NDR_DATA = {
 
   convener: {
     name: "Prophet Isaiah Macwealth",
-    title: "Convener of NDR & Senior Pastor, Gospel Pillars Intl. Church",
+    title: "Senior Pastor, Gospel Pillars Intl. Churches worldwide | Founder, OneSound Revival Fellowship",
     quote:
       "Teaching the people to grow is the fastest way to eradicate their challenges.",
     bio: [
-      "Prophet Isaiah Macwealth is an apostle of revival, prolific author, philanthropist, and teacher of God's Word with an apostolic and prophetic mantle. He serves as the Senior Pastor and Global President of Gospel Pillars International Churches, overseeing a widespread network of assemblies spanning Africa, Europe, North America, and Asia.",
-      "In November 2023, the ministry dedicated its multi-thousand-seat international headquarters, The Ark of Light for All Nations, situated in Ikeja, Lagos. It stands as a beacon of revival, global intercession, and humanitarian outreach including the Ark Food Bank.",
-      "As the convener of the Night of Divine Reversal and founder of the OneSound Bible Institute (OBI), his heartbeat is to communicate biblical truth with crystalline clarity—empowering believers to exercise their legal authority in Christ, walk in unquestionable victory, and step into divine remembrance.",
+      "Dr. Isaiah Macwealth, also known as Isaiah Wealth, is a lover of Jesus, a renowned author, philanthropist, and Senior Pastor of Gospel Pillars Intl. Churches worldwide. He is also the founder of the OneSound Revival Fellowship, which runs a TV house, a Bible College, and Charity foundation.",
+      "Called a prophet of God, his daily aim is to seek alignment with Heaven to deliver revelatory teachings, prophecies and exhortations right from the heart of the Father to people, nations, tongues, and kings as seen in Revelation 10:11.",
+      "Through his prophetic ministry and teachings, he unveils deep mysteries of the Kingdom, bringing hidden spiritual realities into light and equipping believers to recognise and exercise their authority in Christ. His ministry is marked by profound spiritual engagement, prophetic declarations, divine interventions, healing, deliverance, miracles, signs and wonders, and the manifest power of the Holy Spirit. From this deep prophetic burden for divine intervention, reversal, restoration, and the realignment of destinies, the Night of Divine Reversal emerges as a powerful expression of his ministry—a prophetic atmosphere where faith is stirred, spiritual battles are confronted, and lives are positioned for divine turnaround.",
+      "On November 11th, 2023, Dr. Macwealth launched his international ministry headquarters, the Ark of Light for all Nations, which has become a Gospel hotspot and an acclaimed mega church in Ikeja area of Lagos, hosting thousands of worshippers weekly and housing a Food and Emergency Bank, known as the Ark Food Bank, a food sanctuary and an emergency response centre in Lagos providing communities across West and Southern Africa with free food, clothing, and emergency supplies.",
+      "In March 2026, in a bold and strategic move to make church more accessible to a wider audience, Prophet Macwealth launched 8 new churches in a single day—including The Hebron, Gospel Pillars Church Lekki, which now serves as the church’s headquarters in Lagos. Since its inauguration, The Hebron has quickly become renowned for its vibrant worship, dynamic atmosphere of prayer, and a thriving community of faith across the island axis of Lagos.",
+      "Dr. Macwealth is also passionate to see revival in the United Kingdom as revealed to him by the Lord, for which he works tirelessly and for which he founded the Revival UK Mission (RUM), which is active in missionary training programs and church planting all over the UK and Europe. His mission also plants churches in 5 continents of the world in anticipation of Christ’s second coming, according to Matt 24:14 which serves as the foundation of his efforts. The Prophet lives in Lagos Nigeria with his wife and his sons.",
     ],
     image: "/images/prophet-isaiah-macwealth.jpg",
   },
@@ -429,75 +435,368 @@ export const NDR_DATA = {
 
   textTestimonies: [
     {
-      id: "t1",
-      name: "Engr. Emmanuel O.",
+      id: "tt1",
+      name: "Peter O.",
+      location: "Middlesbrough, UK",
+      edition: "Season of Remembrance",
+      category: "Healing & Preservation",
+      title: "WIFE & BABY DELIVERED FROM THE HANDS OF DEATH BY EL-GIBBOWR",
+      summary:
+        "My wife, who was heavily pregnant complained of severe abdominal pain and later began hallucinating. At the hospital, doctors discovered our baby’s heart rate had dropped dangerously and immediately performed an emergency Caesarean section to bring the baby out, but my wife remained unconscious.",
+      fullText: `My wife, who was heavily pregnant complained of severe abdominal pain and later began hallucinating. At the hospital, doctors discovered our baby’s heart rate had dropped dangerously and immediately performed an emergency Caesarean section to bring the baby out, but my wife remained unconscious. 
+
+The doctors diagnosed acute pancreatitis, with almost two litres of fluid in her abdomen, a severely damaged pancreas, calcium nearly three times the normal limit, and almost every blood result abnormal. The doctors themselves admitted they were puzzled. In this confusion, I remembered the testimonies read during the last Nights of Remembrance and began to call on El-Gibbowr for mercy.
+
+Suddenly, during one of the prophetic services God’s Prophet declared, “That terminal disease will not terminate you.” Again, during another revival prayer with the prophet, another word came: “That swollen stomach—I command it to reduce.” I received every word in faith, and from that point everything began to change. The fluid in her abdomen began to reduce exactly as the prophetic word had declared. Her dangerously high calcium returned to normal. Her blood pressure and heart rate stabilised. She regained consciousness and began responding; within a few days it became completely normal. 
+
+After two weeks in critical care and one full month in hospital she was discharged healed and healthy. My son is alive and well. Our family has been preserved by the God of the Prophet. Glory to God. Hallelujah!
+
+— Peter O. (Middlesbrough, UK)`,
+    },
+    {
+      id: "tt2",
+      name: "Mr. & Mrs. Okoronkwo",
       location: "Lagos, Nigeria",
-      edition: "NDR 11",
-      category: "Breakthrough",
-      title: "7-Year Stagnation Shattered in 48 Hours",
+      edition: "Prophetic Service",
+      category: "Miraculous Conception",
+      title: "MIRACULOUS CONCEPTION & DELIVERY BY THE MIGHTY HAND OF EL-GIBBOWR",
       summary:
-        "I was tied down by contract approvals withheld without reason for seven consecutive years. During NDR 11, the Prophet declared: 'Between now and Monday, a verdict is overturned in your favor.' On Monday morning, I received a call approving a contract worth over 45 million Naira!",
-      quote:
-        "The divine reversal was so swift and unmistakable. God proved that what took 7 years of sorrow can be turned around in a single night of prayer!",
+        "After 17 months of waiting for the fruit of the womb, we got a medical diagnosis of Bilateral Adhesion (blocked fallopian tubes), which means the chance of conception was zero. We attended a 3-day prophetic service with the prophet of God, and right there, the LORD showed us mercy...",
+      fullText: `After 17 months of waiting for the fruit of the womb, we got a medical diagnosis of Bilateral Adhesion (blocked fallopian tubes), which means the chance of conception was zero. We attended a 3-day prophetic service with the prophet of God, and right there, the LORD showed us mercy and turned that diagnosis around, as my wife conceived just 8 days later, against all medical explanations.
+
+At the point of childbirth, the enemy tried to rear his ugly head again. My wife’s water broke but the doctors asked us to go back home because the dilation was not progressing. 3 days later, our 4kg baby got stuck during delivery, became unresponsive and suffocated. All hope seemed lost, but God’s prophet again declared ‘LIFE’ unto the baby, and miraculously, our child survived the "killer situation" and is alive and healthy today! We return all glory to Jesus. 
+
+Mr. & Mrs. Okoronkwo (Lagos, Nigeria)`,
     },
     {
-      id: "t2",
-      name: "Mrs. Blessing A.",
-      location: "Abuja, Nigeria",
+      id: "tt3",
+      name: "Mr & Mrs J. Sylvester",
+      location: "Benin City, Nigeria",
+      edition: "Season of Remembrance",
+      category: "Reversal & Fruitfulness",
+      title: "3YEAR SIEGE OF 4 LOST BABIES REVERSED IN THE SEASON OF REMEMBRANCE",
+      summary:
+        "We got married in October 2023 and within the space of 3 years, we had experienced a stillbirth, a miscarriage, and the loss of twin babies. Nothing could be more devastating. The only anchor we held onto was the prophetic teachings and declarations of God's prophet...",
+      fullText: `We got married in October 2023 and within the space of 3 years, we had experienced a stillbirth, a miscarriage, and the loss of twin babies. Nothing could be more devastating.
+
+The only anchor we held onto was the prophetic teachings and declarations of God's prophet, who began to teach about the mystery of the womb and how we can be fruitful, as we believed for a reversal of this cycle of pain and losses. 
+
+During the International Intercessors Conference in 2025, we were privileged to meet with God's Prophet who prayed for us and declared, 'I see you carrying your baby and dancing on your birthday, the child will be the salt of the earth'. 
+
+El-Gibbowr, the God of the Prophet answered us, because within the course of nine months, the Lord wiped away our tears and comforted us with a beautiful baby boy as a sign of the beginning of many beautiful things in our family. Glory be to God! 
+
+Mr & Mrs J. Sylvester (Benin City, Nigeria)`,
+    },
+    {
+      id: "tt4",
+      name: "Mrs. & Mr. Okafor",
+      location: "GPC Hackney, London",
       edition: "NDR 10",
-      category: "Healing",
-      title: "Kidney Failure Reversed After Sweet Water Ministration",
+      category: "5 Years Delay Broken",
+      title: "EL-GIBBOWR HAS REMEMBERED US AND BROKEN 5 YEARS OF FRUITFULNESS DELAYS",
       summary:
-        "Diagnosed with stage 4 renal dysfunction and placed on dialysis, I attended the Victory & Faith Remembrance prayer line. Prophet Isaiah Macwealth ministered with the Sweet Water. Following tests three days later, doctors confirmed normal creatinine levels and zero fluid retention!",
-      quote:
-        "My doctor examined the scans three times in disbelief. God gave me a brand new set of kidneys through the Sweet Water prayer line!",
+        "My husband and I got married in December 2021, and ever since then, we have been believing and trusting God for a child. I experienced multiple miscarriages, one after the other, but no medical explanation was given for the repeated miscarriages...",
+      fullText: `My husband and I got married in December 2021, and ever since then, we have been believing and trusting God for a child. I experienced multiple miscarriages, one after the other, but no medical explanation was given for the repeated miscarriages. At some point, we even went through a stillbirth; the baby was five months and a few weeks old. It was a very difficult season for us. As a wife, I fell into depression because I had gone through different procedures, all to no avail.
+
+In the midst of it all, we held on to the God of the prophet. On June 2nd, 2025, I wrote down a request in my journal, tapping into the anointing of the birthday of our Prophet that before his next birthday, I would carry my child. Our Apostle also sent us “sweet water” from the Prophet and prayed with us.
+
+On August 24th, 2025, I was connected to a revival service at our headquarters, and while the testimonies of remembrance and reversal from others were being read, the Prophet of God was led to make a decree with these words: “Whatever darkness you have experienced, a greater light will shine! Receive restoration, double for your trouble!” I and my spouse believed those words strongly and held on to them.
+
+Shortly after, God blessed us again with another pregnancy. The pregnancy was tagged high-risk because of my history, and we discovered that I had fibroids outside my uterus. As the pregnancy progressed, the fibroids also grew. The doctor told us that the delivery would be through a C-section. It really looked like history would repeat itself. 
+
+During NDR10 in March 2026, I wrote in my journal again that I wanted the C-section to be without pain or excessive bleeding - a smooth process. At 37 weeks, we went to the hospital for the operation with full assurance that the God of the Prophet had gone ahead of us to perfect all that concerned us. The first miracle El-Gibbowr did was that all the fibroids that had been seen on the scan were not found in the cervix. The doctor even asked, “Who said there were fibroids in the cervix?” because he could not see any.
+
+What they initially said would take hours because of the series of complications was completed in less than 20 minutes. My baby was delivered safely. Today, I am here to testify that the God of the Prophet has blessed us with a healthy baby boy. God finally turned our waiting into joy after multiple miscarriages and a stillbirth.
+
+I am so grateful that the God of the Prophet remembered me. Glory to God.
+Mrs. & Mr. Okafor, GPC Hackney, London`,
     },
     {
-      id: "t3",
-      name: "Pastor & Deaconess David C.",
-      location: "Port Harcourt, Nigeria",
-      edition: "NDR 9",
-      category: "Restoration",
-      title: "11 Years of Barrenness Ended with Twins",
+      id: "tt5",
+      name: "Gideon O.",
+      location: "Nigeria",
+      edition: "Day of Remembrance",
+      category: "Double Celebration",
+      title: "DOUBLE CELEBRATION IN MY HOME AFTER ENGAGING THE POWER OF EL-GIBBOWR!",
       summary:
-        "We attended the 7-week Fruit of the Womb seminar series and traveled to Lagos for NDR. During the service, the prophetic word came directly to our row. Exactly nine months later, my wife delivered healthy twins—a boy and a girl!",
-      quote:
-        "The word of the Prophet never falls to the ground. Our shame was replaced with double honor and laughter.",
+        "After our traditional marriage in 2023, my wife and I both lost our jobs. In February 2025, we also lost our first pregnancy; it was a very painful season for us. But Since November 2024 when I joined Gospel Pillars Church, we have been diligently following the instructions of our Prophet...",
+      fullText: `After our traditional marriage in 2023, my wife and I both lost our jobs. In February 2025, we also lost our first pregnancy; it was a very painful season for us.
+
+But Since November 2024 when I joined Gospel Pillars Church, we have been diligently following the instructions of our Prophet and to the glory of God, my wife conceived again, thought the Doctors marked it a high-risk pregnancy because of the presence of fibroids and her past history.
+
+However, in obedience to the prophetic instructions by the prophet of God, I wrote down my prayer requests (remembrance list) for a new job and safe delivery of my wife.
+
+On the 4th day of Remembrance while my wife was in the labour room, I received an email from a company I had applied to months before, offering me a job with a salary twice what I lost in 2023. Almost immediately after, my wife put to birth a bouncing baby boy! 
+
+Indeed, the God of the prophet, El-Gibbowr has remembered us. Glory be to His Name!
+- Gideon O. (Nigeria)`,
     },
     {
-      id: "t4",
-      name: "Victoria K.",
-      location: "London, United Kingdom (Online Attendee)",
-      edition: "NDR 12",
-      category: "Deliverance",
-      title: "Ancestral Embargo Broken Over Our Family Firstborns",
+      id: "tt6",
+      name: "Modupe Omotosho",
+      location: "Sangotedo, Lagos",
+      edition: "NDR Deliverance",
+      category: "Deliverance & Healing",
+      title: "DELIVERANCE FROM THE SPIRIT OF INFIRMITY AND DEATH BY THE POWER OF EL-GIBBOWR",
       summary:
-        "In our family, no firstborn child had ever graduated or married without catastrophic illness. Connecting online from London during the warfare midnight hour, I felt an actual weight roll off my chest. That month, my elder brother graduated with honors and my cousin got married!",
-      quote:
-        "Distance is not a barrier to the prophetic unction. NDR broke chains that bound our bloodline for three generations.",
+        "For the past 5 years, my mum usually would fall sick at a certain time of the year, just before her birthday- we observe the pattern annually, usually there is no diagnosis medically, the symptoms are usually severe blood shortage, hallucination, extreme weakness...",
+      fullText: `For the past 5 years, my mum usually would fall sick at a certain time of the year, just before her birthday- we observe the pattern annually, usually there is no diagnosis medically, the symptoms are usually severe blood shortage, hallucination, extreme weakness, inability to walk, eat or function normally. it was tiring! we had spent so much money, prayed, fasted and trusted- in fact we had tested her for cancer, HIV and all manner of possibilities but the results returned negative.
+
+I truly got tired of this satanic oppression and began to trust the Lord
+- I set up my altar, put her name on it trusting the Lord for healing 
+- Administered jumbo water, gave her communion daily and confessed the word of God
+- Did a 3 days thanksgiving dance to the Lord in faith for her healing 
+- It was always part of my request each NDR
+- She came to Lagos and knelt on the altar before the Lord in the ark and prayed for deliverance and healing, she believed in the God of this house
+
+What the Lord did
+On the 29th July 2026, I was in a vision, I saw a huge snake, it was huge, more like a dragon but a snake with 9 heads and several branches, it was terrifying, it hides between the flowers just infront of my parents house. it lives there and has been there for years, seasonally, it rears its head, strikes and goes back into hiding.
+
+We saw it, my mum went there and uprooted it from its root and sprayed something on it that made it powerless and weak and it was disposed out of our household. And ever since, my mum has experienced supernatural healing- I have come to return the Glory to El-Gibbowr the God of my Prophet and fulfill my vow to the Lord for this great deliverance wherein he has wrought for us. Thank you Jesus !!!!!
+Modupe Omotosho, Sangotedo`,
+    },
+    {
+      id: "tt7",
+      name: "Mrs. Onuoha Uche",
+      location: "Lagos, Nigeria",
+      edition: "RMD Night, May Edition",
+      category: "Expedited Healing",
+      title: "EXPEDITED HEALING AND RECOVERY BY THE TOUCH OF EL-GIBBOWR",
+      summary:
+        "On March 6th, I was involved in an accident and I suffered a broken leg. The bone was badly broken — it was only being held together by flesh. The doctors told me to expect a long recovery: 6 to 8 weeks of immobility and using crutches. Honestly, it looked hopeless...",
+      fullText: `On March 6th, I was involved in an accident and I suffered a broken leg. The bone was badly broken — it was only being held together by flesh. The doctors told me to expect a long recovery: 6 to 8 weeks of immobility and using crutches. Honestly, it looked hopeless. But God stepped in. He positioned someone who knew a doctor that could help me. After *5 weeks* of being in one place, I stood for the first time.
+
+My Journey to Recovery:
+During those nights of pain and sleeplessness, I held on to God’s Word and used sweet water. I kept reading Ezekiel 37 — the vision of the dry bones. 
+I was not alone. I was told Prophet prayed for me. My family stood with me — my favorite brother-in-law *Pastor Salvy*, my sister *Deaconess Kachi*, *Pastor Osayi, Pastor Beauty and Blessing* and others. They prayed for me, checked on me, and encouraged me.
+God also spoke to me in dreams. He showed me that I would *throw away my crutches and walk again*.  
+In faith, during prayer meetings, I applied the *anointed mantle* from *RMD Night, May Edition* — when Prophet asked us to come to Hebron by 7am — to my affected leg and knee.
+
+The Outcome: My locked knee was released. The severe pain vanished. 
+I remember the first Sunday I came to church after the accident. I didn’t even know God was waiting for me. Just as we approached the church entrance, the choir started singing my favorite song and I broke down in tears, thanking *El-Gibbor* for healing me. 
+During the service, the Prophet made illustrations using his right leg and said, _"Ignore the pain and worship God."_  
+*1st Sunday*: I came with 2 crutches.  
+*2nd Sunday*: I came with 2 crutches but left one in the car.  
+That was how I progressed until I dropped them completely.  
+
+I want to thank my Prophet, my Pastors, my family, and this wonderful church community for your love and prayers. What the enemy meant for evil, God turned around for my testimony.
+Mrs. Onuoha Uche (Lagos)`,
+    },
+    {
+      id: "tt8",
+      name: "Ebenezer O.",
+      location: "Abuja, Nigeria",
+      edition: "Season of Remembrance",
+      category: "Healing, Promotion & Provision",
+      title: "SUPERNATURAL HEALING, PROMOTION & A NEW LEVEL IN THE SEASON OF REMEMBRANCE",
+      summary:
+        "I want to bless the name of the Lord, El-Gibbor, the God of our Prophet, for deeming me fit to live again. Last month I was diagnosed with a collapsed lung. I could barely breathe and was in severe pain after surgery at Gwagwalada Teaching Hospital...",
+      fullText: `I want to bless the name of the Lord, El-Gibbor, the God of our Prophet, for deeming me fit to live again.
+
+1. HEALING FROM COLLAPSED LUNG  
+Last month I was diagnosed with a collapsed lung. I could barely breathe and was in severe pain after surgery at Gwagwalada Teaching Hospital. I had complications, was coughing profusely and losing my breath. I listened to Sunday service message on Faith, connected to AEJ IBADAN online put out my Faith. Then in a dream a I was in a beautiful Hospital and a Dr said he has come to heal me. He will extract the fluid. God sent help in time — I was given oxygen and treatment, and 4 days later the tube was removed. A scan showed my lungs had fully expanded. The doctors were amazed at how fast I recovered.
+
+2. DIVINE PROMOTION  
+While I was still recovering, God remembered the word of our Prophet spoken through our Apostle on 10th May: "An in-law will be your point of promotion." I help unto that work and through my in law I was called to take up the  Unit Commander of FIRS/NRS. In just 2 days the signal came out appointing me as Commanding Officer in charge of FIRS/NRS.  
+Now I oversee over 200 men across all FIRS branches in Nigeria, though my rank ordinarily covers only 63. God promoted me from field officer to a national command position.
+
+3. GOD’S PROVISION  
+In that same month of spending close to ₦1 million on hospital bills, God blessed my family with a car. From deathbed, to instant healing, to promotion, to a car — all in one month.
+
+I’m grateful to the God of our Prophet Jehovah El Gibbowr for his faithfulness. I am grateful for the gift of our Prophet a vessel in God's hand. 
+To God alone be all the glory! Amen.
+Ebenezer O. (Abuja, Nigeria)`,
+    },
+    {
+      id: "tt9",
+      name: "Barr. Opara C.",
+      location: "London, United Kingdom",
+      edition: "Year of Decrees 2026",
+      category: "Divine Reversal of Visa",
+      title: "DIVINE REVERSAL OF  VISA STATUS BY THE POWER OF DECREES",
+      summary:
+        "Coming into this year, the prophet taught us to make decrees. At the time, my visa was expiring and she was having difficulties renewing. I wrote as one of my 26 decrees for 2026 that I would secure a sponsored job before the end of January...",
+      fullText: `Coming into this year, the prophet taught us to make decrees. At the time, my visa was expiring and she was having difficulties renewing. I wrote as one of my 26 decrees for 2026 that I would secure a sponsored job before the end of January. Given everything that was happening, it seemed almost impossible to write that down. Nevertheless, I did so in faith, trusting God and declaring, "I'm a covenant daughter of the Prophet. Everything will work together for my good."
+
+Soon afterwards, I began receiving multiple interview invitations. I prepared diligently for each one, holding on to the Word of God and depending on the God of the Prophet to give me victory. Over the last two months, I received four job offers, two of which came with full visa sponsorship. On 19 February, I received a provisional offer for the position of Legal Adviser with the Ministry of Justice in the United Kingdom. I have now resumed that position on a sponsored visa.
+
+This time last year, I had no income and was under the intense pressure of an expiring visa with an uncertain future. But God remembered me and completely reversed my situation. He moved me from having no job and no visa options to having multiple job offers which He has now perfected. I am deeply grateful to the God of the Prophet for making a way where there seemed to be none. To Him alone be all the Glory!
+
+— Barr. Opara C. (London, United Kingdom)`,
     },
   ] as TextTestimony[],
 
   videoTestimonies: [
+    // Batch 1 (11 Videos)
     {
       id: "v1",
-      title: "Supernatural Reversal & Miracles at NDR 10",
-      speaker: "Prophet Isaiah Macwealth & Testifiers",
-      duration: "Full Service Highlights",
-      youtubeId: "MLG2ztVYrt8",
+      title: "From the Edge of Death to a Double Miracle",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "oGr45qcDB-M",
+      batch: "Batch 1",
+      category: "Miracle & Deliverance",
       summary:
-        "Watch instant healings, dramatic yoke-breaking deliveries, and explosive testimonies recorded live at the Ark of Light for All Nations.",
-      thumbnail: "/images/ndr-auditorium-worship.jpg",
+        "A jaw-dropping testimony of resurrection life and divine reversal from the very brink of death to a double miracle.",
+      thumbnail: "https://img.youtube.com/vi/oGr45qcDB-M/hqdefault.jpg",
     },
     {
       id: "v2",
-      title: "Tarrying for Answered Prayers | NDR 11",
-      speaker: "Prophet Isaiah Macwealth",
-      duration: "Prophetic Service Session",
-      youtubeId: "3Vy9M_7Y2KM",
+      title: "Brought Back to Life by the Mantle of Wonder",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "KdmQ7QI4W6g",
+      batch: "Batch 1",
+      category: "Resurrection & Healing",
       summary:
-        "Experience the deep atmosphere of intercession, spiritual warfare, and documented answers to prayer during the Night of Divine Reversal.",
-      thumbnail: "/images/ndr-prophetic-impartation.jpg",
+        "Documented miracle of life restored through the prophetic mantle and the manifest power of the Holy Spirit.",
+      thumbnail: "https://img.youtube.com/vi/KdmQ7QI4W6g/hqdefault.jpg",
+    },
+    {
+      id: "v3",
+      title: "Strange Swelling in Private Area Dissolves",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "eLHDoJOZezQ",
+      batch: "Batch 1",
+      category: "Instant Healing",
+      summary:
+        "Painful bodily affliction and strange swelling completely dissolved following prophetic declaration and prayer.",
+      thumbnail: "https://img.youtube.com/vi/eLHDoJOZezQ/hqdefault.jpg",
+    },
+    {
+      id: "v4",
+      title: "Instant Healing After Accurate Prophetic Declaration",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "KzjwQQX8Ijk",
+      batch: "Batch 1",
+      category: "Prophetic Healing",
+      summary:
+        "A sharp, accurate prophetic word addressed the condition and brought immediate, verifiable healing.",
+      thumbnail: "https://img.youtube.com/vi/KzjwQQX8Ijk/hqdefault.jpg",
+    },
+    {
+      id: "v5",
+      title: "Double for Your Trouble & Honor for Your Shame",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "BgnSQ-iYjAQ",
+      batch: "Batch 1",
+      category: "Breakthrough",
+      summary:
+        "Supernatural turnaround reversing long seasons of trial into celebrated divine honor and double restoration.",
+      thumbnail: "https://img.youtube.com/vi/BgnSQ-iYjAQ/hqdefault.jpg",
+    },
+    {
+      id: "v6",
+      title: "El-Gibbowr Will Not Leave You Stranded",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "9Y5AMyT7PVs",
+      batch: "Batch 1",
+      category: "Divine Intervention",
+      summary:
+        "God the Mighty Warrior moved swiftly to rescue and uphold His child at a critical juncture of helplessness.",
+      thumbnail: "https://img.youtube.com/vi/9Y5AMyT7PVs/hqdefault.jpg",
+    },
+    {
+      id: "v7",
+      title: "Double Testimony of Restoration in One Day",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "QR-lwhwHiRk",
+      batch: "Batch 1",
+      category: "Restoration",
+      summary:
+        "Two extraordinary breakthroughs and restoration testimonies materialized within 24 hours.",
+      thumbnail: "https://img.youtube.com/vi/QR-lwhwHiRk/hqdefault.jpg",
+    },
+    {
+      id: "v8",
+      title: "God Answered All Her Prayers After Engaging the Altar",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "dzrCFDnGovs",
+      batch: "Batch 1",
+      category: "Answered Prayers",
+      summary:
+        "Every single prayer point presented before the altar received a comprehensive supernatural answer.",
+      thumbnail: "https://img.youtube.com/vi/dzrCFDnGovs/hqdefault.jpg",
+    },
+    {
+      id: "v9",
+      title: "3 Years Delay Broken in the Season of Fruitfulness",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "8YYV6Y902E0",
+      batch: "Batch 1",
+      category: "Fruitfulness",
+      summary:
+        "Three solid years of delay and barren waiting shattered as the prophetic season of fruitfulness was declared.",
+      thumbnail: "https://img.youtube.com/vi/8YYV6Y902E0/hqdefault.jpg",
+    },
+    {
+      id: "v10",
+      title: "God Preserved This Baby's Life",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "joN_4Bw3Kvw",
+      batch: "Batch 1",
+      category: "Miracle Baby",
+      summary:
+        "Supernatural intervention and prophetic preservation that snatched a newborn from mortal danger.",
+      thumbnail: "https://img.youtube.com/vi/joN_4Bw3Kvw/hqdefault.jpg",
+    },
+    {
+      id: "v11",
+      title: "Cancer Diagnosis Reversed by the Mercy of God",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "pqfG_ufdag4",
+      batch: "Batch 1",
+      category: "Cancer Reversal",
+      summary:
+        "Confirmed clinical cancer diagnosis overturned and cleared through the healing mercy of God.",
+      thumbnail: "https://img.youtube.com/vi/pqfG_ufdag4/hqdefault.jpg",
+    },
+
+    // Batch 2 (3 Videos)
+    {
+      id: "v12",
+      title: "Terminal Illness Reversed by the Mercy of God",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "pUdVv3mEr6M",
+      batch: "Batch 2",
+      category: "Terminal Illness Reversal",
+      summary:
+        "A medically declared terminal condition completely reversed through divine intervention and prayer.",
+      thumbnail: "https://img.youtube.com/vi/pUdVv3mEr6M/hqdefault.jpg",
+    },
+    {
+      id: "v13",
+      title: "16 Years of Mental Illness Healed",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "scfiNseQLdo",
+      batch: "Batch 2",
+      category: "Mental Deliverance",
+      summary:
+        "Sixteen years of psychiatric oppression and mental disorder miraculously cured in God's presence.",
+      thumbnail: "https://img.youtube.com/vi/scfiNseQLdo/hqdefault.jpg",
+    },
+    {
+      id: "v14",
+      title: "Doctors Checked Again And The Stones Were GONE",
+      speaker: "Prophet Isaiah Macwealth & Testifier",
+      duration: "Shorts",
+      youtubeId: "iYme2HFtvcs",
+      batch: "Batch 2",
+      category: "Medical Miracle",
+      summary:
+        "Repeat hospital diagnostic scans revealed internal stones vanished without medical surgery.",
+      thumbnail: "https://img.youtube.com/vi/iYme2HFtvcs/hqdefault.jpg",
     },
   ] as VideoTestimony[],
 

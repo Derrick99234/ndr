@@ -1,12 +1,36 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
-import { NDR_DATA, VideoTestimony } from "@/data/ndrContent";
+import { NDR_DATA, VideoTestimony, TextTestimony } from "@/data/ndrContent";
 
 export default function Testimonies() {
   const [activeTab, setActiveTab] = useState<"text" | "video">("text");
+  const [videoBatch, setVideoBatch] = useState<"all" | "Batch 1" | "Batch 2">("all");
   const [selectedVideo, setSelectedVideo] = useState<VideoTestimony | null>(null);
+  const [selectedTextTestimony, setSelectedTextTestimony] = useState<TextTestimony | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (selectedVideo || selectedTextTestimony) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedVideo, selectedTextTestimony]);
+
+  const filteredVideos = NDR_DATA.videoTestimonies.filter((video) => {
+    if (videoBatch === "all") return true;
+    return video.batch === videoBatch;
+  });
 
   return (
     <section id="testimonies" className="section-wrapper" style={{ backgroundColor: "var(--bg-alt)" }}>
@@ -29,7 +53,7 @@ export default function Testimonies() {
             justifyContent: "center",
             gap: "12px",
             flexWrap: "wrap",
-            marginBottom: "44px",
+            marginBottom: activeTab === "video" ? "20px" : "44px",
           }}
         >
           <button
@@ -63,9 +87,74 @@ export default function Testimonies() {
               boxShadow: activeTab === "video" ? "0 4px 20px rgba(245, 158, 11, 0.3)" : "none",
             }}
           >
-            Testimony Encounters (Video Embeds)
+            Video Testimony Encounters ({NDR_DATA.videoTestimonies.length})
           </button>
         </div>
+
+        {/* Batch Filter Sub-bar (Only shown when activeTab is video) */}
+        {activeTab === "video" && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "10px",
+              flexWrap: "wrap",
+              marginBottom: "36px",
+            }}
+          >
+            <button
+              onClick={() => setVideoBatch("all")}
+              style={{
+                padding: "8px 20px",
+                borderRadius: "var(--radius-full)",
+                fontSize: "0.82rem",
+                fontWeight: 600,
+                backgroundColor: videoBatch === "all" ? "rgba(245, 158, 11, 0.2)" : "transparent",
+                color: videoBatch === "all" ? "var(--gold-light)" : "var(--text-muted)",
+                border: videoBatch === "all" ? "1px solid var(--gold-primary)" : "1px solid rgba(255, 255, 255, 0.1)",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+              }}
+            >
+              All Testimonies ({NDR_DATA.videoTestimonies.length})
+            </button>
+
+            <button
+              onClick={() => setVideoBatch("Batch 1")}
+              style={{
+                padding: "8px 20px",
+                borderRadius: "var(--radius-full)",
+                fontSize: "0.82rem",
+                fontWeight: 600,
+                backgroundColor: videoBatch === "Batch 1" ? "rgba(245, 158, 11, 0.2)" : "transparent",
+                color: videoBatch === "Batch 1" ? "var(--gold-light)" : "var(--text-muted)",
+                border: videoBatch === "Batch 1" ? "1px solid var(--gold-primary)" : "1px solid rgba(255, 255, 255, 0.1)",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+              }}
+            >
+              Batch 1 — Miracles & Healings (11)
+            </button>
+
+            <button
+              onClick={() => setVideoBatch("Batch 2")}
+              style={{
+                padding: "8px 20px",
+                borderRadius: "var(--radius-full)",
+                fontSize: "0.82rem",
+                fontWeight: 600,
+                backgroundColor: videoBatch === "Batch 2" ? "rgba(245, 158, 11, 0.2)" : "transparent",
+                color: videoBatch === "Batch 2" ? "var(--gold-light)" : "var(--text-muted)",
+                border: videoBatch === "Batch 2" ? "1px solid var(--gold-primary)" : "1px solid rgba(255, 255, 255, 0.1)",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+              }}
+            >
+              Batch 2 — Archive & Restoration (3)
+            </button>
+          </div>
+        )}
 
         {/* Tab 1: Personal Testimonies (Text) */}
         {activeTab === "text" && (
@@ -117,14 +206,14 @@ export default function Testimonies() {
 
                   <h3
                     style={{
-                      fontSize: "1.2rem",
+                      fontSize: "1.12rem",
                       color: "#ffffff",
-                      lineHeight: 1.4,
+                      lineHeight: 1.45,
                       marginBottom: "14px",
                       fontWeight: 700,
                     }}
                   >
-                    &ldquo;{item.title}&rdquo;
+                    {item.title}
                   </h3>
 
                   <p
@@ -137,55 +226,60 @@ export default function Testimonies() {
                   >
                     {item.summary}
                   </p>
-
-                  <div
-                    style={{
-                      padding: "14px",
-                      borderRadius: "8px",
-                      background: "rgba(255, 255, 255, 0.03)",
-                      borderLeft: "3px solid var(--gold-light)",
-                      fontStyle: "italic",
-                      fontSize: "0.88rem",
-                      color: "var(--text-gold)",
-                      lineHeight: 1.5,
-                      marginBottom: "20px",
-                    }}
-                  >
-                    &ldquo;{item.quote}&rdquo;
-                  </div>
                 </div>
 
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    paddingTop: "14px",
-                    borderTop: "1px solid rgba(255, 255, 255, 0.06)",
-                  }}
-                >
+                <div>
+                  <div style={{ marginBottom: "16px" }}>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedTextTestimony(item)}
+                      className="btn-outline-gold"
+                      style={{
+                        padding: "7px 18px",
+                        fontSize: "0.82rem",
+                        fontWeight: 700,
+                        cursor: "pointer",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "6px",
+                      }}
+                    >
+                      Read More →
+                    </button>
+                  </div>
+
                   <div
                     style={{
-                      width: "38px",
-                      height: "38px",
-                      borderRadius: "50%",
-                      background: "rgba(245, 158, 11, 0.2)",
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "center",
-                      color: "var(--gold-light)",
-                      fontWeight: 800,
-                      fontSize: "0.85rem",
+                      gap: "12px",
+                      paddingTop: "14px",
+                      borderTop: "1px solid rgba(255, 255, 255, 0.06)",
                     }}
                   >
-                    {item.name.charAt(0)}
-                  </div>
-                  <div>
-                    <div style={{ fontSize: "0.92rem", fontWeight: 700, color: "#ffffff" }}>
-                      {item.name}
+                    <div
+                      style={{
+                        width: "38px",
+                        height: "38px",
+                        borderRadius: "50%",
+                        background: "rgba(245, 158, 11, 0.2)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "var(--gold-light)",
+                        fontWeight: 800,
+                        fontSize: "0.85rem",
+                      }}
+                    >
+                      {item.name.charAt(0)}
                     </div>
-                    <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>
-                      {item.location}
+                    <div>
+                      <div style={{ fontSize: "0.92rem", fontWeight: 700, color: "#ffffff" }}>
+                        {item.name}
+                      </div>
+                      <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>
+                        {item.location}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -200,12 +294,12 @@ export default function Testimonies() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-                gap: "28px",
+                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                gap: "24px",
                 marginBottom: "40px",
               }}
             >
-              {NDR_DATA.videoTestimonies.map((video) => (
+              {filteredVideos.map((video) => (
                 <div
                   key={video.id}
                   className="glass-card"
@@ -226,49 +320,70 @@ export default function Testimonies() {
                       borderRadius: "10px",
                       overflow: "hidden",
                       cursor: "pointer",
-                      marginBottom: "16px",
+                      marginBottom: "14px",
+                      backgroundColor: "#060913",
                     }}
                   >
                     <Image
                       src={video.thumbnail}
                       alt={video.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 360px"
                       style={{ objectFit: "cover" }}
                     />
                     <div
                       style={{
                         position: "absolute",
                         inset: 0,
-                        backgroundColor: "rgba(6, 9, 19, 0.5)",
+                        backgroundColor: "rgba(6, 9, 19, 0.45)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         transition: "background-color 0.2s ease",
                       }}
                       onMouseEnter={(e) =>
-                        (e.currentTarget.style.backgroundColor = "rgba(6, 9, 19, 0.25)")
+                        (e.currentTarget.style.backgroundColor = "rgba(6, 9, 19, 0.2)")
                       }
                       onMouseLeave={(e) =>
-                        (e.currentTarget.style.backgroundColor = "rgba(6, 9, 19, 0.5)")
+                        (e.currentTarget.style.backgroundColor = "rgba(6, 9, 19, 0.45)")
                       }
                     >
                       <div
                         style={{
-                          width: "60px",
-                          height: "60px",
+                          width: "56px",
+                          height: "56px",
                           borderRadius: "50%",
                           background: "var(--gold-gradient)",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
                           color: "#060913",
-                          fontSize: "1.4rem",
+                          fontSize: "1.3rem",
                           boxShadow: "0 0 25px rgba(245, 158, 11, 0.6)",
-                          paddingLeft: "4px",
+                          paddingLeft: "3px",
                         }}
                       >
                         ▶
                       </div>
+                    </div>
+
+                    {/* Batch Tag on Thumbnail */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "10px",
+                        left: "10px",
+                        background: "rgba(6, 9, 19, 0.85)",
+                        border: "1px solid rgba(245, 158, 11, 0.4)",
+                        color: "var(--gold-light)",
+                        padding: "3px 8px",
+                        borderRadius: "4px",
+                        fontSize: "0.72rem",
+                        fontWeight: 700,
+                        letterSpacing: "0.04em",
+                      }}
+                    >
+                      {video.batch}
                     </div>
 
                     <div
@@ -276,21 +391,40 @@ export default function Testimonies() {
                         position: "absolute",
                         bottom: "10px",
                         right: "10px",
-                        background: "rgba(0, 0, 0, 0.8)",
+                        background: "rgba(0, 0, 0, 0.85)",
                         color: "#ffffff",
                         padding: "3px 8px",
                         borderRadius: "4px",
-                        fontSize: "0.75rem",
+                        fontSize: "0.72rem",
                         fontWeight: 600,
                       }}
                     >
-                      {video.duration}
+                      Shorts
                     </div>
                   </div>
 
+                  {/* Category Pill */}
+                  {video.category && (
+                    <div style={{ marginBottom: "8px" }}>
+                      <span
+                        style={{
+                          padding: "2px 8px",
+                          borderRadius: "4px",
+                          fontSize: "0.72rem",
+                          fontWeight: 700,
+                          backgroundColor: "rgba(245, 158, 11, 0.1)",
+                          color: "var(--gold-light)",
+                          border: "1px solid rgba(245, 158, 11, 0.2)",
+                        }}
+                      >
+                        {video.category}
+                      </span>
+                    </div>
+                  )}
+
                   <h3
                     style={{
-                      fontSize: "1.15rem",
+                      fontSize: "1.08rem",
                       color: "#ffffff",
                       fontWeight: 700,
                       marginBottom: "8px",
@@ -302,7 +436,7 @@ export default function Testimonies() {
 
                   <p
                     style={{
-                      fontSize: "0.88rem",
+                      fontSize: "0.86rem",
                       color: "var(--text-secondary)",
                       lineHeight: 1.55,
                       marginBottom: "16px",
@@ -321,14 +455,14 @@ export default function Testimonies() {
                       borderTop: "1px solid rgba(255, 255, 255, 0.06)",
                     }}
                   >
-                    <span style={{ fontSize: "0.8rem", color: "var(--gold-light)", fontWeight: 600 }}>
-                      Speaker: {video.speaker}
+                    <span style={{ fontSize: "0.76rem", color: "var(--text-muted)", fontWeight: 500 }}>
+                      Prophet Isaiah Macwealth
                     </span>
 
                     <button
                       onClick={() => setSelectedVideo(video)}
                       className="btn-outline-gold"
-                      style={{ padding: "6px 14px", fontSize: "0.8rem" }}
+                      style={{ padding: "6px 14px", fontSize: "0.8rem", cursor: "pointer" }}
                     >
                       Watch Video ▶
                     </button>
@@ -337,26 +471,59 @@ export default function Testimonies() {
               ))}
             </div>
 
-            {/* Link to YouTube Channel */}
+            {/* Link to YouTube Shorts Channel */}
             <div style={{ textAlign: "center" }}>
               <a
-                href={NDR_DATA.eventMeta.youtubeLive}
+                href="https://www.youtube.com/@isaiahmacwealth/shorts"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary"
               >
-                Explore More Testimonies on YouTube (@Arkoflightforallnations) ↗
+                Explore More Testimonies on YouTube (@isaiahmacwealth) ↗
               </a>
             </div>
           </div>
         )}
 
-        {/* Video Player Modal */}
-        {selectedVideo && (
-          <div className="modal-overlay" onClick={() => setSelectedVideo(null)}>
+        {/* Video Player Modal (Portaled to document.body, zIndex 999999) */}
+        {mounted && selectedVideo && createPortal(
+          <div
+            className="modal-overlay"
+            onClick={() => setSelectedVideo(null)}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: "100vw",
+              height: "100vh",
+              height: "100dvh",
+              backgroundColor: "rgba(3, 7, 18, 0.9)",
+              backdropFilter: "blur(14px)",
+              WebkitBackdropFilter: "blur(14px)",
+              zIndex: 999999, // On top of everything
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "max(24px, 4vh) 20px",
+            }}
+          >
             <div
               className="modal-content"
-              style={{ maxWidth: "800px", padding: "24px" }}
+              style={{
+                maxWidth: "460px",
+                width: "92%",
+                maxHeight: "min(88vh, 760px)",
+                overflowY: "auto",
+                padding: "24px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                backgroundColor: "#0d1424",
+                border: "1px solid rgba(245, 158, 11, 0.4)",
+                boxShadow: "0 30px 100px rgba(0, 0, 0, 0.95), 0 0 45px rgba(245, 158, 11, 0.2)",
+              }}
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -367,25 +534,55 @@ export default function Testimonies() {
                 ✕
               </button>
 
-              <h3 style={{ fontSize: "1.25rem", color: "#ffffff", marginBottom: "16px", paddingRight: "40px" }}>
-                {selectedVideo.title}
-              </h3>
+              <div style={{ width: "100%", marginBottom: "12px", paddingRight: "36px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
+                  <span
+                    style={{
+                      background: "rgba(245, 158, 11, 0.15)",
+                      color: "var(--gold-light)",
+                      border: "1px solid rgba(245, 158, 11, 0.3)",
+                      fontSize: "0.72rem",
+                      padding: "2px 8px",
+                      borderRadius: "var(--radius-full)",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {selectedVideo.batch}
+                  </span>
+                  {selectedVideo.category && (
+                    <span
+                      style={{
+                        color: "var(--text-muted)",
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {selectedVideo.category}
+                    </span>
+                  )}
+                </div>
+                <h3 style={{ fontSize: "1.1rem", color: "#ffffff", fontWeight: 700, lineHeight: 1.35 }}>
+                  {selectedVideo.title}
+                </h3>
+              </div>
 
-              {/* 16:9 Responsive YouTube Iframe */}
+              {/* Responsive 9:16 Vertical Video Frame */}
               <div
                 style={{
                   position: "relative",
                   width: "100%",
-                  paddingBottom: "56.25%",
-                  height: 0,
-                  borderRadius: "10px",
+                  maxWidth: "320px",
+                  aspectRatio: "9/16",
+                  borderRadius: "12px",
                   overflow: "hidden",
-                  marginBottom: "16px",
+                  marginBottom: "14px",
                   background: "#000000",
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.9)",
+                  border: "1px solid rgba(245, 158, 11, 0.25)",
                 }}
               >
                 <iframe
-                  src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1`}
+                  src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1&rel=0`}
                   title={selectedVideo.title}
                   style={{
                     position: "absolute",
@@ -400,11 +597,196 @@ export default function Testimonies() {
                 />
               </div>
 
-              <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", lineHeight: 1.5 }}>
+              <p
+                style={{
+                  color: "var(--text-secondary)",
+                  fontSize: "0.86rem",
+                  lineHeight: 1.5,
+                  textAlign: "center",
+                  marginBottom: "14px",
+                  width: "100%",
+                }}
+              >
                 {selectedVideo.summary}
               </p>
+
+              <a
+                href={`https://www.youtube.com/shorts/${selectedVideo.youtubeId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline-gold"
+                style={{
+                  fontSize: "0.82rem",
+                  padding: "8px 16px",
+                  width: "100%",
+                  textAlign: "center",
+                  textDecoration: "none",
+                }}
+              >
+                Watch Directly on YouTube Shorts ↗
+              </a>
             </div>
-          </div>
+          </div>,
+          document.body
+        )}
+
+        {/* Full Text Testimony Popup Modal (Portaled directly to document.body with wider width: maxWidth 880px) */}
+        {mounted && selectedTextTestimony && createPortal(
+          <div
+            className="modal-overlay"
+            onClick={() => setSelectedTextTestimony(null)}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: "100vw",
+              height: "100vh",
+              height: "100dvh",
+              backgroundColor: "rgba(3, 7, 18, 0.9)",
+              backdropFilter: "blur(14px)",
+              WebkitBackdropFilter: "blur(14px)",
+              zIndex: 999999, // Above navbar and all page content
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "max(32px, 5vh) 20px",
+            }}
+          >
+            <div
+              className="modal-content"
+              style={{
+                maxWidth: "880px", // Wider width as requested
+                width: "100%",
+                maxHeight: "min(86vh, 850px)",
+                overflowY: "auto",
+                padding: "36px",
+                position: "relative",
+                backgroundColor: "#0d1424",
+                border: "1px solid rgba(245, 158, 11, 0.4)",
+                boxShadow: "0 30px 100px rgba(0, 0, 0, 0.95), 0 0 45px rgba(245, 158, 11, 0.2)",
+                borderRadius: "var(--radius-lg)",
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="modal-close-btn"
+                onClick={() => setSelectedTextTestimony(null)}
+                aria-label="Close testimony modal"
+              >
+                ✕
+              </button>
+
+              <div style={{ marginBottom: "24px", paddingRight: "40px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    flexWrap: "wrap",
+                    marginBottom: "12px",
+                  }}
+                >
+                  {selectedTextTestimony.category && (
+                    <span
+                      style={{
+                        padding: "4px 10px",
+                        borderRadius: "var(--radius-full)",
+                        background: "rgba(245, 158, 11, 0.15)",
+                        border: "1px solid rgba(245, 158, 11, 0.3)",
+                        color: "var(--gold-light)",
+                        fontSize: "0.75rem",
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                      }}
+                    >
+                      {selectedTextTestimony.category}
+                    </span>
+                  )}
+                  {selectedTextTestimony.edition && (
+                    <span
+                      style={{
+                        fontSize: "0.8rem",
+                        color: "var(--text-muted)",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {selectedTextTestimony.edition}
+                    </span>
+                  )}
+                </div>
+
+                <h3
+                  style={{
+                    fontSize: "clamp(1.2rem, 2.5vw, 1.55rem)",
+                    fontWeight: 800,
+                    color: "#ffffff",
+                    lineHeight: 1.35,
+                    marginBottom: "10px",
+                  }}
+                >
+                  {selectedTextTestimony.title}
+                </h3>
+
+                <div
+                  style={{
+                    fontSize: "0.92rem",
+                    color: "var(--gold-light)",
+                    fontWeight: 700,
+                  }}
+                >
+                  — {selectedTextTestimony.name} ({selectedTextTestimony.location})
+                </div>
+              </div>
+
+              {/* Exact Testimony Text formatted with original paragraphs and line breaks */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "18px",
+                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                  paddingTop: "24px",
+                }}
+              >
+                {selectedTextTestimony.fullText.split("\n\n").map((paragraph, index) => (
+                  <p
+                    key={index}
+                    style={{
+                      fontSize: "0.98rem",
+                      color: "var(--text-secondary)",
+                      lineHeight: 1.85,
+                      whiteSpace: "pre-line",
+                      margin: 0,
+                    }}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              <div
+                style={{
+                  marginTop: "28px",
+                  paddingTop: "20px",
+                  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={() => setSelectedTextTestimony(null)}
+                  className="btn-primary"
+                  style={{ padding: "8px 24px", fontSize: "0.85rem" }}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>,
+          document.body
         )}
       </div>
     </section>
