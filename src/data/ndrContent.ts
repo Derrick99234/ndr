@@ -31,13 +31,8 @@ export interface SeminarWeek {
   tag: string;
 }
 
-export interface GalleryImage {
-  id: string;
-  title: string;
-  category: "all" | "worship" | "convener" | "prayer" | "sanctuary";
-  src: string;
-  caption: string;
-}
+import { galleryImages, type GalleryImage } from "./galleryImages";
+export type { GalleryImage };
 
 export interface TextTestimony {
   id: string;
@@ -382,56 +377,7 @@ export const NDR_DATA = {
     },
   ] as SeminarWeek[],
 
-  gallery: [
-    {
-      id: "g1",
-      title: "Auditorium & Worship at The Ark of Light",
-      category: "sanctuary",
-      src: "/images/ndr-auditorium-worship.jpg",
-      caption:
-        "Thousands of worshippers holding up God's Word with the choir during the Night of Divine Reversal vigil.",
-    },
-    {
-      id: "g2",
-      title: "Prophet Isaiah Macwealth Ministering",
-      category: "convener",
-      src: "/images/prophet-isaiah-macwealth.jpg",
-      caption:
-        "Prophet Isaiah Macwealth releasing the prophetic word of reversal and destiny realignment.",
-    },
-    {
-      id: "g3",
-      title: "Prophetic Impartation & Ministration",
-      category: "worship",
-      src: "/images/ndr-prophetic-impartation.jpg",
-      caption:
-        "The man of God releasing the tangible presence and power of the Holy Spirit to the congregation.",
-    },
-    {
-      id: "g4",
-      title: "Prophetic Declarations & Reversal Decrees",
-      category: "prayer",
-      src: "/images/ndr-prophetic-declaration.jpg",
-      caption:
-        "Prophetic prayers and declarations shattering long-standing yokes and releasing breakthroughs.",
-    },
-    {
-      id: "g5",
-      title: "The Ark of Light for All Nations by Night",
-      category: "sanctuary",
-      src: "/images/ark-of-light-night.png",
-      caption:
-        "Aerial night view of the international headquarters, welcoming worshippers across the globe to Ikeja, Lagos.",
-    },
-    {
-      id: "g6",
-      title: "Victory & Faith Word Exposition",
-      category: "convener",
-      src: "/images/ndr-prophet-teaching.jpg",
-      caption:
-        "In-depth apostolic teaching and spiritual empowerment by Prophet Isaiah Macwealth.",
-    },
-  ] as GalleryImage[],
+  gallery: galleryImages,
 
   textTestimonies: [
     {
