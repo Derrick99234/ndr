@@ -123,27 +123,6 @@ https://www.youtube.com/@isaiahmacwealth
             >
               {/* Left Column: Heading & Briefing */}
               <div>
-                <div
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    padding: "6px 14px",
-                    borderRadius: "9999px",
-                    background: "rgba(245, 158, 11, 0.12)",
-                    border: "1px solid rgba(245, 158, 11, 0.3)",
-                    color: "var(--gold-light)",
-                    fontSize: "0.8rem",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    marginBottom: "18px",
-                  }}
-                >
-                  <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#f59e0b" }} />
-                  Official Member Manual • NDR 13
-                </div>
-
                 <h1
                   style={{
                     fontSize: "clamp(2.3rem, 5vw, 3.8rem)",
@@ -346,7 +325,7 @@ https://www.youtube.com/@isaiahmacwealth
                 style={{
                   fontSize: "0.82rem",
                   padding: "6px 14px",
-                  borderRadius: "9999px",
+                  borderRadius: "6px",
                   background: "rgba(255, 255, 255, 0.05)",
                   color: "var(--text-secondary)",
                   border: "1px solid rgba(255, 255, 255, 0.1)",
@@ -372,21 +351,6 @@ https://www.youtube.com/@isaiahmacwealth
         <section id="model" className="section-wrapper" style={{ paddingBottom: "40px" }}>
           <div className="section-container">
             <div className="section-header">
-              <div
-                style={{
-                  display: "inline-block",
-                  padding: "4px 12px",
-                  borderRadius: "9999px",
-                  background: "rgba(245, 158, 11, 0.1)",
-                  color: "var(--gold-light)",
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  marginBottom: "12px",
-                }}
-              >
-                A New Paradigm of Global Revival
-              </div>
               <h2 className="section-title">
                 From One Location to <span className="gold-gradient-text">Thousands of Altars</span>
               </h2>
@@ -474,21 +438,6 @@ https://www.youtube.com/@isaiahmacwealth
         <section id="why-virtual" className="section-wrapper">
           <div className="section-container">
             <div className="section-header">
-              <div
-                style={{
-                  display: "inline-block",
-                  padding: "4px 12px",
-                  borderRadius: "9999px",
-                  background: "rgba(245, 158, 11, 0.1)",
-                  color: "var(--gold-light)",
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  marginBottom: "12px",
-                }}
-              >
-                Strategic Imperatives
-              </div>
               <h2 className="section-title">
                 Why <span className="gold-gradient-text">Virtual?</span>
               </h2>
@@ -561,7 +510,7 @@ https://www.youtube.com/@isaiahmacwealth
                   }}
                 >
                   <div>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                    <div style={{ marginBottom: "16px" }}>
                       <span
                         style={{
                           fontSize: "1.1rem",
@@ -571,19 +520,6 @@ https://www.youtube.com/@isaiahmacwealth
                         }}
                       >
                         {item.number}
-                      </span>
-                      <span
-                        style={{
-                          fontSize: "0.72rem",
-                          padding: "3px 10px",
-                          borderRadius: "9999px",
-                          background: "rgba(255, 255, 255, 0.05)",
-                          color: "var(--text-muted)",
-                          textTransform: "uppercase",
-                          letterSpacing: "0.05em",
-                        }}
-                      >
-                        {item.tag}
                       </span>
                     </div>
 
@@ -604,21 +540,6 @@ https://www.youtube.com/@isaiahmacwealth
         <section id="pre-meeting" className="section-wrapper" style={{ backgroundColor: "rgba(10, 15, 30, 0.4)" }}>
           <div className="section-container">
             <div className="section-header">
-              <div
-                style={{
-                  display: "inline-block",
-                  padding: "4px 12px",
-                  borderRadius: "9999px",
-                  background: "rgba(245, 158, 11, 0.1)",
-                  color: "var(--gold-light)",
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  marginBottom: "12px",
-                }}
-              >
-                Actionable Preparation
-              </div>
               <h2 className="section-title">
                 Pre-Meeting <span className="gold-gradient-text">Guidelines</span>
               </h2>
@@ -715,21 +636,6 @@ https://www.youtube.com/@isaiahmacwealth
         <section id="during-meeting" className="section-wrapper">
           <div className="section-container">
             <div className="section-header">
-              <div
-                style={{
-                  display: "inline-block",
-                  padding: "4px 12px",
-                  borderRadius: "9999px",
-                  background: "rgba(245, 158, 11, 0.1)",
-                  color: "var(--gold-light)",
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  marginBottom: "12px",
-                }}
-              >
-                Live Execution
-              </div>
               <h2 className="section-title">
                 During the Meeting <span className="gold-gradient-text">Participation</span>
               </h2>
@@ -799,21 +705,6 @@ https://www.youtube.com/@isaiahmacwealth
         <section id="post-meeting" className="section-wrapper" style={{ backgroundColor: "rgba(10, 15, 30, 0.4)" }}>
           <div className="section-container">
             <div className="section-header">
-              <div
-                style={{
-                  display: "inline-block",
-                  padding: "4px 12px",
-                  borderRadius: "9999px",
-                  background: "rgba(245, 158, 11, 0.1)",
-                  color: "var(--gold-light)",
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  marginBottom: "12px",
-                }}
-              >
-                Sustained Anointing
-              </div>
               <h2 className="section-title">
                 Post-Meeting <span className="gold-gradient-text">Activities</span>
               </h2>
@@ -889,22 +780,6 @@ https://www.youtube.com/@isaiahmacwealth
                 boxShadow: "0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(245, 158, 11, 0.1)",
               }}
             >
-              <div
-                style={{
-                  display: "inline-block",
-                  padding: "4px 14px",
-                  borderRadius: "9999px",
-                  background: "rgba(245, 158, 11, 0.15)",
-                  color: "var(--gold-light)",
-                  fontSize: "0.8rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  marginBottom: "16px",
-                }}
-              >
-                The Apostolic Charge
-              </div>
-
               <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 800, color: "#ffffff", marginBottom: "20px" }}>
                 Our Collective Responsibility
               </h2>
@@ -940,21 +815,6 @@ https://www.youtube.com/@isaiahmacwealth
         <section id="checklist" className="section-wrapper" style={{ backgroundColor: "rgba(10, 15, 30, 0.4)" }}>
           <div className="section-container" style={{ maxWidth: "800px" }}>
             <div className="section-header">
-              <div
-                style={{
-                  display: "inline-block",
-                  padding: "4px 12px",
-                  borderRadius: "9999px",
-                  background: "rgba(245, 158, 11, 0.1)",
-                  color: "var(--gold-light)",
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  marginBottom: "12px",
-                }}
-              >
-                Interactive Readiness
-              </div>
               <h2 className="section-title">
                 Watch Party <span className="gold-gradient-text">Readiness Checklist</span>
               </h2>
@@ -983,15 +843,12 @@ https://www.youtube.com/@isaiahmacwealth
                 </div>
                 <div
                   style={{
-                    padding: "6px 14px",
-                    borderRadius: "9999px",
-                    background: completedCount === totalCount ? "rgba(16, 185, 129, 0.2)" : "rgba(245, 158, 11, 0.15)",
                     color: completedCount === totalCount ? "#34d399" : "#fbbf24",
-                    fontSize: "0.8rem",
+                    fontSize: "0.85rem",
                     fontWeight: 700,
                   }}
                 >
-                  {completedCount === totalCount ? "100% Prepared!" : "In Preparation"}
+                  {completedCount === totalCount ? "100% Prepared" : "In Preparation"}
                 </div>
               </div>
 
@@ -1000,7 +857,7 @@ https://www.youtube.com/@isaiahmacwealth
                 style={{
                   width: "100%",
                   height: "8px",
-                  borderRadius: "9999px",
+                  borderRadius: "4px",
                   background: "rgba(255, 255, 255, 0.1)",
                   overflow: "hidden",
                   marginBottom: "28px",
