@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 
 export default function GuidePage() {
   const [copied, setCopied] = useState(false);
-  const [activeTab, setActiveTab] = useState<"all" | "why" | "pre" | "during" | "post">("all");
 
   // Interactive Checklist State
   const [checklist, setChecklist] = useState<{ [key: string]: boolean }>({
@@ -133,22 +132,33 @@ https://www.youtube.com/@isaiahmacwealth
                   }}
                 >
                   Night of Divine Reversal 13 <br />
-                  <span className="gold-gradient-text">Participation Guide</span>
+                  <span className="gold-gradient-text">Members Participation Guide</span>
                 </h1>
 
-                <p
+                <div
                   style={{
-                    fontSize: "1.1rem",
-                    lineHeight: 1.65,
+                    fontSize: "1.02rem",
+                    lineHeight: 1.7,
                     color: "var(--text-secondary)",
                     marginBottom: "28px",
-                    maxWidth: "580px",
+                    maxWidth: "600px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "14px",
                   }}
                 >
-                  NDR 13 is designed as a global virtual encounter. Instead of a single venue, this edition multiplies into thousands of consecrated homes, fellowships, and watch parties across cities and nations simultaneously.
-                </p>
+                  <p>
+                    The Night of Divine Reversal (NDR) 13 is set to be unique from previous editions. Instead of gathering everyone physically at the Ark of Light, this edition will take place mainly online, with the meeting broadcast live on all official ministry platforms. Members will therefore be able to participate from their homes, fellowships and different locations.
+                  </p>
+                  <p>
+                    This means that people do not have to travel to the Ark of Light to be part of the meeting. Families can watch together at home, friends can organise watch parties, fellowships can gather, and members can invite people from their families, workplaces, communities and personal networks to join the meeting online. People who have never attended an NDR physically can also participate simply by joining the livestream.
+                  </p>
+                  <p>
+                    The virtual format also means that one meeting can happen in many places at the same time. Instead of everyone being in one location, there can be many homes and gathering points connected to the same meeting.
+                  </p>
+                </div>
 
-                {/* Event Schedule Quick Pills */}
+                {/* Event Schedule Quick Information */}
                 <div
                   style={{
                     display: "grid",
@@ -311,13 +321,12 @@ https://www.youtube.com/@isaiahmacwealth
               Jump To:
             </span>
             {[
-              { id: "model", label: "The Shift" },
               { id: "why-virtual", label: "Why Virtual?" },
-              { id: "pre-meeting", label: "Pre-Meeting (10 Steps)" },
-              { id: "during-meeting", label: "During Meeting" },
-              { id: "post-meeting", label: "Post-Meeting" },
-              { id: "responsibility", label: "Collective Mandate" },
-              { id: "checklist", label: "Host Checklist" },
+              { id: "pre-meeting", label: "Pre-Meeting Guidelines" },
+              { id: "during-meeting", label: "During the Meeting" },
+              { id: "post-meeting", label: "Post-Meeting Activities" },
+              { id: "responsibility", label: "Our Collective Responsibility" },
+              { id: "checklist", label: "Readiness Checklist" },
             ].map((section) => (
               <a
                 key={section.id}
@@ -347,102 +356,15 @@ https://www.youtube.com/@isaiahmacwealth
           </div>
         </div>
 
-        {/* Section: The New Paradigm (Multiplication Model) */}
-        <section id="model" className="section-wrapper" style={{ paddingBottom: "40px" }}>
-          <div className="section-container">
-            <div className="section-header">
-              <h2 className="section-title">
-                From One Location to <span className="gold-gradient-text">Thousands of Altars</span>
-              </h2>
-              <p className="section-subtitle">
-                NDR 13 is set to be unique from previous editions. Rather than centralizing all attendees physically at the Ark of Light, the meeting is broadcasting live to awaken spiritual encounters across every nation, city, and living room.
-              </p>
-            </div>
-
-            {/* Visual Comparison Infographic */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: "24px",
-                marginTop: "30px",
-              }}
-            >
-              {/* Previous Editions Card */}
-              <div
-                className="glass-card"
-                style={{
-                  padding: "30px",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  background: "rgba(17, 24, 39, 0.4)",
-                }}
-              >
-                <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 700 }}>
-                  Previous NDR Gatherings (1–12)
-                </div>
-                <h3 style={{ fontSize: "1.3rem", color: "#ffffff", margin: "10px 0 16px 0", fontWeight: 700 }}>
-                  Centralized Physical Gathering
-                </h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.9rem", color: "var(--text-secondary)" }}>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <span style={{ color: "#ef4444", fontWeight: "bold" }}>•</span>
-                    <span><strong>Physical Space Limits:</strong> Restricted to the seating capacity of the Ark of Light auditorium.</span>
-                  </li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <span style={{ color: "#ef4444", fontWeight: "bold" }}>•</span>
-                    <span><strong>Travel Friction:</strong> High cost and logistics of interstate and international travel for an all-night service.</span>
-                  </li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <span style={{ color: "#ef4444", fontWeight: "bold" }}>•</span>
-                    <span><strong>Late-Night Transit:</strong> Risk and fatigue associated with moving late at night across sprawling cities.</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* NDR 13 Paradigm Card */}
-              <div
-                className="glass-card"
-                style={{
-                  padding: "30px",
-                  border: "1.5px solid rgba(245, 158, 11, 0.4)",
-                  background: "radial-gradient(ellipse at top left, rgba(245, 158, 11, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%)",
-                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 158, 11, 0.1)",
-                }}
-              >
-                <div style={{ fontSize: "0.8rem", color: "var(--gold-light)", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 700 }}>
-                  NDR 13 Virtual Edition
-                </div>
-                <h3 style={{ fontSize: "1.3rem", color: "#fbbf24", margin: "10px 0 16px 0", fontWeight: 700 }}>
-                  The Decentralized Multiplication Model
-                </h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px", fontSize: "0.9rem", color: "#f3f4f6" }}>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <span style={{ color: "#10b981", fontWeight: "bold" }}>✓</span>
-                    <span><strong>Boundless Capacity:</strong> Accommodates millions simultaneously with zero physical overflow or seating strain.</span>
-                  </li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <span style={{ color: "#10b981", fontWeight: "bold" }}>✓</span>
-                    <span><strong>Home Altars:</strong> Consecrates homes and fellowships into active spiritual gathering points and watch parties.</span>
-                  </li>
-                  <li style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                    <span style={{ color: "#10b981", fontWeight: "bold" }}>✓</span>
-                    <span><strong>Global Outreach:</strong> Allows first-time seekers to encounter Jesus from the comfort of their living rooms.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section: Why Virtual? (7 Strategic Reasons) */}
+        {/* Section: WHY VIRTUAL? (7 Exact Word-for-Word Points) */}
         <section id="why-virtual" className="section-wrapper">
           <div className="section-container">
             <div className="section-header">
               <h2 className="section-title">
-                Why <span className="gold-gradient-text">Virtual?</span>
+                WHY <span className="gold-gradient-text">VIRTUAL?</span>
               </h2>
               <p className="section-subtitle">
-                Understanding the pastoral and divine wisdom behind transitioning NDR 13 into a global virtual broadcast.
+                NDR 13 is being held virtually for the following reasons:
               </p>
             </div>
 
@@ -456,50 +378,60 @@ https://www.youtube.com/@isaiahmacwealth
             >
               {[
                 {
-                  number: "01",
-                  title: "Limitation of Physical Space",
-                  desc: "During NDR 12, the venue became overcrowded for an all-night meeting. The virtual format accommodates everyone without physical limits and eliminates late-night travel risks.",
-                  tag: "Safety & Scale",
+                  number: "1",
+                  title: "Limitation of Space",
+                  paragraphs: [
+                    "During NDR 12, the venue became overcrowded for a night meeting. The virtual format makes it possible to accommodate many more people, as there is no physical limit to the number of people who can participate. It also reduces the risk associated with late-night movement, as people do not have to travel to and from the meeting at night.",
+                  ],
                 },
                 {
-                  number: "02",
-                  title: "Frictionless Global Participation",
-                  desc: "Believers across continents can participate without travel costs or complex transit arrangements. You connect directly from wherever you are.",
-                  tag: "Accessibility",
+                  number: "2",
+                  title: "Easier Participation",
+                  paragraphs: [
+                    "People can join from wherever they are. They do not need to travel or make arrangements to attend physically.",
+                  ],
                 },
                 {
-                  number: "03",
-                  title: "Family & Watch Party Gatherings",
-                  desc: "Families gather together at home in unity, while friends, youth networks, and fellowships organize dedicated watch parties in their respective cities.",
-                  tag: "Communal Encounters",
+                  number: "3",
+                  title: "Family/Group Viewing",
+                  paragraphs: [
+                    "Families can watch together at home. Friends, fellowships and other groups can organise watch parties in their own locations.",
+                  ],
                 },
                 {
-                  number: "04",
-                  title: "Exponential Viewership & Outreach",
-                  desc: "People who have never attended NDR in person can be invited to watch the livestream. First-time viewers are introduced to the altar and connected to ongoing ministry resources.",
-                  tag: "Evangelistic Reach",
+                  number: "4",
+                  title: "Increased Viewership",
+                  paragraphs: [
+                    "The livestream can be shared with many people before and during the meeting. People who have never attended NDR physically can also join the livestream. People who join NDR 13 for the first time can also be introduced to the ministry's official platforms, resources and future meetings, creating an opportunity for them to remain connected beyond NDR 13.",
+                  ],
                 },
                 {
-                  number: "05",
-                  title: "Amplified Digital Impact",
-                  desc: "Unified member activity—liking, commenting, sharing, and reposting—catalyzes algorithms across YouTube and Facebook to broadcast Jesus to the nations.",
-                  tag: "Digital Ministry",
+                  number: "5",
+                  title: "Increased Online Impact",
+                  paragraphs: [
+                    "Members can like, comment, share and post about the meeting across their social media platforms.",
+                    "This helps more people see and discover NDR 13 online.",
+                  ],
                 },
                 {
-                  number: "06",
-                  title: "Meaningful Personal Involvement",
-                  desc: "Every believer is empowered to become an ambassador. Your personal sphere—colleagues, neighbors, relatives, and alumni—can all be invited into your circle.",
-                  tag: "Grassroots Ownership",
+                  number: "6",
+                  title: "Meaningful Involvement",
+                  paragraphs: [
+                    "Every member can invite people from their personal network.",
+                    "Family members, friends, colleagues, church members and social media followers can all be invited to participate.",
+                  ],
                 },
                 {
-                  number: "07",
-                  title: "Instant Clipping & Enduring Replay",
-                  desc: "Watching from home allows members to immediately clip, quote, and forward prayers, testimonies, and declarations while the service is in progress, extending the meeting's lifespan.",
-                  tag: "Ongoing Revival",
+                  number: "7",
+                  title: "Instant Clipping",
+                  paragraphs: [
+                    "Watching from home allows you to participate in active sharing of the link, prayers, testimonies, declarations and other important moments while the meeting is still ongoing.",
+                    "The replay, testimonies, clips and declarations can continue to be shared after the meeting. People who missed the live broadcast can then watch and participate.",
+                  ],
                 },
-              ].map((item, idx) => (
+              ].map((item) => (
                 <div
-                  key={idx}
+                  key={item.number}
                   className="glass-card"
                   style={{
                     padding: "28px",
@@ -519,32 +451,53 @@ https://www.youtube.com/@isaiahmacwealth
                           fontFamily: "monospace",
                         }}
                       >
-                        {item.number}
+                        {item.number}.
                       </span>
                     </div>
 
-                    <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#ffffff", marginBottom: "10px" }}>
+                    <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#ffffff", marginBottom: "12px" }}>
                       {item.title}
                     </h3>
-                    <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-                      {item.desc}
-                    </p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                      {item.paragraphs.map((p, pIdx) => (
+                        <p key={pIdx} style={{ fontSize: "0.92rem", color: "var(--text-secondary)", lineHeight: 1.65 }}>
+                          {p}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* Note banner under Why Virtual */}
+            <div
+              style={{
+                marginTop: "32px",
+                padding: "20px 24px",
+                background: "rgba(245, 158, 11, 0.08)",
+                border: "1px solid rgba(245, 158, 11, 0.25)",
+                borderRadius: "12px",
+                textAlign: "center",
+                color: "var(--gold-light)",
+                fontSize: "1rem",
+                fontWeight: 600,
+              }}
+            >
+              The virtual format allows NDR 13 to be experienced in many homes, communities, cities and nations at the same time.
+            </div>
           </div>
         </section>
 
-        {/* Section: Pre-Meeting Guidelines (10 Action Steps) */}
+        {/* Section: PRE-MEETING GUIDELINES (10 Exact Word-for-Word Steps) */}
         <section id="pre-meeting" className="section-wrapper" style={{ backgroundColor: "rgba(10, 15, 30, 0.4)" }}>
           <div className="section-container">
             <div className="section-header">
               <h2 className="section-title">
-                Pre-Meeting <span className="gold-gradient-text">Guidelines</span>
+                PRE-MEETING <span className="gold-gradient-text">GUIDELINES</span>
               </h2>
               <p className="section-subtitle">
-                10 intentional steps to prime your spirit, home, and network for the Friday all-night encounter.
+                As you prepare for NDR 13, here are some pre-meeting guidelines:
               </p>
             </div>
 
@@ -558,58 +511,85 @@ https://www.youtube.com/@isaiahmacwealth
             >
               {[
                 {
-                  step: "Step 01",
+                  number: "1",
                   title: "Prepare for the Encounter",
-                  desc: "Set time apart for prayer and fasting prior to the service. Approach the screen with the exact holy expectation and reverence you would hold if standing in the physical auditorium.",
+                  paragraphs: [
+                    "Begin by preparing yourself intentionally for NDR 13. Set the time apart to pray and fast if possible. Although you will be joining virtually, approach the meeting with the same expectation and seriousness you would have if you were physically present at the Ark of Light.",
+                  ],
                 },
                 {
-                  step: "Step 02",
-                  title: "The 'Do Not Watch Alone' Principle",
-                  desc: "Intentionality multiplies anointing. Invite family members, neighbors, colleagues, and friends. Convert solitary viewing into a warm communal gathering in your home.",
+                  number: "2",
+                  title: "Do Not Watch Alone",
+                  paragraphs: [
+                    "Think about the people you can bring into the experience. Invite family members, friends, neighbours, colleagues, fellowship members and loved ones to join you. You can gather people in your home, connect with a small group or organise a simple gathering. The aim is to turn individual viewers into small gatherings and allow the virtual meeting to multiply into homes and communities.",
+                  ],
                 },
                 {
-                  step: "Step 03",
+                  number: "3",
                   title: "Host an NDR Watch Party",
-                  desc: "Designate your living room or fellowship venue as a worship sanctuary. Ensure sufficient seating, a good sound system, and snap photos or short videos to capture the gathering.",
+                  paragraphs: [
+                    "You can also intentionally organise NDR 13 watch parties. Your home, fellowship space or another suitable location can become a gathering point where people come together to participate in the meeting.",
+                    "A watch party could be a family gathering, group of friends, fellowship, youth gathering or simply a few people experiencing the meeting together. It does not have to be large. What matters is that people are intentionally gathered and participating together.",
+                    "Where appropriate, take photographs or short videos of your watch party and share them during or after the meeting. This helps demonstrate the gathering taking place across homes and communities.",
+                  ],
                 },
                 {
-                  step: "Step 04",
+                  number: "4",
                   title: "Personally Invite People",
-                  desc: "Do not depend on flyers alone. Send a personalized voice note, direct message, or call. Reach out specifically to people needing prayer, restoration, healing, or divine intervention.",
+                  paragraphs: [
+                    "You can identify specific people who should be part of NDR 13 and reach out to them personally. Do not rely only on a general flyer or social media announcement. Send a direct message, make a call, share the meeting information and explain why you believe they should join.",
+                    "Think beyond those who already know about NDR. Consider people who may need prayer, healing, restoration, direction, encouragement or divine intervention.",
+                  ],
                 },
                 {
-                  step: "Step 05",
-                  title: "Distribute the Official Links",
-                  desc: "Make joining effortless. Share the official YouTube and Facebook livestream links across your WhatsApp status, broadcast lists, and community channels ahead of time.",
+                  number: "5",
+                  title: "Share the Official Links",
+                  paragraphs: [
+                    "You can make it easy for people to join by sharing the official YouTube and Facebook livestream links. Send the links directly to individuals, share them on your WhatsApp status and distribute them through appropriate groups and communities. Do not assume that seeing the flyer means someone already has the livestream link.",
+                  ],
                 },
                 {
-                  step: "Step 06",
+                  number: "6",
                   title: "Create Anticipation on Social Media",
-                  desc: "Post countdown flyers, promotional videos, and personal excitement across WhatsApp, Facebook, Instagram, and X to signal the coming turnaround to your followers.",
+                  paragraphs: [
+                    "You can also create awareness before the meeting by sharing the official NDR 13 flyer, countdowns, promotional materials and other approved content on your WhatsApp status, Facebook, Instagram, X and other active platforms.",
+                    "Use your personal platforms to let your followers and contacts know that NDR 13 is coming and invite them to participate.",
+                  ],
                 },
                 {
-                  step: "Step 07",
-                  title: "Engage Official Ministry Posts",
-                  desc: "Actively like, comment, and repost ministry declarations, testimonies, and video teasers. Consistent early engagement boosts platform visibility.",
+                  number: "7",
+                  title: "Like, Comment on and Share Official Posts",
+                  paragraphs: [
+                    "As the ministry releases posts, declarations, testimonies, clips and other content around NDR 13, members should actively engage with them by liking, commenting and sharing the official posts across their platforms.",
+                  ],
                 },
                 {
-                  step: "Step 08",
-                  title: "Use the Official Campaign Hashtag",
-                  desc: "Always include #NightofDivineReversal13 in your social posts. This unites individual conversations into a massive searchable online testimony stream.",
+                  number: "8",
+                  title: "Use the Official Hashtag #NightofDivineReversal13",
+                  paragraphs: [
+                    "Whenever you post about NDR 13, use the official campaign hashtag and any other approved hashtags provided for the meeting.",
+                    "Consistent use of the hashtag helps connect individual posts to the wider NDR 13 conversation and makes related content easier to discover.",
+                  ],
                 },
                 {
-                  step: "Step 09",
-                  title: "Mobilize Your Personal Network",
-                  desc: "You have influence in unique circles—family chats, alumni boards, prayer cells, and professional teams. Activate these networks with intentional invitations.",
+                  number: "9",
+                  title: "Mobilise Your Personal Network",
+                  paragraphs: [
+                    "You have a network of people you can reach, including family groups, friends, colleagues, church contacts, prayer groups, professional networks and social media followers.",
+                    "You can activate these networks intentionally so that the reach of NDR 13 extends beyond the official ministry platforms.",
+                  ],
                 },
                 {
-                  step: "Step 10",
-                  title: "Prepare Your Physical Sanctuary",
-                  desc: "Dress honorably, eliminate household clutter, and have your Bible, notebook, and communion ready. Ensure your space is welcoming, clean, and primed for praise.",
+                  number: "10",
+                  title: "Refresh, Dress Up and Prepare Your Space",
+                  paragraphs: [
+                    "Refresh yourself, dress appropriately and prepare your space before the meeting begins. Have your Bible, notebook and prayer points ready, minimise distractions and create an atmosphere that allows you to participate fully.",
+                    "If you are hosting a watch party, ensure the space is clean, welcoming and properly arranged for everyone to participate comfortably.",
+                  ],
                 },
-              ].map((item, idx) => (
+              ].map((item) => (
                 <div
-                  key={idx}
+                  key={item.number}
                   className="glass-card"
                   style={{
                     padding: "26px",
@@ -618,29 +598,33 @@ https://www.youtube.com/@isaiahmacwealth
                   }}
                 >
                   <div style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--gold-light)", textTransform: "uppercase", marginBottom: "8px" }}>
-                    {item.step}
+                    Guideline {item.number}
                   </div>
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#ffffff", marginBottom: "8px" }}>
-                    {item.title}
+                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#ffffff", marginBottom: "12px" }}>
+                    {item.number}. {item.title}
                   </h3>
-                  <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-                    {item.desc}
-                  </p>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                    {item.paragraphs.map((p, pIdx) => (
+                      <p key={pIdx} style={{ fontSize: "0.9rem", color: "var(--text-secondary)", lineHeight: 1.65 }}>
+                        {p}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Section: During the Meeting Participation (6 Steps) */}
+        {/* Section: DURING THE MEETING PARTICIPATION (6 Exact Word-for-Word Points) */}
         <section id="during-meeting" className="section-wrapper">
           <div className="section-container">
             <div className="section-header">
               <h2 className="section-title">
-                During the Meeting <span className="gold-gradient-text">Participation</span>
+                DURING THE MEETING <span className="gold-gradient-text">PARTICIPATION</span>
               </h2>
               <p className="section-subtitle">
-                How to maintain active spiritual discipline while engaging with the live broadcast from your location.
+                As the meeting progresses, here are some tips to help you maximise NDR 13:
               </p>
             </div>
 
@@ -654,32 +638,54 @@ https://www.youtube.com/@isaiahmacwealth
             >
               {[
                 {
-                  title: "Be Fully Present & Consecrated",
-                  desc: "Connect early and avoid passive viewing. Stand during praise, kneel during prayer, and respond aloud to prophetic declarations as though you are in the front row.",
+                  number: "1",
+                  title: "Be Fully Present",
+                  paragraphs: [
+                    "When NDR 13 begins, join early and remain engaged throughout the meeting. Do not allow the fact that you are watching from home to make you passive. Pray along, worship, receive the Word and respond to the declarations.",
+                    "Treat your space as a place of encounter and participate as though you are physically present.",
+                  ],
                 },
                 {
-                  title: "Engage the Live Chat on YouTube & Facebook",
-                  desc: "Add your voice to the global chorus. Type 'Amen', celebrate miracles, type down key revelations, and encourage international viewers in the chat stream.",
+                  number: "2",
+                  title: "Engage on YouTube and Facebook",
+                  paragraphs: [
+                    "Actively engage in the comment section throughout the meeting. Respond to prayers and declarations, celebrate testimonies, share what is ministering to you and encourage others participating online.",
+                    "Active engagement helps create a stronger sense of community around the virtual gathering.",
+                  ],
                 },
                 {
-                  title: "Mid-Service Dynamic Link Dispatch",
-                  desc: "When a prophetic word or prayer directly addresses a situation someone you know is facing, copy the livestream link immediately and forward it to them.",
+                  number: "3",
+                  title: "Share the Livestream",
+                  paragraphs: [
+                    "Continue sharing the livestream as the meeting progresses. Share when the meeting begins and again when a powerful prayer, testimony, worship moment or Word is taking place.",
+                    "Send the link directly to someone who needs that particular moment, share it on your WhatsApp status or post it on your social media platforms.",
+                  ],
                 },
                 {
-                  title: "Broadcast from Your Platforms",
-                  desc: "Share quotes and declarations that hit your spirit onto your WhatsApp status and Instagram stories in real-time, tagging the official ministry handle.",
+                  number: "4",
+                  title: "Post From Your Own Platform",
+                  paragraphs: [
+                    "Do not rely only on reposting official content. Share your personal participation in NDR 13 through a watch-party picture, a declaration that impacted you, a brief reflection or an invitation to join the ongoing livestream. Use the official hashtag and tag the appropriate ministry pages where applicable.",
+                  ],
                 },
                 {
-                  title: "Relentlessly Bring Others In",
-                  desc: "The service is an open door throughout the night. If a testimony reminds you of someone in need, reach out and bring them into the ongoing broadcast.",
+                  number: "5",
+                  title: "Keep Inviting People Into the Meeting",
+                  paragraphs: [
+                    "As the meeting progresses, continue looking for opportunities to bring people in. If a prayer speaks to someone's situation, send them the link. If a testimony reminds you of someone, invite them. If a powerful Word is being preached, share it with someone who needs to hear it.",
+                  ],
                 },
                 {
+                  number: "6",
                   title: "Make Your Watch Party Visible",
-                  desc: "Capture respectful photos or brief video snippets of your group worshiping and share them online using #NightofDivineReversal13 to visualize the global gathering.",
+                  paragraphs: [
+                    "If you are hosting a watch party, capture appropriate photographs or short videos of the gathering and share them on your social media platforms.",
+                    "This helps others see that NDR 13 is being experienced across different homes and communities.",
+                  ],
                 },
-              ].map((item, idx) => (
+              ].map((item) => (
                 <div
-                  key={idx}
+                  key={item.number}
                   className="glass-card"
                   style={{
                     padding: "28px",
@@ -687,29 +693,33 @@ https://www.youtube.com/@isaiahmacwealth
                   }}
                 >
                   <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(245, 158, 11, 0.15)", color: "#fbbf24", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: "0.9rem", marginBottom: "14px" }}>
-                    {idx + 1}
+                    {item.number}
                   </div>
-                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#ffffff", marginBottom: "8px" }}>
-                    {item.title}
+                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#ffffff", marginBottom: "10px" }}>
+                    {item.number}. {item.title}
                   </h3>
-                  <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-                    {item.desc}
-                  </p>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                    {item.paragraphs.map((p, pIdx) => (
+                      <p key={pIdx} style={{ fontSize: "0.9rem", color: "var(--text-secondary)", lineHeight: 1.65 }}>
+                        {p}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Section: Post-Meeting Activities (6 Steps) */}
+        {/* Section: POST-MEETING ACTIVITIES (6 Exact Word-for-Word Points) */}
         <section id="post-meeting" className="section-wrapper" style={{ backgroundColor: "rgba(10, 15, 30, 0.4)" }}>
           <div className="section-container">
             <div className="section-header">
               <h2 className="section-title">
-                Post-Meeting <span className="gold-gradient-text">Activities</span>
+                POST-MEETING <span className="gold-gradient-text">ACTIVITIES</span>
               </h2>
               <p className="section-subtitle">
-                The conversation does not end when the stream goes dark. Anchor the encounter into lasting spiritual fruits.
+                You can also extend and expand the impact of the meeting in the following ways:
               </p>
             </div>
 
@@ -723,51 +733,76 @@ https://www.youtube.com/@isaiahmacwealth
             >
               {[
                 {
+                  number: "1",
                   title: "Share What You Received",
-                  desc: "Share the impact of the word and ministry on your platforms. Encourage friends who were unable to join live to watch the complete recorded replay.",
+                  paragraphs: [
+                    "The conversation should not end when the livestream ends. Members are encouraged to share what impacted them during the meeting, whether it was a powerful Word, declaration, prayer, testimony or moment of worship.",
+                    "Encourage people who could not join live to watch the replay.",
+                  ],
                 },
                 {
-                  title: "Submit Your Testimony Immediately",
-                  desc: "Testimonies enforce the victory and ignite faith in others. Write or record your testimony and send it through official ministry communication channels.",
+                  number: "2",
+                  title: "Share Your Testimony",
+                  paragraphs: [
+                    "If you experienced an answer to prayer, divine intervention or a significant encounter during NDR 13, share your testimony through the appropriate channels.",
+                    "Testimonies help keep the message of the meeting alive and can encourage others.",
+                  ],
                 },
                 {
-                  title: "Distribute the Full Replay",
-                  desc: "Many across different global time zones will experience their breakthrough via the replay. Keep circulating the official YouTube link over the following days.",
+                  number: "3",
+                  title: "Share the Replay",
+                  paragraphs: [
+                    "Continue sharing the official replay with people who were unable to join live. Some people may only discover NDR 13 after the meeting, making the replay another opportunity to reach them.",
+                  ],
                 },
                 {
-                  title: "Personal Follow-Up with Guests",
-                  desc: "Call the friends and family who joined your watch party. Ask what touched them, pray with them, and answer any spiritual questions they might have.",
+                  number: "4",
+                  title: "Follow Up With Those You Invited",
+                  paragraphs: [
+                    "Reach out to the people you personally invited and those who joined your watch party. Ask them what they received from the meeting and encourage them to remain connected.",
+                    "For first-time participants, help them discover the official social media platforms, online services, resources and future meetings.",
+                  ],
                 },
                 {
+                  number: "5",
                   title: "Continue Sharing Approved Content",
-                  desc: "As official ministry channels publish highlight reels, declaration soundbites, and sermons, continually engage with and share them across your channels.",
+                  paragraphs: [
+                    "As clips, testimonies, declarations, photographs and highlights from NDR 13 are released, members should continue engaging with them. Like, comment, share and repost approved content while using the official hashtags.",
+                  ],
                 },
                 {
-                  title: "Turn Encounters into Ongoing Discipleship",
-                  desc: "The goal is long-term spiritual establishment. Introduce first-timers to weekly services, OneSound Bible Institute classes, and ministry resources.",
+                  number: "6",
+                  title: "Turn One Encounter Into Continued Connection",
+                  paragraphs: [
+                    "The objective extends beyond generating views for one night. People who encounter NDR 13 should have an opportunity to remain connected to the ministry and continue receiving the Word, participating in services and engaging with future meetings.",
+                  ],
                 },
-              ].map((item, idx) => (
+              ].map((item) => (
                 <div
-                  key={idx}
+                  key={item.number}
                   className="glass-card"
                   style={{
                     padding: "26px",
                     border: "1px solid rgba(255, 255, 255, 0.08)",
                   }}
                 >
-                  <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#ffffff", marginBottom: "8px" }}>
-                    {item.title}
+                  <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#ffffff", marginBottom: "10px" }}>
+                    {item.number}. {item.title}
                   </h3>
-                  <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-                    {item.desc}
-                  </p>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                    {item.paragraphs.map((p, pIdx) => (
+                      <p key={pIdx} style={{ fontSize: "0.9rem", color: "var(--text-secondary)", lineHeight: 1.65 }}>
+                        {p}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Section: Collective Responsibility */}
+        {/* Section: OUR COLLECTIVE RESPONSIBILITY */}
         <section id="responsibility" className="section-wrapper">
           <div className="section-container" style={{ maxWidth: "860px" }}>
             <div
@@ -781,30 +816,30 @@ https://www.youtube.com/@isaiahmacwealth
               }}
             >
               <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 800, color: "#ffffff", marginBottom: "20px" }}>
-                Our Collective Responsibility
+                OUR COLLECTIVE RESPONSIBILITY
               </h2>
 
-              <p style={{ fontSize: "1.05rem", color: "#d1d5db", lineHeight: 1.8, marginBottom: "24px" }}>
-                NDR 13 gives every member an opportunity to contribute directly to the kingdom reach and spiritual impact of the meeting. It allows us to <strong>multiply the gathering rather than simply replace a physical meeting</strong>. Instead of one location, there can be thousands of home altars. Instead of one audience, networks across nations can be activated.
+              <p style={{ fontSize: "1.05rem", color: "#d1d5db", lineHeight: 1.8, marginBottom: "20px" }}>
+                NDR 13 gives every member an opportunity to contribute to the reach and impact of the meeting. It gives us an opportunity to multiply the gathering rather than simply replace a physical meeting. Instead of one location, there can be many homes and gathering points. Instead of one audience, personal networks across different cities and nations can be activated.
               </p>
 
               <blockquote
                 style={{
                   borderLeft: "3px solid #f59e0b",
                   background: "rgba(255, 255, 255, 0.03)",
-                  padding: "16px 24px",
+                  padding: "18px 24px",
                   margin: "24px 0",
                   textAlign: "left",
-                  fontSize: "1.02rem",
+                  fontSize: "1.05rem",
                   color: "#fef3c7",
                   fontStyle: "italic",
-                  lineHeight: 1.7,
+                  lineHeight: 1.75,
                 }}
               >
                 &ldquo;Every member has a role in extending the reach of NDR 13. Every home can become a gathering point. Every invitation can bring someone new into the meeting. Every share can extend the reach, every post can create awareness, and every testimony can keep the encounter alive.&rdquo;
               </blockquote>
 
-              <p style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--gold-light)" }}>
+              <p style={{ fontSize: "1.15rem", fontWeight: 700, color: "var(--gold-light)", marginTop: "24px" }}>
                 NDR 13 may be virtual, but our participation must be intentional.
               </p>
             </div>
@@ -819,7 +854,7 @@ https://www.youtube.com/@isaiahmacwealth
                 Watch Party <span className="gold-gradient-text">Readiness Checklist</span>
               </h2>
               <p className="section-subtitle">
-                Check off each preparation step as you organize your home or group sanctuary.
+                Interactive checklist based directly on the official preparation guidelines.
               </p>
             </div>
 
@@ -876,14 +911,14 @@ https://www.youtube.com/@isaiahmacwealth
               {/* Checkbox Items */}
               <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
                 {[
-                  { id: "item1", text: "Fast and set aside dedicated personal prayer time prior to Friday." },
-                  { id: "item2", text: "Personally invite 5 to 10 friends, family members, or colleagues via direct call or message." },
-                  { id: "item3", text: "Prepare and clean the living room or watch-party venue with comfortable seating." },
-                  { id: "item4", text: "Test your TV screen or projector with YouTube to ensure clear video & sound." },
-                  { id: "item5", text: "Share the official YouTube livestream link on your WhatsApp status & social media." },
-                  { id: "item6", text: "Have Bibles, notebooks, prayer targets, and communion ready before 11:00 PM." },
-                  { id: "item7", text: "Download and post the official NDR 13 flyer with the hashtag #NightofDivineReversal13." },
-                  { id: "item8", text: "Commit to active engagement: commenting 'Amen', sharing during the service, and taking group photos." },
+                  { id: "item1", text: "Prepare intentionally: Set time apart to pray and fast prior to NDR 13." },
+                  { id: "item2", text: "Do not watch alone: Invite family members, friends, neighbours, colleagues, and loved ones." },
+                  { id: "item3", text: "Host an NDR Watch Party in your home, fellowship space, or suitable gathering point." },
+                  { id: "item4", text: "Personally reach out and invite specific individuals who need prayer, healing, or turnaround." },
+                  { id: "item5", text: "Share the official YouTube and Facebook livestream links directly and on WhatsApp status." },
+                  { id: "item6", text: "Create anticipation on social media using the official NDR 13 flyer and countdowns." },
+                  { id: "item7", text: "Refresh, dress appropriately, and prepare your space with your Bible, notebook, and prayer points." },
+                  { id: "item8", text: "Engage actively during the live broadcast: pray along, worship, and comment on the stream." },
                 ].map((task) => (
                   <label
                     key={task.id}
@@ -916,7 +951,6 @@ https://www.youtube.com/@isaiahmacwealth
                       style={{
                         fontSize: "0.92rem",
                         color: checklist[task.id] ? "#ffffff" : "var(--text-secondary)",
-                        textDecoration: checklist[task.id] ? "none" : "none",
                         fontWeight: checklist[task.id] ? 600 : 400,
                         lineHeight: 1.5,
                       }}
