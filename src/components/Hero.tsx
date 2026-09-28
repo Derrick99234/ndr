@@ -129,9 +129,9 @@ export default function Hero() {
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "10px",
-              padding: "8px 20px",
-              borderRadius: "9999px",
+              gap: "8px",
+              padding: "8px 18px",
+              borderRadius: "8px",
               background: "rgba(245, 158, 11, 0.12)",
               border: "1px solid rgba(245, 158, 11, 0.35)",
               color: "var(--gold-light)",
@@ -141,7 +141,6 @@ export default function Hero() {
               boxShadow: "0 0 15px rgba(245, 158, 11, 0.15)",
             }}
           >
-            <span style={{ display: "inline-block", width: "8px", height: "8px", borderRadius: "50%", background: "#f59e0b" }} />
             <span>NDR 13 Members Participation & Watch Party Guide</span>
             <span style={{ color: "#ffffff" }}>→</span>
           </Link>

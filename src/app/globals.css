@@ -790,4 +790,107 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Guide Hero CTA Group */
+.guide-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.guide-cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 22px;
+  background: var(--gold-gradient);
+  color: #090d16;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.28);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.guide-cta-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.4);
+  filter: brightness(1.08);
+}
+
+.guide-cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: var(--gold-light);
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.guide-cta-btn-secondary:hover {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: rgba(245, 158, 11, 0.6);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.guide-cta-link-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+.guide-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 12px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.guide-cta-link:hover {
+  color: var(--gold-light);
+}
+
+@media (max-width: 640px) {
+  .guide-cta-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .guide-cta-btn-primary,
+  .guide-cta-btn-secondary {
+    width: 100%;
+    padding: 12px 8px;
+    font-size: 0.82rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .guide-cta-link-wrapper {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 4px;
+  }
+}
+
+
 
