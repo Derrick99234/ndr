@@ -20,6 +20,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "About NDR", href: "/#about" },
     { name: "About Prophet", href: "/about" },
+    { name: "Participation Guide", href: "/guide" },
     { name: "What to Expect", href: "/#expect" },
     { name: "Schedule", href: "/#schedule" },
     { name: "Gallery", href: "/#gallery" },

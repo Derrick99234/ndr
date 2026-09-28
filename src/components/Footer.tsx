@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { NDR_DATA } from "@/data/ndrContent";
 
 export default function Footer() {
@@ -71,7 +72,7 @@ export default function Footer() {
             <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", lineHeight: 1.6, marginBottom: "14px" }}>
               OneSound Bible Institute (OBI) conducts structured 7-week seminars and faith classes:
             </p>
-            <div style={{ marginBottom: "16px" }}>
+            <div style={{ marginBottom: "16px", display: "flex", flexWrap: "wrap", gap: "10px" }}>
               <a
                 href={eventMeta.vfcRegistrationUrl}
                 target="_blank"
@@ -81,6 +82,13 @@ export default function Footer() {
               >
                 Register at OBI VFC ↗
               </a>
+              <Link
+                href="/guide"
+                className="btn-outline-gold"
+                style={{ padding: "8px 16px", fontSize: "0.8rem", color: "var(--gold-light)" }}
+              >
+                Preparation Guide →
+              </Link>
             </div>
             <div style={{ fontSize: "0.82rem", color: "var(--text-secondary)" }}>
               &ldquo;Teaching the people to grow is the fastest way to eradicate their challenges.&rdquo;

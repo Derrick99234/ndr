@@ -122,6 +122,31 @@ export default function Hero() {
           A sacred monthly night of praise, prophecy, and the manifest power of God designed for supernatural turnaround. Broadcast virtually worldwide from The Ark of Light for All Nations.
         </p>
 
+        {/* Participation Guide Highlight Badge */}
+        <div style={{ marginBottom: "24px" }}>
+          <Link
+            href="/guide"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              padding: "8px 20px",
+              borderRadius: "9999px",
+              background: "rgba(245, 158, 11, 0.12)",
+              border: "1px solid rgba(245, 158, 11, 0.35)",
+              color: "var(--gold-light)",
+              fontSize: "0.85rem",
+              fontWeight: 700,
+              textDecoration: "none",
+              boxShadow: "0 0 15px rgba(245, 158, 11, 0.15)",
+            }}
+          >
+            <span style={{ display: "inline-block", width: "8px", height: "8px", borderRadius: "50%", background: "#f59e0b" }} />
+            <span>NDR 13 Members Participation & Watch Party Guide</span>
+            <span style={{ color: "#ffffff" }}>→</span>
+          </Link>
+        </div>
+
         {/* Live Countdown Timer Card */}
         <div
           style={{
