@@ -98,7 +98,7 @@ export const NDR_DATA = {
     ],
     vfcRegistrationUrl: "https://onesoundbibleinstitute.org/vfc",
     youtubeLive: "https://www.youtube.com/@isaiahmacwealth",
-    facebookLive: "https://www.facebook.com/GospelPillars",
+    facebookLive: "https://www.facebook.com/gospelpillarsinternational/",
   },
 
   aboutNDR: {
@@ -242,7 +242,7 @@ export const NDR_DATA = {
     },
     {
       dayTag: "30th September (Wednesday)",
-      title: "All Nations Remembrance Prayer",
+      title: "All Nations Revival and Remembrance Service",
       subtitle: "Global Intercessory Session",
       description:
         "A special intercessory session for revival and divine remembrance for nations of the world. The service brings global believers together to plead the cause of territories and families before the courts of heaven. Broadcast LIVE on Facebook, YouTube, and international TV platforms.",
@@ -292,7 +292,7 @@ export const NDR_DATA = {
     },
     {
       dayTag: "Wed. 30th Sept. 2026",
-      title: "All Nations Remembrance Prayer",
+      title: "All Nations Revival and Remembrance Service",
       subtitle: "Global Livestream & Intercession",
       description:
         "A night of weeping between the porch and the altar, seeking the mercy and remembrance of God for individuals and nations.",
@@ -827,7 +827,7 @@ This time last year, I had no income and was under the intense pressure of an ex
     prayerLineEmail: "ndr@onesoundbibleinstitute.org",
     broadcastPlatforms: [
       { name: "YouTube", handle: "@isaiahmacwealth", url: "https://www.youtube.com/@isaiahmacwealth" },
-      { name: "Facebook", handle: "@GospelPillars", url: "https://www.facebook.com/GospelPillars" },
+      { name: "Facebook", handle: "@gospelpillarsinternational", url: "https://www.facebook.com/gospelpillarsinternational/" },
       { name: "OneSound App", handle: "Available on iOS & Android", url: "https://onesoundbibleinstitute.org" },
     ],
   },

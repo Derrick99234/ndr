@@ -174,7 +174,7 @@ export default function UpcomingEvents() {
                   },
                   {
                     date: "Wed. 30th Sept 2026",
-                    title: "All Nations Remembrance Prayer",
+                    title: "All Nations Revival and Remembrance Service",
                     note: "Global Intercessory Session (6 PM)",
                   },
                   {

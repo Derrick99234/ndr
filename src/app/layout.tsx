@@ -80,7 +80,7 @@ const jsonLd = {
       "logo": "https://nightofdivinereversal.org/images/ndr-logo.jpg",
       "sameAs": [
         "https://www.youtube.com/@isaiahmacwealth",
-        "https://www.facebook.com/GospelPillars"
+        "https://www.facebook.com/gospelpillarsinternational/"
       ],
       "contactPoint": {
         "@type": "ContactPoint",

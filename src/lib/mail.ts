@@ -128,7 +128,7 @@ export async function sendRegistrationEmails(attendee: AttendeeData) {
           <a href="https://www.youtube.com/@isaiahmacwealth" style="display: inline-block; background: #dc2626; color: #ffffff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 13px; margin-right: 8px;">
             📺 Watch on YouTube
           </a>
-          <a href="https://www.facebook.com/GospelPillars" style="display: inline-block; background: #1877f2; color: #ffffff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 13px;">
+          <a href="https://www.facebook.com/gospelpillarsinternational/" style="display: inline-block; background: #1877f2; color: #ffffff; padding: 10px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 13px;">
             📘 Watch on Facebook
           </a>
         </div>
