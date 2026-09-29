@@ -3,15 +3,33 @@
 import React, { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import Link from "next/link";
 import { NDR_DATA } from "@/data/ndrContent";
 
 const PREVIEW_COUNT = 8;
 
-export default function PictureGallery() {
+export interface PictureGalleryProps {
+  hideHeader?: boolean;
+  initialEdition?: "ALL" | "NDR 12" | "NDR 11";
+  showTabs?: boolean;
+  isStandalonePage?: boolean;
+  showViewAllButton?: boolean;
+}
+
+export default function PictureGallery({
+  hideHeader = false,
+  initialEdition = "ALL",
+  showTabs = false,
+  isStandalonePage = false,
+  showViewAllButton = true,
+}: PictureGalleryProps = {}) {
   const images = NDR_DATA.gallery;
 
   const ndr11Images = useMemo(() => images.filter((img) => img.edition === "NDR 11"), [images]);
   const ndr12Images = useMemo(() => images.filter((img) => img.edition === "NDR 12"), [images]);
+
+  const [selectedTab, setSelectedTab] = useState<"ALL" | "NDR 12" | "NDR 11">(initialEdition);
+  const [expandedEditions, setExpandedEditions] = useState<{ [key: string]: boolean }>({});
 
   const [activeLightbox, setActiveLightbox] = useState<{
     list: "NDR 11" | "NDR 12";
@@ -168,113 +186,148 @@ export default function PictureGallery() {
   ] : [];
 
   const renderGrid = (list: typeof ndr11Images, editionName: "NDR 11" | "NDR 12") => {
-    const previewImages = list.slice(0, PREVIEW_COUNT);
-    const remainingCount = list.length - PREVIEW_COUNT;
+    const isExpanded = !!expandedEditions[editionName];
+    const displayCount = isStandalonePage
+      ? isExpanded
+        ? list.length
+        : Math.min(16, list.length)
+      : PREVIEW_COUNT;
+    const previewImages = list.slice(0, displayCount);
+    const remainingCount = list.length - displayCount;
 
     return (
-      <div className="gallery-preview-grid">
-        {previewImages.map((img, index) => {
-          const isLast = index === PREVIEW_COUNT - 1 && remainingCount > 0;
+      <>
+        <div className="gallery-preview-grid">
+          {previewImages.map((img, index) => {
+            const isLast = !isStandalonePage && index === PREVIEW_COUNT - 1 && remainingCount > 0;
 
-          return (
-            <div
-              key={img.id}
-              onClick={() => {
-                setActiveLightbox({ list: editionName, index });
-                setDragOffset(0);
-                setTrackOffset(0);
-              }}
-              className="glass-card gallery-preview-card"
-              style={{
-                cursor: "pointer",
-                position: "relative",
-                overflow: "hidden",
-                borderRadius: "var(--radius-md)",
-                transition: "transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-4px)";
-                e.currentTarget.style.borderColor = "rgba(245, 158, 11, 0.4)";
-                e.currentTarget.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.6)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.borderColor = "var(--border-subtle)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
+            return (
               <div
+                key={img.id}
+                onClick={() => {
+                  setActiveLightbox({ list: editionName, index });
+                  setDragOffset(0);
+                  setTrackOffset(0);
+                }}
+                className="glass-card gallery-preview-card"
                 style={{
+                  cursor: "pointer",
                   position: "relative",
-                  width: "100%",
-                  aspectRatio: "4/3",
-                  borderRadius: "8px",
                   overflow: "hidden",
-                  backgroundColor: "#070b14",
+                  borderRadius: "var(--radius-md)",
+                  transition: "transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                  e.currentTarget.style.borderColor = "rgba(245, 158, 11, 0.4)";
+                  e.currentTarget.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.6)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.borderColor = "var(--border-subtle)";
+                  e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                <Image
-                  src={img.src}
-                  alt={`Night of Divine Reversal ${editionName} Photo`}
-                  fill
-                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                <div
                   style={{
-                    objectFit: "cover",
-                    transition: "transform 0.5s ease",
-                    filter: isLast ? "brightness(0.38)" : "none",
+                    position: "relative",
+                    width: "100%",
+                    aspectRatio: "4/3",
+                    borderRadius: "8px",
+                    overflow: "hidden",
+                    backgroundColor: "#070b14",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.06)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                />
-
-                {/* Remaining Images Overlay on the 8th (Last Preview) Image: Gray text, no bg */}
-                {isLast && (
-                  <div
+                >
+                  <Image
+                    src={img.src}
+                    alt={`Night of Divine Reversal ${editionName} Photo`}
+                    fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     style={{
-                      position: "absolute",
-                      inset: 0,
-                      backgroundColor: "transparent",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "8px",
-                      zIndex: 2,
-                      padding: "8px",
-                      textAlign: "center",
+                      objectFit: "cover",
+                      transition: "transform 0.5s ease",
+                      filter: isLast ? "brightness(0.38)" : "none",
                     }}
-                  >
-                    <span
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.06)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                  />
+
+                  {/* Remaining Images Overlay on the 8th (Last Preview) Image for homepage */}
+                  {isLast && (
+                    <div
                       style={{
-                        fontSize: "clamp(1.5rem, 5vw, 2.5rem)",
-                        fontWeight: 800,
-                        color: "#9ca3af",
-                        lineHeight: 1.1,
-                        textShadow: "0 2px 14px rgba(0, 0, 0, 0.95), 0 0 4px rgba(0, 0, 0, 0.9)",
+                        position: "absolute",
+                        inset: 0,
+                        backgroundColor: "transparent",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: "8px",
+                        zIndex: 2,
+                        padding: "8px",
+                        textAlign: "center",
                       }}
                     >
-                      +{remainingCount}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: "clamp(0.68rem, 2vw, 0.82rem)",
-                        fontWeight: 700,
-                        color: "#9ca3af",
-                        textTransform: "uppercase",
-                        letterSpacing: "0.06em",
-                        marginTop: "4px",
-                        textShadow: "0 2px 10px rgba(0, 0, 0, 0.95)",
-                      }}
-                    >
-                      View All Photos
-                    </span>
-                  </div>
-                )}
+                      <span
+                        style={{
+                          fontSize: "clamp(1.5rem, 5vw, 2.5rem)",
+                          fontWeight: 800,
+                          color: "#9ca3af",
+                          lineHeight: 1.1,
+                          textShadow: "0 2px 14px rgba(0, 0, 0, 0.95), 0 0 4px rgba(0, 0, 0, 0.9)",
+                        }}
+                      >
+                        +{remainingCount}
+                      </span>
+                      <span
+                        style={{
+                          fontSize: "clamp(0.68rem, 2vw, 0.82rem)",
+                          fontWeight: 700,
+                          color: "#9ca3af",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.06em",
+                          marginTop: "4px",
+                          textShadow: "0 2px 10px rgba(0, 0, 0, 0.95)",
+                        }}
+                      >
+                        View All Photos
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+
+        {/* Standalone Page: Expand / Collapse Button */}
+        {isStandalonePage && list.length > 16 && (
+          <div style={{ textAlign: "center", marginTop: "24px" }}>
+            <button
+              type="button"
+              onClick={() =>
+                setExpandedEditions((prev) => ({
+                  ...prev,
+                  [editionName]: !isExpanded,
+                }))
+              }
+              className="btn-outline-gold"
+              style={{
+                padding: "10px 24px",
+                fontSize: "0.88rem",
+                borderRadius: "8px",
+                cursor: "pointer",
+                background: isExpanded ? "rgba(245, 158, 11, 0.1)" : "transparent",
+              }}
+            >
+              {isExpanded
+                ? `Show Less (${editionName}) ↑`
+                : `Load All ${list.length} Photos in ${editionName} (${list.length - 16} more) ↓`}
+            </button>
+          </div>
+        )}
+      </>
     );
   };
 
@@ -282,66 +335,181 @@ export default function PictureGallery() {
     <section id="gallery" className="section-wrapper" style={{ backgroundColor: "var(--bg-alt)" }}>
       <div className="section-container">
         {/* Section Header */}
-        <div className="section-header" style={{ marginBottom: "50px" }}>
-          <h2 className="section-title">
-            Picture <span className="gold-gradient-text">Gallery</span>
-          </h2>
-          <p className="section-subtitle">
-            A glimpse into the glory, worship atmosphere, and congregation at The Ark of Light for All Nations.
-          </p>
-        </div>
+        {!hideHeader && (
+          <div className="section-header" style={{ marginBottom: "50px" }}>
+            <h2 className="section-title">
+              Picture <span className="gold-gradient-text">Gallery</span>
+            </h2>
+            <p className="section-subtitle">
+              A glimpse into the glory, worship atmosphere, and congregation at The Ark of Light for All Nations.
+            </p>
+          </div>
+        )}
 
-        {/* SECTION 1: NDR 11 */}
-        <div style={{ marginBottom: "70px" }}>
+        {/* Optional Filter Tabs for Dedicated Page */}
+        {showTabs && (
           <div
             style={{
-              marginBottom: "26px",
-              paddingBottom: "14px",
-              borderBottom: "1px solid rgba(245, 158, 11, 0.25)",
+              display: "flex",
+              justifyContent: "center",
+              gap: "10px",
+              flexWrap: "wrap",
+              marginBottom: "46px",
             }}
           >
-            <h3
+            {(["ALL", "NDR 12", "NDR 11"] as const).map((tab) => {
+              const isSelected = selectedTab === tab;
+              const label =
+                tab === "ALL"
+                  ? `All Past Editions (${images.length} Photos)`
+                  : tab === "NDR 12"
+                  ? `NDR 12 (${ndr12Images.length} Photos)`
+                  : `NDR 11 (${ndr11Images.length} Photos)`;
+              return (
+                <button
+                  key={tab}
+                  type="button"
+                  onClick={() => setSelectedTab(tab)}
+                  style={{
+                    padding: "10px 22px",
+                    borderRadius: "50px",
+                    fontSize: "0.88rem",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    border: isSelected
+                      ? "1.5px solid var(--gold-primary)"
+                      : "1px solid rgba(255, 255, 255, 0.12)",
+                    backgroundColor: isSelected
+                      ? "rgba(245, 158, 11, 0.16)"
+                      : "rgba(255, 255, 255, 0.04)",
+                    color: isSelected ? "var(--gold-light)" : "var(--text-secondary)",
+                    boxShadow: isSelected ? "0 0 20px rgba(245, 158, 11, 0.25)" : "none",
+                    transition: "all 0.25s ease",
+                  }}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {/* SECTION: NDR 12 (Latest Edition) */}
+        {(selectedTab === "ALL" || selectedTab === "NDR 12") && (
+          <div style={{ marginBottom: selectedTab === "ALL" ? "70px" : "20px" }}>
+            <div
               style={{
-                fontSize: "clamp(1.5rem, 3.2vw, 2.1rem)",
-                fontWeight: 800,
-                color: "#ffffff",
-                letterSpacing: "0.02em",
-                margin: 0,
+                marginBottom: "26px",
+                paddingBottom: "14px",
+                borderBottom: "1px solid rgba(245, 158, 11, 0.25)",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-end",
+                flexWrap: "wrap",
+                gap: "10px",
               }}
             >
-              NDR <span className="gold-gradient-text">11</span>
-            </h3>
+              <div>
+                <h3
+                  style={{
+                    fontSize: "clamp(1.5rem, 3.2vw, 2.1rem)",
+                    fontWeight: 800,
+                    color: "#ffffff",
+                    letterSpacing: "0.02em",
+                    margin: 0,
+                  }}
+                >
+                  NDR <span className="gold-gradient-text">12</span>
+                </h3>
+              </div>
+              <span
+                style={{
+                  fontSize: "0.85rem",
+                  color: "var(--gold-light)",
+                  fontWeight: 600,
+                  padding: "4px 12px",
+                  borderRadius: "20px",
+                  background: "rgba(245, 158, 11, 0.1)",
+                  border: "1px solid rgba(245, 158, 11, 0.2)",
+                }}
+              >
+                {ndr12Images.length} Photos
+              </span>
+            </div>
+
+            {/* NDR 12 Grid */}
+            {renderGrid(ndr12Images, "NDR 12")}
           </div>
+        )}
 
-          {/* NDR 11 Grid (8 previews, 8th has overlay) */}
-          {renderGrid(ndr11Images, "NDR 11")}
-        </div>
-
-        {/* SECTION 2: NDR 12 */}
-        <div>
-          <div
-            style={{
-              marginBottom: "26px",
-              paddingBottom: "14px",
-              borderBottom: "1px solid rgba(245, 158, 11, 0.25)",
-            }}
-          >
-            <h3
+        {/* SECTION: NDR 11 */}
+        {(selectedTab === "ALL" || selectedTab === "NDR 11") && (
+          <div style={{ marginBottom: "20px" }}>
+            <div
               style={{
-                fontSize: "clamp(1.5rem, 3.2vw, 2.1rem)",
-                fontWeight: 800,
-                color: "#ffffff",
-                letterSpacing: "0.02em",
-                margin: 0,
+                marginBottom: "26px",
+                paddingBottom: "14px",
+                borderBottom: "1px solid rgba(245, 158, 11, 0.25)",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-end",
+                flexWrap: "wrap",
+                gap: "10px",
               }}
             >
-              NDR <span className="gold-gradient-text">12</span>
-            </h3>
-          </div>
+              <div>
+                <h3
+                  style={{
+                    fontSize: "clamp(1.5rem, 3.2vw, 2.1rem)",
+                    fontWeight: 800,
+                    color: "#ffffff",
+                    letterSpacing: "0.02em",
+                    margin: 0,
+                  }}
+                >
+                  NDR <span className="gold-gradient-text">11</span>
+                </h3>
+              </div>
+              <span
+                style={{
+                  fontSize: "0.85rem",
+                  color: "var(--gold-light)",
+                  fontWeight: 600,
+                  padding: "4px 12px",
+                  borderRadius: "20px",
+                  background: "rgba(245, 158, 11, 0.1)",
+                  border: "1px solid rgba(245, 158, 11, 0.2)",
+                }}
+              >
+                {ndr11Images.length} Photos
+              </span>
+            </div>
 
-          {/* NDR 12 Grid (8 previews, 8th has overlay) */}
-          {renderGrid(ndr12Images, "NDR 12")}
-        </div>
+            {/* NDR 11 Grid */}
+            {renderGrid(ndr11Images, "NDR 11")}
+          </div>
+        )}
+
+        {/* Home Page Link to Standalone Past Event Page */}
+        {!isStandalonePage && showViewAllButton && (
+          <div style={{ textAlign: "center", marginTop: "50px" }}>
+            <Link
+              href="/past-event"
+              className="btn-outline-gold"
+              style={{
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "14px 32px",
+                fontSize: "0.95rem",
+                fontWeight: 700,
+              }}
+            >
+              Explore Full Past Event Archive ({images.length}+ Photos) →
+            </Link>
+          </div>
+        )}
 
         {/* Smooth 5-Slide Continuous Drag Lightbox Modal */}
         {mounted && activeLightbox !== null && N > 0 && createPortal(
