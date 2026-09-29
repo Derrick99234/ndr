@@ -199,7 +199,7 @@ export default function BlogSection() {
                     {selectedPost.author}
                   </div>
                   <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>
-                    Convener, Night of Divine Reversal
+                    Night of Divine Reversal
                   </div>
                 </div>
               </div>

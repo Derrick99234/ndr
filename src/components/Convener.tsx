@@ -35,7 +35,7 @@ export default function Convener() {
             About <span className="gold-gradient-text">Prophet Isaiah Macwealth</span>
           </h2>
           <p className="section-subtitle" style={{ maxWidth: "800px" }}>
-            Senior Pastor, Gospel Pillars Intl. Churches worldwide | Founder, OneSound Revival Fellowship | Convener, Night of Divine Reversal (NDR)
+            Senior Pastor, Gospel Pillars Intl. Churches worldwide | Founder, OneSound Revival Fellowship
           </p>
         </div>
 

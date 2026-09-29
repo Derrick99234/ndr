@@ -821,8 +821,8 @@ This time last year, I had no income and was under the intense pressure of an ex
   contactInfo: {
     address: "Plot 11, Kudirat Abiola Way, Alausa, Ikeja, Lagos, Nigeria",
     headquarters: "The Ark of Light for All Nations (Gospel Pillars Intl. Church)",
-    hotline1: "+234 703 690 5175",
-    hotline2: "+234 809 111 2233",
+    hotline1: "+234 809 011 1194",
+    hotline2: "0809 011 1194",
     email: "info@nightofdivinereversal.org",
     prayerLineEmail: "ndr@onesoundbibleinstitute.org",
     broadcastPlatforms: [

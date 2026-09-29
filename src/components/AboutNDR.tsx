@@ -12,7 +12,7 @@ export default function AboutNDR() {
             What is <span className="gold-gradient-text">Night of Divine Reversal?</span>
           </h2>
           <p className="section-subtitle">
-            A decisive spiritual intervention convened by Prophet Isaiah Macwealth at The Ark of Light for All Nations.
+            A decisive spiritual intervention hosted by Prophet Isaiah Macwealth at The Ark of Light for All Nations.
           </p>
         </div>
 

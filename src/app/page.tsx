@@ -29,7 +29,7 @@ export default function Home() {
       {/* 1. About NDR & The 5 Reversal Focuses */}
       <AboutNDR />
 
-      {/* 2. About the Convener - Prophet Isaiah Macwealth */}
+      {/* 2. About Prophet Isaiah Macwealth */}
       <Convener />
 
       {/* 3. What to Expect at NDR */}

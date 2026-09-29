@@ -125,7 +125,7 @@ export default function Hero() {
         {/* Participation Guide Highlight Badge */}
         <div style={{ marginBottom: "24px" }}>
           <Link
-            href="/guide"
+            href="/how-to-prepare"
             style={{
               display: "inline-flex",
               alignItems: "center",

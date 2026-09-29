@@ -56,7 +56,7 @@ export default function Footer() {
             </div>
 
             <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", lineHeight: 1.6, marginBottom: "16px" }}>
-              Night of Divine Reversal (NDR) is convened by Prophet Isaiah Macwealth as a monthly virtual prophetic meeting broadcast globally from The Ark of Light for All Nations.
+              Night of Divine Reversal (NDR) is hosted by Prophet Isaiah Macwealth as a monthly virtual prophetic meeting broadcast globally from The Ark of Light for All Nations.
             </p>
 
             <div style={{ fontSize: "0.8rem", color: "var(--gold-light)", fontWeight: 600 }}>
@@ -83,11 +83,11 @@ export default function Footer() {
                 Register at OBI VFC ↗
               </a>
               <Link
-                href="/guide"
+                href="/how-to-prepare"
                 className="btn-outline-gold"
                 style={{ padding: "8px 16px", fontSize: "0.8rem", color: "var(--gold-light)" }}
               >
-                Preparation Guide →
+                How to Prepare →
               </Link>
             </div>
             <div style={{ fontSize: "0.82rem", color: "var(--text-secondary)" }}>
@@ -159,7 +159,7 @@ export default function Footer() {
           }}
         >
           <div suppressHydrationWarning>
-            © {new Date().getFullYear()} Night of Divine Reversal (NDR). Convened by Prophet Isaiah Macwealth. All rights reserved.
+            © {new Date().getFullYear()} Night of Divine Reversal (NDR). Hosted by Prophet Isaiah Macwealth. All rights reserved.
           </div>
           <div>
             The Ark of Light for All Nations • Lagos, Nigeria

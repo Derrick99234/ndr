@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import Image from "next/image";
 import { NDR_DATA, VideoTestimony, TextTestimony } from "@/data/ndrContent";
 
-export default function Testimonies() {
+export default function Testimonies({ hideHeader = false }: { hideHeader?: boolean } = {}) {
   const [activeTab, setActiveTab] = useState<"text" | "video">("text");
   const [selectedVideo, setSelectedVideo] = useState<VideoTestimony | null>(null);
   const [selectedTextTestimony, setSelectedTextTestimony] = useState<TextTestimony | null>(null);
@@ -32,14 +32,16 @@ export default function Testimonies() {
     <section id="testimonies" className="section-wrapper" style={{ backgroundColor: "var(--bg-alt)" }}>
       <div className="section-container">
         {/* Section Header */}
-        <div className="section-header">
-          <h2 className="section-title">
-            Testimonies from <span className="gold-gradient-text">NDR</span>
-          </h2>
-          <p className="section-subtitle">
-            Read documented accounts of supernatural reversal and watch video encounters demonstrating the living power of God at The Ark of Light for All Nations.
-          </p>
-        </div>
+        {!hideHeader && (
+          <div className="section-header">
+            <h2 className="section-title">
+              Testimonies from <span className="gold-gradient-text">NDR</span>
+            </h2>
+            <p className="section-subtitle">
+              Read documented accounts of supernatural reversal and watch video encounters demonstrating the living power of God at The Ark of Light for All Nations.
+            </p>
+          </div>
+        )}
 
         {/* Tab Toggle - Classic Tab Bar (Obvious switchable tabs, not stacked buttons on mobile) */}
         <div className="testimonies-tab-wrapper">

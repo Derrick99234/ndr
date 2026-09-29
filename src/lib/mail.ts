@@ -135,7 +135,7 @@ export async function sendRegistrationEmails(attendee: AttendeeData) {
       </div>
 
       <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 16px; font-size: 12px; color: #9ca3af; text-align: center;">
-        For inquiries or prayer assistance: <a href="mailto:info@nightofdivinereversal.org" style="color: #fbbf24;">info@nightofdivinereversal.org</a> | +234 703 690 5175
+        For inquiries or prayer assistance: <a href="mailto:info@nightofdivinereversal.org" style="color: #fbbf24;">info@nightofdivinereversal.org</a> | +234 809 011 1194
       </div>
     </div>
   `;
