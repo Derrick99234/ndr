@@ -84,9 +84,9 @@ export const NDR_DATA = {
     tagline: "Supernatural Turnaround & Decisive Spiritual Intervention",
     themeContext: "Monthly Virtual Meeting",
     format: "Monthly Virtual Meeting",
-    targetDate: "2026-10-02T20:00:00+01:00", // Friday 2nd October 2026, 8:00 PM WAT
+    targetDate: "2026-10-02T23:00:00+01:00", // Friday 2nd October 2026, 11:00 PM WAT
     dateDisplay: "Friday, 2nd October 2026",
-    timeDisplay: "8:00 PM (Prompt) - All Night Vigil (Virtual)",
+    timeDisplay: "11:00 PM (WAT) - All Night Vigil (Virtual)",
     venue: "The Ark of Light for All Nations (Studio Broadcast)",
     address: "Plot 11, Kudirat Abiola Way, Alausa, Ikeja, Lagos, Nigeria",
     convener: "Prophet Isaiah Macwealth",
@@ -234,7 +234,7 @@ export const NDR_DATA = {
       subtitle: "OneSound Bible Institute (OBI)",
       description:
         "An extension of the teaching ministry of Prophet Isaiah Macwealth committed to simplifying and communicating biblical knowledge in a clear and practical manner, equipping and empowering God’s people for spiritual growth, personal development, and purposeful living. Anchored on: 'Teaching the people to grow is the fastest way to eradicate their challenges.'",
-      time: "Morning & Evening Cohorts Available",
+      time: "7:00 PM (WAT) — Evening Session",
       venue: "Online & Ark of Light Campus",
       actionText: "Register for Classes",
       actionUrl: "https://onesoundbibleinstitute.org/vfc",
@@ -246,7 +246,7 @@ export const NDR_DATA = {
       subtitle: "Global Intercessory Session",
       description:
         "A special intercessory session for revival and divine remembrance for nations of the world. The service brings global believers together to plead the cause of territories and families before the courts of heaven. Broadcast LIVE on Facebook, YouTube, and international TV platforms.",
-      time: "6:00 PM (WAT)",
+      time: "7:00 PM (WAT)",
       venue: "Ark of Light for All Nations & Live Online",
       actionText: "Join Live Broadcast",
       actionUrl: "https://www.youtube.com/@isaiahmacwealth",
@@ -258,7 +258,7 @@ export const NDR_DATA = {
       subtitle: "Prophetic Ministration & Sweet Water",
       description:
         "A special one-on-one ministration session with the man of God, Prophet Isaiah Macwealth. Features focused prayer sessions, administration of Sweet Water, deliverance, healing miracles, and demonstration of the power of God to break every yoke and affliction of the devil.",
-      time: "10:00 AM (WAT)",
+      time: "",
       venue: "The Ark of Light for All Nations, Ikeja, Lagos",
       actionText: "Register for Prayer Line",
       actionUrl: "https://onesoundbibleinstitute.org/vfc",
@@ -270,7 +270,7 @@ export const NDR_DATA = {
       subtitle: "Monthly Virtual Meeting",
       description:
         "The climactic all-night prophetic vigil of praise, prophetic prayer, and supernatural turnaround with Prophet Isaiah Macwealth. Broadcast virtually across the globe. Physical attendance is strictly reserved for the Full Choir, All Pastors and Ministers, and Testifiers.",
-      time: "8:00 PM - Dawn (WAT)",
+      time: "11:00 PM (WAT) Till Dawn",
       venue: "Virtual Broadcast (Ark of Light for All Nations)",
       actionText: "Register to Attend",
       actionUrl: "/register",
@@ -296,7 +296,7 @@ export const NDR_DATA = {
       subtitle: "Global Livestream & Intercession",
       description:
         "A night of weeping between the porch and the altar, seeking the mercy and remembrance of God for individuals and nations.",
-      time: "6:00 PM WAT",
+      time: "7:00 PM (WAT)",
       venue: "Ark of Light for All Nations & Live Online",
       actionText: "Stream Live",
       actionUrl: "https://www.youtube.com/@isaiahmacwealth",
@@ -307,7 +307,7 @@ export const NDR_DATA = {
       subtitle: "Sweet Water & Personal Deliverance",
       description:
         "Personal ministration with Prophet Isaiah Macwealth. Sweet Water administration and yoke-breaking impartation.",
-      time: "10:00 AM WAT",
+      time: "",
       venue: "Ark of Light for All Nations",
       actionText: "Book Prayer Line",
       actionUrl: "https://onesoundbibleinstitute.org/vfc",
@@ -318,7 +318,7 @@ export const NDR_DATA = {
       subtitle: "Monthly Virtual Meeting",
       description:
         "The monthly climactic vigil of praise, prophetic prayer, and supernatural turnaround with Prophet Isaiah Macwealth. Streamed live globally. Physical attendance strictly for Full Choir, Pastors & Ministers, and Testifiers.",
-      time: "8:00 PM WAT Till Dawn",
+      time: "11:00 PM (WAT) Till Dawn",
       venue: "Global Livestream (Ark of Light for All Nations)",
       actionText: "Reserve Online Seat",
       actionUrl: "/register",
@@ -784,37 +784,37 @@ This time last year, I had no income and was under the intense pressure of an ex
       pickupLocation: "Oshodi Bus Terminal",
       landmark: "Beside Terminal 1, Oshodi Interchange",
       coordinatorContact: "+234 802 000 1101",
-      departureTime: "5:30 PM & 6:30 PM",
+      departureTime: "",
     },
     {
       pickupLocation: "Mile 2 / Festac Junction",
       landmark: "Mile 2 Bridge by BRT Bus Stop",
       coordinatorContact: "+234 802 000 1102",
-      departureTime: "5:00 PM & 6:00 PM",
+      departureTime: "",
     },
     {
       pickupLocation: "Berger Bus Stop",
       landmark: "Otedola / Berger Underbridge",
       coordinatorContact: "+234 802 000 1103",
-      departureTime: "6:00 PM & 7:00 PM",
+      departureTime: "",
     },
     {
       pickupLocation: "Iyana Ipaja",
       landmark: "Under Bridge by NYSC Orientation Road",
       coordinatorContact: "+234 802 000 1104",
-      departureTime: "5:30 PM & 6:30 PM",
+      departureTime: "",
     },
     {
       pickupLocation: "Yaba / Ojuelegba",
       landmark: "Tejuosho Market Front Gate",
       coordinatorContact: "+234 802 000 1105",
-      departureTime: "5:45 PM & 6:45 PM",
+      departureTime: "",
     },
     {
       pickupLocation: "Ikorodu Roundabout",
       landmark: "Ikorodu Garage by BRT Station",
       coordinatorContact: "+234 802 000 1106",
-      departureTime: "5:00 PM & 6:00 PM",
+      departureTime: "",
     },
   ] as BusRoute[],
 

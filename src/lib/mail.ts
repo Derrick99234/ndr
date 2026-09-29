@@ -119,7 +119,7 @@ export async function sendRegistrationEmails(attendee: AttendeeData) {
         
         <div style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid #f59e0b; padding: 12px 16px; margin: 20px 0;">
           <div>📅 <strong>Date:</strong> Friday, October 2, 2026</div>
-          <div style="margin-top: 6px;">⏰ <strong>Time:</strong> 10:00 PM GMT+1 (All-Night Encounter)</div>
+          <div style="margin-top: 6px;">⏰ <strong>Time:</strong> 11:00 PM (WAT) — All-Night Encounter</div>
           <div style="margin-top: 6px;">📍 <strong>Access:</strong> ${attendee.mode === "physical" ? "The Ark of Light for All Nations, Alausa, Ikeja, Lagos (Physical Group)" : "Global Live Broadcast (YouTube & Facebook Live)"}</div>
         </div>
 
