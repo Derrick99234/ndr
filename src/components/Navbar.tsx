@@ -17,15 +17,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "About NDR", href: "/#about" },
-    { name: "About Prophet", href: "/about" },
-    { name: "Participation Guide", href: "/guide" },
-    { name: "What to Expect", href: "/#expect" },
-    { name: "Schedule", href: "/#schedule" },
-    { name: "Gallery", href: "/#gallery" },
-    { name: "Events", href: "/#events" },
-    { name: "Testimonies", href: "/#testimonies" },
+  const navPages = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "How to Prepare", href: "/how-to-prepare" },
+    { name: "Past Event", href: "/past-event" },
+    { name: "Testimonies", href: "/testimonies" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
@@ -100,25 +97,26 @@ export default function Navbar() {
             style={{
               display: "none",
               alignItems: "center",
-              gap: "24px",
+              gap: "26px",
             }}
             className="desktop-nav"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
+            {navPages.map((page) => (
+              <Link
+                key={page.name}
+                href={page.href}
                 style={{
                   color: "var(--text-secondary)",
                   fontSize: "0.875rem",
                   fontWeight: 500,
+                  textDecoration: "none",
                   transition: "color 0.2s ease",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold-light)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
               >
-                {link.name}
-              </a>
+                {page.name}
+              </Link>
             ))}
           </nav>
 
@@ -130,7 +128,6 @@ export default function Navbar() {
               gap: "14px",
             }}
           >
-
             {/* Register CTA */}
             <Link
               href="/register"
@@ -187,21 +184,22 @@ export default function Navbar() {
             overflowY: "auto",
           }}
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
+          {navPages.map((page) => (
+            <Link
+              key={page.name}
+              href={page.href}
               onClick={() => setMobileMenuOpen(false)}
               style={{
                 fontSize: "1.15rem",
                 fontWeight: 600,
                 color: "var(--text-primary)",
                 padding: "10px 0",
+                textDecoration: "none",
                 borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
               }}
             >
-              {link.name}
-            </a>
+              {page.name}
+            </Link>
           ))}
           <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "12px" }}>
             <Link
