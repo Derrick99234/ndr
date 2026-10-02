@@ -18,7 +18,7 @@ export default function UpcomingEvents() {
       "DTSTAMP:20260921T180000Z",
       "DTSTART:20261002T190000Z",
       "DTEND:20261003T050000Z",
-      "SUMMARY:Night of Divine Reversal (NDR) - Prophet Isaiah Macwealth",
+      "SUMMARY:Night of Divine Reversal & Remembrance (NDR) - Prophet Isaiah Macwealth",
       "DESCRIPTION:NDR Monthly Virtual Meeting. Supernatural turnaround and decisive spiritual intervention. Physical presence strictly for Full Choir, Pastors & Ministers, and Testifiers. Global livestream for all nations.",
       "LOCATION:The Ark of Light for All Nations, Plot 11, Kudirat Abiola Way, Alausa, Ikeja, Lagos, Nigeria",
       "STATUS:CONFIRMED",
@@ -41,7 +41,7 @@ export default function UpcomingEvents() {
         {/* Section Header */}
         <div className="section-header">
           <h2 className="section-title">
-            Night of Divine Reversal <span className="gold-gradient-text">(Monthly Virtual)</span>
+            Night of Divine Reversal & Remembrance <span className="gold-gradient-text">(Monthly Virtual)</span>
           </h2>
           <p className="section-subtitle">
             Mark your calendar and prepare your heart. The next monthly virtual meeting holds on Friday, 2nd October 2026.
@@ -60,7 +60,7 @@ export default function UpcomingEvents() {
                   marginBottom: "16px",
                 }}
               >
-                🌙 Night of Divine Reversal (NDR)
+                🌙 Night of Divine Reversal & Remembrance (NDR)
               </h3>
 
               <p

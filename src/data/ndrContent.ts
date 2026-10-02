@@ -79,14 +79,14 @@ export interface BusRoute {
 
 export const NDR_DATA = {
   eventMeta: {
-    name: "Night of Divine Reversal (NDR)",
+    name: "Night of Divine Reversal & Remembrance (NDR)",
     edition: "Monthly Edition",
     tagline: "Supernatural Turnaround & Decisive Spiritual Intervention",
     themeContext: "Monthly Virtual Meeting",
     format: "Monthly Virtual Meeting",
-    targetDate: "2026-10-02T23:00:00+01:00", // Friday 2nd October 2026, 11:00 PM WAT
+    targetDate: "2026-10-02T22:00:00+01:00", // Friday 2nd October 2026, 10:00 PM GMT+1
     dateDisplay: "Friday, 2nd October 2026",
-    timeDisplay: "11:00 PM (WAT) - All Night Vigil (Virtual)",
+    timeDisplay: "10:00 PM (GMT+1) - All Night Vigil (Virtual)",
     venue: "The Ark of Light for All Nations (Studio Broadcast)",
     address: "Plot 11, Kudirat Abiola Way, Alausa, Ikeja, Lagos, Nigeria",
     convener: "Prophet Isaiah Macwealth",
@@ -270,7 +270,7 @@ export const NDR_DATA = {
       subtitle: "Monthly Virtual Meeting",
       description:
         "The climactic all-night prophetic vigil of praise, prophetic prayer, and supernatural turnaround with Prophet Isaiah Macwealth. Broadcast virtually across the globe. Physical attendance is strictly reserved for the Full Choir, All Pastors and Ministers, and Testifiers.",
-      time: "11:00 PM (WAT) Till Dawn",
+      time: "10:00 PM (GMT+1) Till Dawn",
       venue: "Virtual Broadcast (Ark of Light for All Nations)",
       actionText: "Register to Attend",
       actionUrl: "/register",
@@ -318,7 +318,7 @@ export const NDR_DATA = {
       subtitle: "Monthly Virtual Meeting",
       description:
         "The monthly climactic vigil of praise, prophetic prayer, and supernatural turnaround with Prophet Isaiah Macwealth. Streamed live globally. Physical attendance strictly for Full Choir, Pastors & Ministers, and Testifiers.",
-      time: "11:00 PM (WAT) Till Dawn",
+      time: "10:00 PM (GMT+1) Till Dawn",
       venue: "Global Livestream (Ark of Light for All Nations)",
       actionText: "Reserve Online Seat",
       actionUrl: "/register",

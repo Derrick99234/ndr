@@ -481,7 +481,7 @@ export default function RegisterSection() {
               </h3>
 
               <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", marginBottom: "24px" }}>
-                Your pass has been generated for <strong>Night of Divine Reversal (NDR)</strong> ({mode === "physical" ? "Physical Pass (Choir / Pastors & Ministers / Testifiers)" : "Virtual Global Livestream"}). A confirmation has been logged for <strong>{formData.email}</strong>.
+                Your pass has been generated for <strong>Night of Divine Reversal & Remembrance (NDR)</strong> ({mode === "physical" ? "Physical Pass (Choir / Pastors & Ministers / Testifiers)" : "Virtual Global Livestream"}). A confirmation has been logged for <strong>{formData.email}</strong>.
               </p>
 
               {/* Pass Badge */}
@@ -503,10 +503,10 @@ export default function RegisterSection() {
                   </span>
                 </div>
                 <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "#ffffff", marginBottom: "4px" }}>
-                  🌙 Night of Divine Reversal (NDR)
+                  🌙 Night of Divine Reversal & Remembrance (NDR)
                 </div>
                 <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
-                  Friday, 2nd October 2026 • 8:00 PM WAT (Virtual Vigil)
+                  Friday, 2nd October 2026 • 10:00 PM GMT+1 (Virtual Vigil)
                 </div>
                 <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "8px" }}>
                   Venue: {NDR_DATA.eventMeta.venue}, Plot 11, Kudirat Abiola Way, Alausa, Ikeja

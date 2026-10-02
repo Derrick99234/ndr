@@ -103,7 +103,7 @@ export async function sendRegistrationEmails(attendee: AttendeeData) {
         <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #f59e0b; background: rgba(245, 158, 11, 0.12); padding: 4px 14px; border-radius: 9999px; border: 1px solid rgba(245, 158, 11, 0.3);">
           Official Registration Pass
         </span>
-        <h1 style="color: #ffffff; margin: 16px 0 6px 0; font-size: 24px;">Night of Divine Reversal</h1>
+        <h1 style="color: #ffffff; margin: 16px 0 6px 0; font-size: 24px;">Night of Divine Reversal & Remembrance</h1>
         <p style="color: #9ca3af; margin: 0; font-size: 14px;">The Ark of Light for All Nations</p>
       </div>
 
@@ -115,11 +115,11 @@ export async function sendRegistrationEmails(attendee: AttendeeData) {
 
       <div style="font-size: 14px; color: #d1d5db; line-height: 1.6; margin-bottom: 24px;">
         <p>Dear <strong>${attendee.fullName}</strong>,</p>
-        <p>Your registration for the <strong>Night of Divine Reversal</strong> has been confirmed! Prepare your heart for an extraordinary atmosphere of prophetic worship, apostolic declarations, and irreversible divine turnarounds.</p>
+        <p>Your registration for the <strong>Night of Divine Reversal & Remembrance</strong> has been confirmed! Prepare your heart for an extraordinary atmosphere of prophetic worship, apostolic declarations, and irreversible divine turnarounds.</p>
         
         <div style="background: rgba(255, 255, 255, 0.03); border-left: 3px solid #f59e0b; padding: 12px 16px; margin: 20px 0;">
           <div>📅 <strong>Date:</strong> Friday, October 2, 2026</div>
-          <div style="margin-top: 6px;">⏰ <strong>Time:</strong> 11:00 PM (WAT) — All-Night Encounter</div>
+          <div style="margin-top: 6px;">⏰ <strong>Time:</strong> 10:00 PM (GMT+1) — All-Night Encounter</div>
           <div style="margin-top: 6px;">📍 <strong>Access:</strong> ${attendee.mode === "physical" ? "The Ark of Light for All Nations, Alausa, Ikeja, Lagos (Physical Group)" : "Global Live Broadcast (YouTube & Facebook Live)"}</div>
         </div>
 
@@ -151,9 +151,9 @@ export async function sendRegistrationEmails(attendee: AttendeeData) {
       }),
       // Send E-Pass to Attendee
       transporter.sendMail({
-        from: `"Night of Divine Reversal" <${senderEmail}>`,
+        from: `"Night of Divine Reversal & Remembrance" <${senderEmail}>`,
         to: attendee.email,
-        subject: `Your NDR E-Pass: ${attendee.ticketId} - Night of Divine Reversal`,
+        subject: `Your NDR E-Pass: ${attendee.ticketId} - Night of Divine Reversal & Remembrance`,
         html: attendeeEmailHtml,
       }),
     ]);

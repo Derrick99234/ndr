@@ -33,7 +33,7 @@ export default function GuidePage() {
   const shareText = `*NIGHT OF DIVINE REVERSAL 13 (VIRTUAL)*
 Theme: Praise • Prophecy • Miracles
 Ministering: Prophet Isaiah Macwealth
-Date: Friday, 2nd October 2026 | 11:00 PM (WAT)
+Date: Friday, 2nd October 2026 | 10:00 PM (GMT+1)
 
 Join our global virtual gathering for an extraordinary night of supernatural turnarounds! You can watch live from your home or join our watch party.
 
@@ -181,7 +181,7 @@ https://www.youtube.com/@isaiahmacwealth
                   >
                     <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", textTransform: "uppercase" }}>Time</div>
                     <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#fbbf24", marginTop: "2px" }}>
-                      11:00 PM (WAT)
+                      10:00 PM (GMT+1)
                     </div>
                   </div>
 

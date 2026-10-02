@@ -16,7 +16,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nightofdivinereversal.org"),
-  title: "Night of Divine Reversal (NDR) | Prophet Isaiah Macwealth",
+  title: "Night of Divine Reversal & Remembrance (NDR) | Prophet Isaiah Macwealth",
   description:
     "Official portal for Night of Divine Reversal (NDR) hosted by Prophet Isaiah Macwealth. A monthly virtual prophetic meeting broadcast globally from The Ark of Light for All Nations. Praise, prophetic prayers, Sweet Water ministration, and supernatural turnaround.",
   keywords: [
@@ -37,11 +37,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Gospel Pillars International Churches" }],
   openGraph: {
-    title: "Night of Divine Reversal (NDR) | Prophet Isaiah Macwealth",
+    title: "Night of Divine Reversal & Remembrance (NDR) | Prophet Isaiah Macwealth",
     description:
       "A monthly virtual night of praise, prophecy, and supernatural turnaround broadcast globally from The Ark of Light for All Nations.",
     url: "https://nightofdivinereversal.org",
-    siteName: "Night of Divine Reversal",
+    siteName: "Night of Divine Reversal & Remembrance",
     images: [
       {
         url: "/images/ndr-hero-live.jpg",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Night of Divine Reversal (NDR) | Prophet Isaiah Macwealth",
+    title: "Night of Divine Reversal & Remembrance (NDR) | Prophet Isaiah Macwealth",
     description: "Monthly virtual night of praise, prophecy, and supernatural turnaround with Prophet Isaiah Macwealth.",
     images: ["/images/ndr-hero-live.jpg"],
   },
@@ -75,7 +75,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": "https://nightofdivinereversal.org/#organization",
-      "name": "Night of Divine Reversal",
+      "name": "Night of Divine Reversal & Remembrance",
       "url": "https://nightofdivinereversal.org",
       "logo": "https://nightofdivinereversal.org/images/ndr-logo.jpg",
       "sameAs": [
@@ -113,7 +113,7 @@ const jsonLd = {
     {
       "@type": "Event",
       "@id": "https://nightofdivinereversal.org/#upcoming-event",
-      "name": "Night of Divine Reversal (NDR) - Monthly Virtual Meeting",
+      "name": "Night of Divine Reversal & Remembrance (NDR) - Monthly Virtual Meeting",
       "description": "Monthly virtual prophetic vigil with Prophet Isaiah Macwealth broadcast globally from The Ark of Light for All Nations.",
       "startDate": "2026-10-02T20:00:00+01:00",
       "endDate": "2026-10-03T05:00:00+01:00",
