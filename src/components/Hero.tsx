@@ -106,7 +106,7 @@ export default function Hero() {
             fontFamily: "var(--font-heading), sans-serif",
           }}
         >
-          NIGHT OF <span className="gold-gradient-text">DIVINE REVERSAL</span>
+          NIGHT OF <span className="gold-gradient-text">DIVINE REVERSAL & REMEMBRANCE</span>
         </h1>
 
 
