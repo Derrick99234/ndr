@@ -93,9 +93,6 @@ export default function Convener() {
                 <div style={{ fontSize: "1.25rem", fontWeight: 800, color: "#ffffff", letterSpacing: "0.02em" }}>
                   {convener.name}
                 </div>
-                <div style={{ fontSize: "0.82rem", color: "var(--gold-light)", marginTop: "4px", fontWeight: 600 }}>
-                  Dr. Isaiah Wealth
-                </div>
               </div>
             </div>
 
