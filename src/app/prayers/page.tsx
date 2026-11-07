@@ -9,6 +9,7 @@ interface PrayerItem {
   id: number;
   title: string;
   scripture: string;
+  scriptureFullKJV: string;
   prayer: string;
   confession: string;
   declarationHighlight?: string;
@@ -18,7 +19,9 @@ const PRAYERS_DATA: PrayerItem[] = [
   {
     id: 1,
     title: "Prayer to Reverse Limitations",
-    scripture: "Psa. 105:17, 19",
+    scripture: "Psalm 105:17, 19 (KJV)",
+    scriptureFullKJV:
+      "17 He sent a man before them, even Joseph, who was sold for a servant:\n19 Until the time that his word came: the word of the LORD tried him.",
     prayer:
       "Oh Lord God, El-Gibbowr, remember me and your promise this NDR14. Let every delay and conspiracy be shattered. Reverse every season that is not consistent with the set time and bring me into speedy manifestation in accordance to your word, in the Name of Jesus!",
     confession:
@@ -27,7 +30,9 @@ const PRAYERS_DATA: PrayerItem[] = [
   {
     id: 2,
     title: "Prayer to Reverse Disqualification",
-    scripture: "1Sam. 16:7, 12",
+    scripture: "1 Samuel 16:7, 12 (KJV)",
+    scriptureFullKJV:
+      "7 But the LORD said unto Samuel, Look not on his countenance, or on the height of his stature; because I have refused him: for the LORD seeth not as man seeth; for man looketh on the outward appearance, but the LORD looketh on the heart.\n12 And he sent, and brought him in. Now he was ruddy, and withal of a beautiful countenance, and goodly to look to. And the LORD said, Arise, anoint him: for this is he.",
     prayer:
       "Oh God of reversal, thou art my God. I call upon you today to bypass every human protocol and locate me. Reverse every evil verdict of rejection and disqualification passed by my family, peers, institutions, or even my errors. Let your Word concerning me come forth and stand in the name of Jesus!",
     confession:
@@ -36,7 +41,9 @@ const PRAYERS_DATA: PrayerItem[] = [
   {
     id: 3,
     title: "Prayer to Reverse Hamanic Decree",
-    scripture: "Esther 8:5; 9:1",
+    scripture: "Esther 8:5; 9:1 (KJV)",
+    scriptureFullKJV:
+      "8:5 And said, If it please the king, and if I have found favour in his sight, and the thing seem right before the king, and I be pleasing in his eyes, let it be written to reverse the letters devised by Haman the son of Hammedatha the Agagite, which he wrote to destroy the Jews which are in all the king's provinces:\n9:1 Now in the twelfth month, that is, the month Adar, on the thirteenth day of the same, when the king's commandment and his decree drew near to be put in execution, in the day that the enemies of the Jews hoped to have power over them, (though it was turned to the contrary, that the Jews had rule over them that hated them;)",
     prayer:
       "Father in the name of Jesus, let every handwriting of ordinances, demonic spells, institutional laws, and spiritual sentences orchestrated to eliminate my progress and heritage be reversed by fire this NDR14. Let every gallow built for me become the destruction of its builders in the name of Jesus!",
     confession:
@@ -45,7 +52,9 @@ const PRAYERS_DATA: PrayerItem[] = [
   {
     id: 4,
     title: "Prayer to Reverse Lost Giftings, Mantles and Anointings",
-    scripture: "Joel 2:25-26",
+    scripture: "Joel 2:25-26 (KJV)",
+    scriptureFullKJV:
+      "25 And I will restore to you the years that the locust hath eaten, the cankerworm, and the caterpiller, and the palmerworm, my great army which I sent among you.\n26 And ye shall eat in plenty, and be satisfied, and praise the name of the LORD your God, that hath dealt wondrously with you: and my people shall never be ashamed.",
     prayer:
       "Oh El-Gibbowr, God of restoration, remember me today and cause me to testify. Compress time for me, reversing consequences of past mistakes, wasted seasons and stolen opportunities. Grant me an overtaking speed this NDR14 and in this remaining part of 2026, in the name of Jesus!",
     confession:
@@ -54,7 +63,9 @@ const PRAYERS_DATA: PrayerItem[] = [
   {
     id: 5,
     title: "Prayer to Reverse Wilderness Conditions & Red Sea Roadblocks",
-    scripture: "Isaiah 43:16, 19",
+    scripture: "Isaiah 43:16, 19 (KJV)",
+    scriptureFullKJV:
+      "16 Thus saith the LORD, which maketh a way in the sea, and a path in the mighty waters;\n19 Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
     prayer:
       "Oh God El-Gibbowr, perform your signature work in my life this NDR14. Make for me a way in the wilderness, rivers in the desert. Cause waters to come forth for me in the midst of aridity. Remember me your chosen. Remember I am formed for your glory. Therefore, give not your glory to another. Fight for me now and let your finger bring glory to your name in my life, speedily, in the name of Jesus!",
     confession:
@@ -69,17 +80,19 @@ export default function PrayersPage() {
   const [fontSize, setFontSize] = useState<"standard" | "large">("standard");
 
   const copySinglePrayer = (item: PrayerItem) => {
-    const text = `*Prayer Point ${item.id}: ${item.title}*\nScripture: ${item.scripture}\n\n${item.prayer}\n\nConfession:\n${item.confession}${item.declarationHighlight ? `\n\n${item.declarationHighlight}` : ""}\n\n#NDR14 #DivineReversal`;
+    const text = `*Prayer Point ${item.id}: ${item.title}*\nScripture: ${item.scripture}\n${item.scriptureFullKJV}\n\nPrayer:\n${item.prayer}\n\nConfession:\n${item.confession}${item.declarationHighlight ? `\n\n${item.declarationHighlight}` : ""}\n\n#NDR14 #DivineReversal`;
     navigator.clipboard.writeText(text);
     setCopiedId(item.id);
     setTimeout(() => setCopiedId(null), 2000);
   };
 
   const copyAllPrayers = () => {
-    const allText = PRAYERS_DATA.map(
-      (item) =>
-        `━━━━━━━━━━━━━━━━━━━━\nPRAYER POINT ${item.id}: ${item.title.toUpperCase()}\nScripture: ${item.scripture}\n\n${item.prayer}\n\nConfession:\n${item.confession}${item.declarationHighlight ? `\n\n${item.declarationHighlight}` : ""}`
-    ).join("\n\n") + "\n\n━━━━━━━━━━━━━━━━━━━━\nNight of Divine Reversal 14 (NDR14)\nProphet Isaiah Macwealth";
+    const allText =
+      PRAYERS_DATA.map(
+        (item) =>
+          `━━━━━━━━━━━━━━━━━━━━\nPRAYER POINT ${item.id}: ${item.title.toUpperCase()}\nScripture: ${item.scripture}\n${item.scriptureFullKJV}\n\nPrayer:\n${item.prayer}\n\nConfession:\n${item.confession}${item.declarationHighlight ? `\n\n${item.declarationHighlight}` : ""}`
+      ).join("\n\n") +
+      "\n\n━━━━━━━━━━━━━━━━━━━━\nNight of Divine Reversal 14 (NDR14)\nProphet Isaiah Macwealth";
 
     navigator.clipboard.writeText(allText);
     setCopiedAll(true);
@@ -168,12 +181,12 @@ export default function PrayersPage() {
               style={{
                 color: "#94a3b8",
                 fontSize: "16px",
-                maxWidth: "600px",
+                maxWidth: "620px",
                 margin: "0 auto 28px",
                 lineHeight: 1.6,
               }}
             >
-              Take these 5 prophetic prayer points and confessions with holy aggression. El-Gibbowr is stepping into your case to reverse every negative decree.
+              Take these 5 prophetic prayer points, full King James Scriptures, and declarations with holy aggression. El-Gibbowr is reversing every negative verdict in your favor.
             </p>
 
             {/* Prayer Controls Toolbar */}
@@ -309,14 +322,14 @@ export default function PrayersPage() {
                     scrollMarginTop: "100px",
                   }}
                 >
-                  {/* Card Top Row: Label, Scripture & Copy */}
+                  {/* Card Top Row: Label, Title & Copy */}
                   <div
                     style={{
                       display: "flex",
                       alignItems: "flex-start",
                       justifyContent: "space-between",
                       gap: "16px",
-                      marginBottom: "16px",
+                      marginBottom: "20px",
                       flexWrap: "wrap",
                     }}
                   >
@@ -345,17 +358,6 @@ export default function PrayersPage() {
                       >
                         {item.title}
                       </h2>
-
-                      <div
-                        style={{
-                          fontSize: "13px",
-                          color: "#94a3b8",
-                          marginTop: "4px",
-                          fontStyle: "italic",
-                        }}
-                      >
-                        Scripture Reference: {item.scripture}
-                      </div>
                     </div>
 
                     <button
@@ -379,13 +381,69 @@ export default function PrayersPage() {
                     </button>
                   </div>
 
+                  {/* SCRIPTURE IN FULL (KJV) - BEFORE PRAYER */}
+                  <div
+                    style={{
+                      backgroundColor: "rgba(245, 158, 11, 0.04)",
+                      border: "1px solid rgba(245, 158, 11, 0.2)",
+                      borderLeft: "3px solid #fbbf24",
+                      padding: "16px 20px",
+                      marginBottom: "24px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "baseline",
+                        justifyContent: "space-between",
+                        flexWrap: "wrap",
+                        gap: "8px",
+                        marginBottom: "10px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontSize: "11px",
+                          letterSpacing: "0.14em",
+                          textTransform: "uppercase",
+                          color: "#fbbf24",
+                          fontWeight: 700,
+                        }}
+                      >
+                        Scripture
+                      </span>
+                      <span
+                        style={{
+                          fontSize: "12px",
+                          color: "#cbd5e1",
+                          fontWeight: 600,
+                          letterSpacing: "0.04em",
+                        }}
+                      >
+                        {item.scripture}
+                      </span>
+                    </div>
+
+                    <p
+                      style={{
+                        fontSize: isLarge ? "16px" : "14.5px",
+                        lineHeight: 1.7,
+                        color: "#fde68a",
+                        fontStyle: "italic",
+                        margin: 0,
+                        whiteSpace: "pre-line",
+                      }}
+                    >
+                      {item.scriptureFullKJV}
+                    </p>
+                  </div>
+
                   {/* Prayer Text */}
                   <div
                     style={{
-                      marginTop: "20px",
                       marginBottom: "24px",
                       paddingLeft: "16px",
-                      borderLeft: "2px solid rgba(245, 158, 11, 0.3)",
+                      borderLeft: "2px solid rgba(255, 255, 255, 0.15)",
                     }}
                   >
                     <div
@@ -393,7 +451,7 @@ export default function PrayersPage() {
                         fontSize: "11px",
                         letterSpacing: "0.1em",
                         textTransform: "uppercase",
-                        color: "#fbbf24",
+                        color: "#94a3b8",
                         fontWeight: 600,
                         marginBottom: "8px",
                       }}
@@ -404,7 +462,7 @@ export default function PrayersPage() {
                       style={{
                         fontSize: isLarge ? "18px" : "16px",
                         lineHeight: 1.75,
-                        color: "#f1f5f9",
+                        color: "#f8fafc",
                         fontWeight: 400,
                       }}
                     >
@@ -428,12 +486,9 @@ export default function PrayersPage() {
                         color: "#f59e0b",
                         fontWeight: 700,
                         marginBottom: "8px",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "6px",
                       }}
                     >
-                      <span>Confession</span>
+                      Confession
                     </div>
 
                     <p

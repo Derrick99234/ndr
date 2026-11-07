@@ -20,6 +20,7 @@ export default function Navbar() {
   const navPages = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
+    { name: "Prayers", href: "/prayers" },
     { name: "How to Prepare", href: "/how-to-prepare" },
     { name: "Past Event", href: "/past-event" },
     { name: "Testimonies", href: "/testimonies" },
