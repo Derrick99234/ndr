@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { NDR_DATA } from "@/data/ndrContent";
 
 export default function ProgrammeSchedule() {
-  const [activeTab, setActiveTab] = useState<"week" | "seminars" | "threeDays">("week");
+  const [activeTab, setActiveTab] = useState<"week" | "seminars">("week");
 
   return (
     <section id="schedule" className="section-wrapper">
@@ -24,14 +24,13 @@ export default function ProgrammeSchedule() {
           {[
             { id: "week", label: "NDR Week Activities" },
             { id: "seminars", label: "7-Week Victory & Faith Seminars" },
-            { id: "threeDays", label: "Next NDR Week Dates" },
           ].map((tab) => {
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() =>
-                  setActiveTab(tab.id as "week" | "seminars" | "threeDays")
+                  setActiveTab(tab.id as "week" | "seminars")
                 }
                 className="schedule-tab-item"
                 style={{
@@ -248,105 +247,6 @@ export default function ProgrammeSchedule() {
                       Register for Seminar →
                     </a>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Tab 3: 3 Days of Remembrance (Season 2) */}
-        {activeTab === "threeDays" && (
-          <div>
-            <div
-              style={{
-                background: "rgba(255, 255, 255, 0.03)",
-                border: "1px solid var(--border-subtle)",
-                borderRadius: "var(--radius-md)",
-                padding: "24px",
-                marginBottom: "32px",
-              }}
-            >
-              <h3 style={{ color: "#ffffff", fontSize: "1.2rem", marginBottom: "6px" }}>
-                Next NDR Week Dates • 28th September – 2nd October 2026
-              </h3>
-              <p style={{ color: "var(--text-secondary)", fontSize: "0.92rem", marginBottom: "12px" }}>
-                The sacred countdown and itinerary leading to the 🌙 NDR Night — Virtual.
-              </p>
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  padding: "6px 14px",
-                  borderRadius: "6px",
-                  background: "rgba(245, 158, 11, 0.1)",
-                  border: "1px solid rgba(245, 158, 11, 0.25)",
-                  color: "var(--gold-light)",
-                  fontSize: "0.8rem",
-                  fontWeight: 600,
-                }}
-              >
-                👥 Physical Attendance: Full Choir, All Pastors & Ministers, and Testifiers Only. General public connects virtually.
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              {NDR_DATA.threeDaysRemembrance.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="glass-card"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                    gap: "16px",
-                    alignItems: "center",
-                  }}
-                >
-                  <div>
-                    <span
-                      style={{
-                        display: "inline-block",
-                        padding: "4px 10px",
-                        borderRadius: "var(--radius-full)",
-                        background: "rgba(245, 158, 11, 0.15)",
-                        color: "var(--gold-light)",
-                        fontSize: "0.8rem",
-                        fontWeight: 700,
-                        marginBottom: "6px",
-                      }}
-                    >
-                      {item.dayTag}
-                    </span>
-                    <h4 style={{ fontSize: "1.2rem", color: "#ffffff", fontWeight: 700 }}>
-                      {item.title}
-                    </h4>
-                    <div style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginTop: "2px" }}>
-                      {item.subtitle}
-                    </div>
-                  </div>
-
-                  <div>
-                    <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", lineHeight: 1.5 }}>
-                      {item.description}
-                    </p>
-                    <div style={{ fontSize: "0.8rem", color: "#ffffff", fontWeight: 600, marginTop: "6px" }}>
-                      ⏰ {item.time} | 📍 {item.venue}
-                    </div>
-                  </div>
-
-                  {item.actionText && item.actionUrl && (
-                    <div style={{ textAlign: "right" }}>
-                      <a
-                        href={item.actionUrl}
-                        target={item.actionUrl.startsWith("http") ? "_blank" : undefined}
-                        rel={item.actionUrl.startsWith("http") ? "noopener noreferrer" : undefined}
-                        className="btn-outline-gold"
-                        style={{ padding: "8px 18px", fontSize: "0.85rem" }}
-                      >
-                        {item.actionText}
-                      </a>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>

@@ -83,11 +83,11 @@ export default function Footer() {
                 Register at OBI VFC ↗
               </a>
               <Link
-                href="/how-to-prepare"
+                href="/prayers"
                 className="btn-outline-gold"
                 style={{ padding: "8px 16px", fontSize: "0.8rem", color: "var(--gold-light)" }}
               >
-                How to Prepare →
+                Prophetic Prayers →
               </Link>
             </div>
             <div style={{ fontSize: "0.82rem", color: "var(--text-secondary)" }}>

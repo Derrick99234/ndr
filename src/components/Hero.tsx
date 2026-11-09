@@ -12,6 +12,7 @@ export default function Hero() {
     minutes: 0,
     seconds: 0,
   });
+  const [isEventPassed, setIsEventPassed] = useState(true);
 
   useEffect(() => {
     const target = new Date(NDR_DATA.eventMeta.targetDate).getTime();
@@ -21,6 +22,7 @@ export default function Hero() {
       const difference = target - now;
 
       if (difference > 0) {
+        setIsEventPassed(false);
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor(
           (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
@@ -32,6 +34,7 @@ export default function Hero() {
 
         setTimeLeft({ days, hours, minutes, seconds });
       } else {
+        setIsEventPassed(true);
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
     };
@@ -122,10 +125,10 @@ export default function Hero() {
           A sacred monthly night of praise, prophecy, and the manifest power of God designed for supernatural turnaround. Broadcast virtually worldwide from The Ark of Light for All Nations.
         </p>
 
-        {/* Participation Guide Highlight Badge */}
+        {/* Prophetic Prayers Highlight */}
         <div style={{ marginBottom: "24px" }}>
           <Link
-            href="/how-to-prepare"
+            href="/prayers"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -141,85 +144,87 @@ export default function Hero() {
               boxShadow: "0 0 15px rgba(245, 158, 11, 0.15)",
             }}
           >
-            <span>NDR 13 Members Participation & Watch Party Guide</span>
+            <span>NDR 14 Prophetic Prayers of Divine Reversal</span>
             <span style={{ color: "#ffffff" }}>→</span>
           </Link>
         </div>
 
-        {/* Live Countdown Timer Card */}
-        <div
-          style={{
-            maxWidth: "620px",
-            margin: "0 auto 40px auto",
-            background: "rgba(15, 23, 42, 0.65)",
-            backdropFilter: "blur(14px)",
-            WebkitBackdropFilter: "blur(14px)",
-            border: "1px solid rgba(245, 158, 11, 0.25)",
-            borderRadius: "var(--radius-md)",
-            padding: "20px 24px",
-            boxShadow: "0 15px 35px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 158, 11, 0.1)",
-          }}
-        >
+        {/* Live Countdown Timer Card (only visible when a future event date is active) */}
+        {!isEventPassed && (
           <div
             style={{
-              fontSize: "0.8rem",
-              color: "var(--gold-light)",
-              textTransform: "uppercase",
-              letterSpacing: "0.1em",
-              fontWeight: 700,
-              marginBottom: "14px",
+              maxWidth: "620px",
+              margin: "0 auto 40px auto",
+              background: "rgba(15, 23, 42, 0.65)",
+              backdropFilter: "blur(14px)",
+              WebkitBackdropFilter: "blur(14px)",
+              border: "1px solid rgba(245, 158, 11, 0.25)",
+              borderRadius: "var(--radius-md)",
+              padding: "20px 24px",
+              boxShadow: "0 15px 35px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 158, 11, 0.1)",
             }}
           >
-            Countdown to NDR • {NDR_DATA.eventMeta.dateDisplay}
-          </div>
+            <div
+              style={{
+                fontSize: "0.8rem",
+                color: "var(--gold-light)",
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+                fontWeight: 700,
+                marginBottom: "14px",
+              }}
+            >
+              Countdown to NDR • {NDR_DATA.eventMeta.dateDisplay}
+            </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "12px",
-            }}
-          >
-            {[
-              { label: "DAYS", value: timeLeft.days },
-              { label: "HOURS", value: timeLeft.hours },
-              { label: "MINUTES", value: timeLeft.minutes },
-              { label: "SECONDS", value: timeLeft.seconds },
-            ].map((unit) => (
-              <div
-                key={unit.label}
-                style={{
-                  background: "rgba(6, 9, 19, 0.7)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
-                  borderRadius: "10px",
-                  padding: "12px 6px",
-                }}
-              >
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: "12px",
+              }}
+            >
+              {[
+                { label: "DAYS", value: timeLeft.days },
+                { label: "HOURS", value: timeLeft.hours },
+                { label: "MINUTES", value: timeLeft.minutes },
+                { label: "SECONDS", value: timeLeft.seconds },
+              ].map((unit) => (
                 <div
+                  key={unit.label}
                   style={{
-                    fontSize: "clamp(1.6rem, 3vw, 2.3rem)",
-                    fontWeight: 800,
-                    color: "#ffffff",
-                    fontVariantNumeric: "tabular-nums",
+                    background: "rgba(6, 9, 19, 0.7)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    borderRadius: "10px",
+                    padding: "12px 6px",
                   }}
                 >
-                  {String(unit.value).padStart(2, "0")}
+                  <div
+                    style={{
+                      fontSize: "clamp(1.6rem, 3vw, 2.3rem)",
+                      fontWeight: 800,
+                      color: "#ffffff",
+                      fontVariantNumeric: "tabular-nums",
+                    }}
+                  >
+                    {String(unit.value).padStart(2, "0")}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "0.68rem",
+                      color: "var(--text-muted)",
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      marginTop: "4px",
+                    }}
+                  >
+                    {unit.label}
+                  </div>
                 </div>
-                <div
-                  style={{
-                    fontSize: "0.68rem",
-                    color: "var(--text-muted)",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    marginTop: "4px",
-                  }}
-                >
-                  {unit.label}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Hero Actions */}
         <div className="hero-actions-wrapper">

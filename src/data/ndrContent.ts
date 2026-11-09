@@ -80,12 +80,12 @@ export interface BusRoute {
 export const NDR_DATA = {
   eventMeta: {
     name: "Night of Divine Reversal & Remembrance (NDR)",
-    edition: "Monthly Edition",
+    edition: "NDR 14",
     tagline: "Supernatural Turnaround & Decisive Spiritual Intervention",
     themeContext: "Monthly Virtual Meeting",
     format: "Monthly Virtual Meeting",
-    targetDate: "2026-10-02T22:00:00+01:00", // Friday 2nd October 2026, 10:00 PM GMT+1
-    dateDisplay: "Friday, 2nd October 2026",
+    targetDate: "2026-10-02T22:00:00+01:00", // Target date passed; announcement coming soon
+    dateDisplay: "Announcement Coming Soon",
     timeDisplay: "10:00 PM (GMT+1) - All Night Vigil (Virtual)",
     venue: "The Ark of Light for All Nations (Studio Broadcast)",
     address: "Plot 11, Kudirat Abiola Way, Alausa, Ikeja, Lagos, Nigeria",
@@ -229,7 +229,7 @@ export const NDR_DATA = {
 
   weekSchedule: [
     {
-      dayTag: "28th – 30th September (Mon. to Wed.)",
+      dayTag: "Monday – Wednesday",
       title: "Faith & Victory Classes",
       subtitle: "OneSound Bible Institute (OBI)",
       description:
@@ -241,7 +241,7 @@ export const NDR_DATA = {
       highlight: false,
     },
     {
-      dayTag: "30th September (Wednesday)",
+      dayTag: "Wednesday",
       title: "All Nations Revival and Remembrance Service",
       subtitle: "Global Intercessory Session",
       description:
@@ -253,19 +253,19 @@ export const NDR_DATA = {
       highlight: false,
     },
     {
-      dayTag: "1st October (Thursday)",
+      dayTag: "Thursday",
       title: "Remembrance Prayer Line",
       subtitle: "Prophetic Ministration & Sweet Water",
       description:
         "A special one-on-one ministration session with the man of God, Prophet Isaiah Macwealth. Features focused prayer sessions, administration of Sweet Water, deliverance, healing miracles, and demonstration of the power of God to break every yoke and affliction of the devil.",
-      time: "",
+      time: "Special Ministration",
       venue: "The Ark of Light for All Nations, Ikeja, Lagos",
       actionText: "Register for Prayer Line",
       actionUrl: "https://onesoundbibleinstitute.org/vfc",
       highlight: false,
     },
     {
-      dayTag: "2nd October (Friday)",
+      dayTag: "Friday (Vigil Night)",
       title: "🌙 NDR Night — Virtual",
       subtitle: "Monthly Virtual Meeting",
       description:
@@ -327,49 +327,49 @@ export const NDR_DATA = {
 
   sevenWeekSeminars: [
     {
-      date: "Thurs. 17 September",
+      date: "Week 1 (Thursday)",
       title: "Finance & Business Breakthrough Seminar",
       focus:
         "Breaking financial stagnation, supernatural ideas, debt cancellation, and kingdom wealth keys.",
       tag: "Breakthrough",
     },
     {
-      date: "Thurs. 24 September",
+      date: "Week 2 (Thursday)",
       title: "Special Healing & Breakthrough Seminar",
       focus:
         "Eradicating terminal diseases, chronic sicknesses, genetic infirmities, and divine vitality.",
       tag: "Healing",
     },
     {
-      date: "Thurs. 1 October",
+      date: "Week 3 (Thursday)",
       title: "Special Job Seekers Seminar",
       focus:
         "Supernatural employment favor, interview boldness, career elevation, and overcoming workplace rejection.",
       tag: "Career",
     },
     {
-      date: "Thurs. 8 October",
+      date: "Week 4 (Thursday)",
       title: "Singles & Married Seminar",
       focus:
         "Marital destiny settlement, healing troubled unions, peace in the home, and godly relationship guidance.",
       tag: "Family",
     },
     {
-      date: "Thurs. 15 October",
+      date: "Week 5 (Thursday)",
       title: "Firstborn, Bloodline & Family Deliverance Seminar",
       focus:
         "Severing ancestral covenants, collective family curses, and restoring firstborn blessings.",
       tag: "Deliverance",
     },
     {
-      date: "Thurs. 22 October",
+      date: "Week 6 (Thursday)",
       title: "Fruit of the Womb & Newly Pregnant Seminar",
       focus:
         "Overcoming barrenness, miraculous conception, safe delivery, and covenant protection for mother and child.",
       tag: "Miracle Babies",
     },
     {
-      date: "Thurs. 29 October",
+      date: "Week 7 (Thursday)",
       title: "Restoration & Recovery Seminar",
       focus:
         "Pursuing, overtaking, and recovering without fail everything stolen by the adversary.",

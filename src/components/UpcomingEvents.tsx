@@ -44,7 +44,7 @@ export default function UpcomingEvents() {
             Night of Divine Reversal & Remembrance <span className="gold-gradient-text">(Monthly Virtual)</span>
           </h2>
           <p className="section-subtitle">
-            Mark your calendar and prepare your heart. The next monthly virtual meeting holds on Friday, 2nd October 2026.
+            Mark your calendar and prepare your heart. The next monthly virtual meeting (NDR 14) date announcement is coming soon.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export default function UpcomingEvents() {
                   marginBottom: "28px",
                 }}
               >
-                Scheduled to hold on Friday, 2nd October 2026 as a Monthly Virtual Meeting. Physical attendance at The Ark of Light is strictly reserved for: 1. Full Choir, 2. All Pastors and Ministers, and 3. Testifiers. All other attendees join live virtually from across the nations.
+                Scheduled as a Monthly Virtual Meeting. Physical attendance at The Ark of Light is strictly reserved for: 1. Full Choir, 2. All Pastors and Ministers, and 3. Testifiers. All other attendees join live virtually from across the nations.
               </p>
 
               {/* Event Metadata Grid */}

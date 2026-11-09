@@ -336,11 +336,11 @@ export default function AboutPage() {
 
                 <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
                   <Link
-                    href="/how-to-prepare"
+                    href="/prayers"
                     className="guide-cta-btn-primary"
                     style={{ textDecoration: "none" }}
                   >
-                    How to Prepare
+                    Prophetic Prayers
                   </Link>
                   <Link
                     href="/register"

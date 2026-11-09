@@ -21,7 +21,6 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Prayers", href: "/prayers" },
-    { name: "How to Prepare", href: "/how-to-prepare" },
     { name: "Past Event", href: "/past-event" },
     { name: "Testimonies", href: "/testimonies" },
     { name: "Blog", href: "/blog" },

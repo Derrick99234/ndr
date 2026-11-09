@@ -153,11 +153,11 @@ export default function PastEventPage() {
                   Register to Attend Online →
                 </Link>
                 <Link
-                  href="/how-to-prepare"
+                  href="/prayers"
                   className="btn-outline-gold"
                   style={{ textDecoration: "none", padding: "12px 28px", fontSize: "0.92rem", fontWeight: 700 }}
                 >
-                  How to Prepare
+                  Prophetic Prayers
                 </Link>
               </div>
             </div>

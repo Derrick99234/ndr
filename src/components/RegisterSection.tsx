@@ -506,7 +506,7 @@ export default function RegisterSection() {
                   🌙 Night of Divine Reversal & Remembrance (NDR)
                 </div>
                 <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
-                  Friday, 2nd October 2026 • 10:00 PM GMT+1 (Virtual Vigil)
+                  NDR 14 • 10:00 PM GMT+1 (Virtual Vigil) — Date Announcement Coming Soon
                 </div>
                 <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "8px" }}>
                   Venue: {NDR_DATA.eventMeta.venue}, Plot 11, Kudirat Abiola Way, Alausa, Ikeja
